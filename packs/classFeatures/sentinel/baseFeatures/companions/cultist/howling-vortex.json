@@ -1,0 +1,143 @@
+{
+	"name": "Howling Vortex",
+	"type": "feature",
+	"img": "icons/magic/unholy/barrier-fire-pink.webp",
+	"system": {
+		"description": "<p>At 13th level, a cultist can use a howling vortex to create a 60ft cube and forces all creatures in the area to make a Strength saving throw. Those who fail are drawn 10ft closer to the center of the cube. This ability also blocks line of sight and creates difficult terrain. Any creature that begins or ends its turn within the area must also make the saving throw to avoid being drawn toward the center. This effect lasts up to 1 minute and requires concentration.</p><p>This ability can be used once per long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"jVd88iL2PtYaciLd": {
+				"name": "Howling Vortex",
+				"consumers": {
+					"UXSnQ5P3Kb3IyNgB": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "howling-vortex",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"-=width": null,
+					"-=radius": null,
+					"-=height": null,
+					"-=length": null,
+					"shape": "cube",
+					"quantity": 1,
+					"width": 60,
+					"placeTemplate": true
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {
+					"IwUvIrlkqdHgiOo0": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "custom",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"XVmcNhH6ImEVQMWe": {
+						"range": "short"
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "sentinel",
+		"concentration": true,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567752450,
+		"modifiedTime": 1793567752450,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "avpl8VynZrpX6s1y"
+}

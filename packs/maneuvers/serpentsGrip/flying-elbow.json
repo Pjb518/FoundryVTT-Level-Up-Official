@@ -1,0 +1,122 @@
+{
+	"name": "Flying Elbow",
+	"type": "maneuver",
+	"img": "icons/magic/control/debuff-energy-hold-levitate-green.webp",
+	"system": {
+		"description": "<p>You leap off an elevated position to deal increased damage to your target. As an action, you must move at least 10ft and then make an unarmed strike against an opponent. This attack deals an extra 1d6 of bludgeoning damage for every 5ft you fall or descend onto your opponent, though you take half of the damage. After making this attack, you may make any additional attacks from extra attack.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"GPWXW3EbsNeBxsM6": {
+				"name": "Flying Elbow",
+				"consumers": {
+					"D17BXstzOTPQiHN8": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"mBPP4uuykhxYqEY3": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": ""
+					},
+					"WCt3b1sFRQF3JpuF": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "bludgeoning",
+						"formula": "1 + @str.mod",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"degree": 3,
+		"exertionCost": 1,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "serpentsGrip"
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567813045,
+		"modifiedTime": 1793567813045,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "GtQlfdex9WOY8ctt"
+}

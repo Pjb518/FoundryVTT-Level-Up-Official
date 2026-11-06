@@ -15,21 +15,39 @@
 				},
 				"duration": {
 					"unit": "instantaneous",
-					"value": ""
+					"value": "",
+					"concentration": false
 				},
 				"ranges": {
 					"BcwI2G7FeTKLei6j": {
-						"range": "long"
+						"range": "long",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
+					"shape": "none",
+					"quantity": 1,
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				},
 				"target": {
-					"quantity": "",
-					"type": "creatureObject"
+					"quantity": 0,
+					"type": "creatureObject",
+					"heard": false,
+					"otherText": "",
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
 				},
 				"rolls": {
 					"3Mg4G6Uuy4PJjYUX": {
@@ -37,25 +55,60 @@
 						"critThreshold": 20,
 						"type": "attack",
 						"attackType": "rangedSpellAttack",
-						"ability": "spellcasting"
+						"ability": "spellcasting",
+						"proficient": true,
+						"default": true,
+						"label": ""
 					},
 					"gPx8ooCTKFBto1rX": {
 						"canCrit": true,
 						"damageType": "fire",
 						"formula": "1d10",
-						"name": "",
 						"type": "damage",
 						"scaling": {
 							"mode": "cantrip",
 							"formula": "1d10",
 							"config": {
-								"value": "1d10"
+								"value": "1d10",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
 							}
-						}
+						},
+						"critBonus": "",
+						"die": {
+							"modifiers": []
+						},
+						"default": true,
+						"label": ""
 					}
 				},
 				"consumers": {},
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
 			}
 		},
 		"description": "<p>You cast a streak of flame at the target. Make a ranged spell attack. On a hit, you deal 1d10 fire damage. An unattended flammable object is ignited.</p><p>This spell's damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10).</p>",
@@ -68,13 +121,19 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"classes": [
 			"artificer",
 			"sorcerer",
-			"wizard"
+			"wizard",
+			"warcaster"
 		],
 		"components": {
 			"vocalized": true,
@@ -97,17 +156,24 @@
 			]
 		},
 		"spellBook": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"slug": "",
+		"tags": [],
+		"disciplines": []
 	},
 	"folder": null,
-	"_id": "c1qq11be32b3s1qr",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.4.10",
+		"createdTime": 1793836983676,
+		"modifiedTime": 1793836983676,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "c1qq11be32b3s1qr"
 }

@@ -1,0 +1,134 @@
+{
+	"name": "Big Boom",
+	"type": "maneuver",
+	"img": "icons/weapons/guns/gun-pistol-flintlock.webp",
+	"system": {
+		"description": "<p>While most of the time you want your bullet to go into the enemy, sometimes a cask of gunfire or a barrel of oil is a more enticing target. When firing at a flammable liquid or explosive, your next shot is treated as fire damage and ignites the target on a successful hit. Exploding oil barrels, or kegs of whiskey and other spirits that explode, generally deal 1d6 fire damage per point of your proficiency bonus to creatures and objects within 10ft. Creatures in the area may make Dexterity saving throws to take no damage.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"GPWXW3EbsNeBxsM6": {
+				"name": "Big Boom",
+				"consumers": {
+					"D17BXstzOTPQiHN8": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 2,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "Firing at a flammable liquid or explosive"
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {
+					"ew6tlmr3lyW92x8I": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "No damage",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {
+					"Dhi2Tq5f2XDvU76s": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "fire",
+						"formula": "(@prof(d6))",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"area": {
+					"-=width": null,
+					"-=radius": null,
+					"-=height": null,
+					"-=length": null,
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"degree": 2,
+		"exertionCost": 2,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "trickshotChicanery"
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567813045,
+		"modifiedTime": 1793567813045,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "fotvo5IWQz0IJ19s"
+}

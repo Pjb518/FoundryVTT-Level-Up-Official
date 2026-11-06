@@ -1,0 +1,267 @@
+{
+	"name": "Mercy and Vengeance",
+	"type": "feature",
+	"img": "icons/skills/social/trading-justice-scale-yellow.webp",
+	"system": {
+		"description": "<p>At 19th level, an acolyte can respond to a friendly creature within 30ft taking damage with either mercy, providing 2d8 + Wisdom modifier healing, or vengeance upon the creature who harmed them through a @UUID[Compendium.a5e.a5e-class-features.Item.VFJh3dlvsSvkow0e]{Holy Bolt}. Either use of this ability is a reaction that can be used once per short or long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"VLBCBMJmB7uvDFJE": {
+				"name": "Mercy",
+				"id": "VLBCBMJmB7uvDFJE",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/social/trading-justice-scale-yellow.webp",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "A friendly creature taking damage"
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"NYMDRxng2BWeY7oD": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {
+					"UURM7Zi1xEjgq8t0": {
+						"range": "short"
+					}
+				},
+				"rolls": {
+					"wrq6fpvbbvDFqcUf": {
+						"type": "healing",
+						"default": true,
+						"formula": "2d8 + @wis.mod",
+						"healingType": "healing",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "creature",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"KS1P7MxZqGrlVgdX": {
+				"name": "Vengeance",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "A friendly creature taking damage"
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"SXFYtkwUpfIHcCkZ": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"rolls": {
+					"L1nL06P1tAgjXyw7": {
+						"canCrit": false,
+						"damageType": "radiant",
+						"formula": "2d8",
+						"type": "damage",
+						"scaling": {
+							"mode": null,
+							"formula": "1d8"
+						},
+						"critBonus": "",
+						"default": true,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"F19vETbdh2bsjnOg": {
+						"ability": "dex",
+						"onSave": "Deals no damage to targets who pass their save",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
+					}
+				},
+				"consumers": {
+					"K8IYivrgCjSWRaez": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/social/trading-justice-scale-yellow.webp",
+				"effects": [
+					"oaKMnjaznUuWA6CK"
+				],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "sentinel",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.4eQHvBYNJxIM0Ie0",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Divine Flames",
+			"img": "icons/magic/light/projectile-beam-yellow.webp",
+			"_id": "oaKMnjaznUuWA6CK",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The next attack against them before the end of your next turn to have advantage.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567752300
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567752092,
+		"modifiedTime": 1793567752092,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "wPe7NnX0vze1jw8X"
+}

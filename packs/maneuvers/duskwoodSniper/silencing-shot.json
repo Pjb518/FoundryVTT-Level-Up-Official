@@ -1,0 +1,122 @@
+{
+	"name": "Silencing Shot",
+	"type": "maneuver",
+	"img": "icons/weapons/ammunition/arrow-broadhead-glowing-orange.webp",
+	"system": {
+		"description": "<p>Spellcasting is one of the most dangerous forms of combat one can employ against you, and you are prepared to punish it harshly. As a reaction to a creature casting a spell within your normal weapon range, you may make a ranged attack. If your attack hits, your target takes piercing damage equal to your Dexterity modifier plus Proficiency bonus and must make a concentration check against your combat maneuver DC. On a failed check, the spell is lost and their action is wasted.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"mkq887IXSi6BIje5": {
+				"name": "Silencing Shot",
+				"consumers": {
+					"5eQM5yAPaN8A615X": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 2,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"activation": {
+					"type": "reaction",
+					"reactionTrigger": "Creature casting a spell within your normal weapon range",
+					"cost": 1
+				},
+				"rolls": {
+					"XVyMnvOkQArJ800N": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": ""
+					},
+					"dGtnyVcXl82DU4OK": {
+						"type": "damage",
+						"default": true,
+						"formula": "@dex.mod + @prof",
+						"damageType": "piercing",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"degree": 3,
+		"exertionCost": 2,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "duskwoodSniper"
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567813045,
+		"modifiedTime": 1793567813045,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "6UcLSBVJNZjAmz6r"
+}

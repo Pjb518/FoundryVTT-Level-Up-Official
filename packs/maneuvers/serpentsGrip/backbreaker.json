@@ -1,0 +1,124 @@
+{
+	"name": "Backbreaker",
+	"type": "maneuver",
+	"img": "icons/magic/control/debuff-energy-hold-levitate-green.webp",
+	"system": {
+		"description": "<p>Hauling a grappled enemy up into the air, you drop them, dramatically, onto your bent knee, seeking to end the fight in a brutally effective manner. Your grappled target must make a Constitution save or take 10d6 bludgeoning damage. On a successful saving throw, they take half damage and the grapple ends.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"GPWXW3EbsNeBxsM6": {
+				"name": "Backbreaker",
+				"consumers": {
+					"D17BXstzOTPQiHN8": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 3,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {
+					"p3fM2thEdwYruZlE": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "Half damage, end grapple",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {
+					"VViiBovehDNWIohS": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "bludgeoning",
+						"formula": "10d6",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"degree": 5,
+		"exertionCost": 3,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "serpentsGrip"
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567813045,
+		"modifiedTime": 1793567813045,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "r2RqsD5Esu5KVaUF"
+}

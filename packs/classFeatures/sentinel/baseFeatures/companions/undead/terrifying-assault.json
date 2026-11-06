@@ -1,0 +1,216 @@
+{
+	"name": "Terrifying Assault",
+	"type": "feature",
+	"img": "icons/magic/death/skull-humanoid-white-red.webp",
+	"system": {
+		"description": "<p>At 13th level, an undead companion begins to truly terrorize their victims. If your companion makes a melee attack against a creature that is rattled they must make a Wisdom save or become [[/condition id=frightened]] of your undead companion until the end of their next turn.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"rBCLdVWwQ67y8WPk": {
+				"name": "Terrifying Assault",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"GWf7n5wfgu3pQEKS"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {
+					"6aGjIxLlotJ5Y8qZ": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "custom",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "sentinel",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [
+		{
+			"origin": "Item.CDC5gSeo5L9vk99Q",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"frightened"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				]
+			},
+			"name": "Frightened",
+			"img": "icons/magic/death/skull-humanoid-white-red.webp",
+			"_id": "GWf7n5wfgu3pQEKS",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": 1,
+				"units": "turns",
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"description": "<ul><li><p>A frightened creature has disadvantage on ability checks and attack rolls while it is able to see the source of its fear.</p></li><li><p>A frightened creature can't willingly move closer to the source of its fear.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"frightened"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "14.369",
+				"systemId": "a5e",
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793812111792,
+				"createdTime": 1793812094730
+			},
+			"folder": null,
+			"showIcon": 2,
+			"start": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.369",
+		"systemId": "a5e",
+		"systemVersion": "1.4.10",
+		"createdTime": 1793812094730,
+		"modifiedTime": 1793812119270,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "CDC5gSeo5L9vk99Q"
+}

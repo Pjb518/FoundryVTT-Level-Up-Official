@@ -1,0 +1,316 @@
+{
+	"name": "Benedictions and Maledictions",
+	"type": "feature",
+	"img": "icons/skills/social/trading-justice-scale-yellow.webp",
+	"system": {
+		"description": "<p>At 7th level, your hedge wizard recovers their @UUID[Compendium.a5e.a5e-class-features.Item.674W9hN1TXEJbw6o]{Blessings and Curses} at the end of a short rest. In addition, the curse is now 1d6 instead of 1d4, and the blessing provides expertise at 1d6.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"QDaiXBkXGd3yp5Ni": {
+				"name": "Blessing",
+				"id": "QDaiXBkXGd3yp5Ni",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/social/trading-justice-scale-gold.webp",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1",
+					"concentration": false
+				},
+				"effects": [
+					"Z9zNM2mEKST42hHs"
+				],
+				"macro": "",
+				"consumers": {
+					"dY4mCqASoP7TgDps": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {
+					"74GqPEJX7530iwqx": {
+						"range": "short",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "creature",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			},
+			"6NZ87Mg2l44UsqeT": {
+				"name": "Curse",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/social/trading-justice-scale-gold.webp",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "Target making an attack roll or saving throw."
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"hDrnjOrWl0lCuenE": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {
+					"f1CzBRJlYtlm7M6a": {
+						"range": "short",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"rolls": {
+					"VNJcSs51u1UEXEVD": {
+						"type": "generic",
+						"default": true,
+						"formula": "1d6",
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							},
+							"mode": ""
+						},
+						"label": "",
+						"die": {
+							"modifiers": []
+						}
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "creature",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "sentinel",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [
+		{
+			"origin": "Item.eUrkVjofi9XQGeTj",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": [
+					{
+						"key": "flags.a5e.effects.expertiseDice.attack.all",
+						"type": "add",
+						"value": "2",
+						"phase": "initial",
+						"priority": 0
+					},
+					{
+						"key": "flags.a5e.effects.expertiseDice.allSaves",
+						"type": "add",
+						"value": "2",
+						"phase": "initial",
+						"priority": 0
+					}
+				]
+			},
+			"name": "Blessing",
+			"img": "icons/skills/social/trading-justice-scale-yellow.webp",
+			"_id": "Z9zNM2mEKST42hHs",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"description": "<p>Gains a 1d6 expertise die they can use on an attack roll or saving throw within the next minute.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "14.369",
+				"systemId": "a5e",
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793804119655,
+				"createdTime": 1793804002243
+			},
+			"folder": null,
+			"start": null,
+			"showIcon": 1
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.369",
+		"systemId": "a5e",
+		"systemVersion": "1.4.10",
+		"createdTime": 1793804002243,
+		"modifiedTime": 1793807243906,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "eUrkVjofi9XQGeTj"
+}

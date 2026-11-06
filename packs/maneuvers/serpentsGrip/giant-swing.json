@@ -1,0 +1,126 @@
+{
+	"name": "Giant Swing",
+	"type": "maneuver",
+	"img": "icons/magic/control/debuff-energy-hold-levitate-green.webp",
+	"system": {
+		"description": "<p>Planting your feet, you swing your enemy into his friend, slamming them both painfully. While grappling a creature, you may use them as an improvised weapon that you are proficient with against a creature within 5ft of you. On a successful hit, you deal 1d10 + Strength bludgeoning damage to both your target and your improvised weapon. When you take this action you may make this attack, plus any additional attacks from extra attack.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"GPWXW3EbsNeBxsM6": {
+				"name": "Giant Swing",
+				"consumers": {
+					"D17BXstzOTPQiHN8": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 2,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {
+					"VNUZeHN5eVKv8apR": {
+						"range": "fiveFeet"
+					}
+				},
+				"rolls": {
+					"05EyfFkTItlZr196": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": ""
+					},
+					"t0Jy35kBwEj5awUG": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "bludgeoning",
+						"formula": "1d10 + @str.mod",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "creature",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"degree": 3,
+		"exertionCost": 2,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "serpentsGrip"
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567813045,
+		"modifiedTime": 1793567813045,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "RdYECUfSIlV6xrMy"
+}

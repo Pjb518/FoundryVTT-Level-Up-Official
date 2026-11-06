@@ -8,7 +8,8 @@
 				"name": "Cast Spell",
 				"activation": {
 					"type": "action",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {},
 				"rolls": {
@@ -18,7 +19,20 @@
 						"label": "Level 1 - 4 Damage",
 						"formula": "1",
 						"damageType": "radiant",
-						"canCrit": true
+						"canCrit": true,
+						"critBonus": "",
+						"die": {
+							"modifiers": []
+						},
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							},
+							"mode": ""
+						}
 					},
 					"Q7r3zS7thYBuSkp8": {
 						"type": "damage",
@@ -28,12 +42,19 @@
 							"mode": "cantrip",
 							"formula": "1d4",
 							"config": {
-								"value": "1d4"
+								"value": "1d4",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
 							}
 						},
 						"formula": "0",
 						"damageType": "radiant",
-						"canCrit": true
+						"canCrit": true,
+						"critBonus": "",
+						"die": {
+							"modifiers": []
+						}
 					}
 				},
 				"prompts": {},
@@ -43,16 +64,59 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
 						"threshold": 6
 					}
 				},
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "instantaneous",
+					"value": "0",
+					"concentration": false
 				},
 				"ranges": {
 					"WZxDDZ3UGiRMl3Wr": {
-						"range": "self"
+						"range": "self",
+						"unit": "",
+						"value": 0
 					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"effects": [],
+				"macro": "",
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
 				}
 			}
 		},
@@ -66,12 +130,18 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
+				"threshold": 6,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
 				"threshold": 6
 			}
 		},
 		"classes": [
 			"cleric",
-			"herald"
+			"herald",
+			"warcaster"
 		],
 		"components": {
 			"vocalized": true,
@@ -96,19 +166,26 @@
 			]
 		},
 		"spellBook": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"slug": "",
+		"tags": [],
+		"disciplines": []
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
-	"_id": "rxi0eufsap9b88ar",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.4.10",
+		"createdTime": 1793837002310,
+		"modifiedTime": 1793837002310,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "rxi0eufsap9b88ar"
 }

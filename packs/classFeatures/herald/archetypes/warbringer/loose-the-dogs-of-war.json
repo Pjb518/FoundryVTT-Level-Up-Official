@@ -1,0 +1,321 @@
+{
+	"folder": null,
+	"name": "Loose the Dogs of War",
+	"type": "feature",
+	"img": "icons/creatures/mammals/wolf-shadow-black.webp",
+	"system": {
+		"description": "<p>At 15th, level your devotion to the cause of war allows you to take on greater power than ever before. You may now expend your channel divinity to empower yourself as a champion of war, gaining the following benefits for 1 minute:</p><ul><li><p>You gain expertise on Athletics checks</p></li><li><p>When you make a melee weapon attack, your target takes fire damage equal to your Charisma modifier whether you hit or miss.</p></li><li><p>When you successfully hit a target with a combat maneuver, you may force them to make a Strength save or be pushed back 10ft, 5ft on a successful save.</p></li><li><p>You critically hit on a 19-20.</p></li></ul>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"tThlnEw4oEn1VpCY": {
+				"name": "Loose the Dogs of War",
+				"consumers": {
+					"D2uA9VRPk2fG0n0C": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "channel-divinity",
+						"resource": "classResource",
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"effects": [
+					"yjmiFxLvgoGgclkB"
+				],
+				"id": "tThlnEw4oEn1VpCY",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/sundries/flags/banner-standard-moon.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"macro": "",
+				"prompts": {
+					"4JOSOAe4su3MsG0G": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			},
+			"SoOnQphlygmLckhj": {
+				"name": "Fire Damage",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"omC05FHnmkt4ZHKq": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "fire",
+						"formula": "@cha.mod",
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							},
+							"mode": ""
+						},
+						"label": "",
+						"die": {
+							"modifiers": []
+						}
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "herald",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [
+		{
+			"origin": "Item.rzBlDyzLRj9J37jq",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": [
+					{
+						"key": "system.skills.ath.expertiseDice",
+						"type": "add",
+						"value": 1,
+						"phase": "initial",
+						"priority": 0
+					},
+					{
+						"key": "flags.a5e.criticalHitThresholdSpell",
+						"type": "override",
+						"value": 19,
+						"phase": "initial",
+						"priority": 0
+					},
+					{
+						"key": "flags.a5e.criticalHitThresholdWeapon",
+						"type": "override",
+						"value": 19,
+						"phase": "initial",
+						"priority": 0
+					}
+				]
+			},
+			"name": "Loose the Dogs of War",
+			"img": "icons/sundries/flags/banner-standard-moon.webp",
+			"_id": "yjmiFxLvgoGgclkB",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"description": "<ul><li><p>You gain expertise on Athletics checks</p></li><li><p>When you make a melee weapon attack, your target takes fire damage equal to your Charisma modifier whether you hit or miss.</p></li><li><p>When you successfully hit a target with a combat maneuver, you may force them to make a Strength save or be pushed back 10ft, 5ft on a successful save.</p></li><li><p>You critically hit on a 19-20.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "14.369",
+				"systemId": "a5e",
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793912806820,
+				"createdTime": 1793912715109
+			},
+			"folder": null,
+			"start": null,
+			"showIcon": 1
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.369",
+		"systemId": "a5e",
+		"systemVersion": "1.4.10",
+		"createdTime": 1793912715109,
+		"modifiedTime": 1793913306979,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "rzBlDyzLRj9J37jq"
+}

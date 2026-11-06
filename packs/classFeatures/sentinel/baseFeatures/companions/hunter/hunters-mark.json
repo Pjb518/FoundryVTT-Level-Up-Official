@@ -1,0 +1,215 @@
+{
+	"name": "Hunter’s Mark",
+	"type": "feature",
+	"img": "icons/skills/targeting/crosshair-pointed-orange.webp",
+	"system": {
+		"description": "<p>At 1st level, a hunter can set their eyes upon a particular target, their prey, and mark them to better track and hunt them. As a bonus action, choose a target within 120ft. Studying the target allows your hunter to add 1d4 damage to all ranged weapon attacks they make against that target until the target is reduced to 0 HP. In addition they gain advantage on Investigation, Perception, and Survival checks made to locate the target while this mark is active. They cannot use this ability, again, until the target is at 0 HP or they willingly end the effect, no action required.</p><p>The hunter may use Hunter’s Mark once per short or long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"JotzPlRUi4uzPOh7": {
+				"name": "Hunter’s Mark",
+				"consumers": {
+					"q8OWidBRDWQWZ9Gv": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "hunters-mark",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"lNgvcLFNhdB7UECB",
+					"ttYGk5xRL29usk1s"
+				],
+				"macro": "",
+				"prompts": {},
+				"ranges": {
+					"40d2I5ufE72zWab9": {
+						"range": "long"
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "creatureObject",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "sentinel",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.3S1PIKMzOMg1k3Du",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Hunter’s Mark",
+			"img": "icons/skills/targeting/crosshair-pointed-orange.webp",
+			"_id": "lNgvcLFNhdB7UECB",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Add 1d4 damage to all ranged weapon attacks they make against that target until the target is reduced to 0 HP. In addition they gain advantage on Investigation, Perception, and Survival checks made to locate the target while this mark is active.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567752325
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.3S1PIKMzOMg1k3Du",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Marked",
+			"img": "icons/skills/targeting/crosshair-pointed-orange.webp",
+			"_id": "ttYGk5xRL29usk1s",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567752325
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567752092,
+		"modifiedTime": 1793567752092,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "8QNfZvLKLGPcCFzA"
+}

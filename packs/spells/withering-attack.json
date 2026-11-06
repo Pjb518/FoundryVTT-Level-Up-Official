@@ -8,7 +8,8 @@
 				"name": "Cast Spell",
 				"activation": {
 					"type": "action",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {},
 				"rolls": {
@@ -22,10 +23,17 @@
 							"mode": "cantrip",
 							"formula": "1d8",
 							"config": {
-								"value": "1d8"
+								"value": "1d8",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
 							}
 						},
-						"label": "Moving Damage"
+						"label": "Moving Damage",
+						"critBonus": "",
+						"die": {
+							"modifiers": []
+						}
 					},
 					"1FveLyJUumklmgSP": {
 						"type": "damage",
@@ -37,10 +45,17 @@
 							"mode": "cantrip",
 							"formula": "1d8",
 							"config": {
-								"value": "1d8"
+								"value": "1d8",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
 							}
 						},
-						"label": "On Hit"
+						"label": "On Hit",
+						"critBonus": "",
+						"die": {
+							"modifiers": []
+						}
 					}
 				},
 				"prompts": {
@@ -49,8 +64,11 @@
 						"default": true,
 						"ability": "wis",
 						"saveDC": {
-							"type": "spellcasting"
-						}
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
 					}
 				},
 				"uses": {
@@ -59,22 +77,62 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
 						"threshold": 6
 					}
 				},
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "instantaneous",
+					"value": "0",
+					"concentration": false
 				},
 				"ranges": {
 					"aHxbXsYZ8EsrYA3k": {
-						"range": "self"
+						"range": "self",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"effects": [
 					"AL5qKtC8p3po6aBF"
-				]
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"macro": "",
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				}
 			}
 		},
 		"description": "<p>You weapon pulses with fell energy, ready to curse a foe who dares to move from their current position.</p><p>As part of the action to cast this spell, make an attack with your melee weapon.&nbsp;On a hit, tendrils of accursed energy surround the target, threatening it to remain in place.&nbsp;If the creature moves voluntarily before the end of its next turn, it must make a Wisdom saving throw against your spell save DC.&nbsp;A creature that fails its save takes 1d8 points of <em>necrotic</em> damage and is <em>rattled</em>.&nbsp;Involuntary movement does not trigger this additional damage.</p><p><strong><em>Cast at Higher Levels: </em></strong>At 5th level, the target takes an additional 1d8 points of <em>necrotic</em> damage on a hit and the curse damage for moving increases to 2d8.&nbsp;At 11th level, the target takes an additional 2d8 points of&nbsp;<em>necrotic</em> damage on a hit and the curse damage for moving increases to 3d8.&nbsp;At 17th level, the target takes an additional 3d8 points of&nbsp;<em>necrotic</em> damage on a hit and the curse damage for moving increases to 4d8.</p>",
@@ -87,6 +145,11 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
+				"threshold": 6,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
 				"threshold": 6
 			}
 		},
@@ -94,7 +157,8 @@
 			"cleric",
 			"sorcerer",
 			"warlock",
-			"wizard"
+			"wizard",
+			"warcaster"
 		],
 		"components": {
 			"vocalized": true,
@@ -118,15 +182,18 @@
 			]
 		},
 		"spellBook": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"slug": "",
+		"tags": [],
+		"disciplines": []
 	},
 	"effects": [
 		{
-			"icon": "icons/magic/unholy/strike-body-life-soul-green.webp",
 			"origin": "Item.fbuq2es86tqdi79g",
 			"flags": {
 				"a5e": {}
@@ -136,13 +203,10 @@
 			"_id": "AL5qKtC8p3po6aBF",
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "",
 			"statuses": [
@@ -150,9 +214,12 @@
 			],
 			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.4.10",
+				"createdTime": 1793837037063,
+				"modifiedTime": 1793837037063,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
 			},
 			"system": {
 				"applyToSelf": false,
@@ -160,20 +227,38 @@
 				"changes": [
 					{
 						"key": "flags.a5e.effects.statusConditions",
-						"value": "[\"rattled\"]",
+						"value": [
+							"rattled"
+						],
 						"priority": null,
-						"type": "custom"
+						"type": "custom",
+						"phase": "initial"
 					}
-				]
-			}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"showIcon": 2,
+			"start": null,
+			"img": "icons/svg/aura.svg",
+			"type": "base",
+			"tint": "#ffffff",
+			"sort": 0
 		}
 	],
 	"flags": {},
 	"folder": null,
-	"_id": "fbuq2es86tqdi79g",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.4.10",
+		"createdTime": 1793837037063,
+		"modifiedTime": 1793837037063,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "fbuq2es86tqdi79g"
 }

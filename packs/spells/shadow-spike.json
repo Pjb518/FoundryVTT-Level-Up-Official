@@ -8,7 +8,8 @@
 				"name": "Cast Spell",
 				"activation": {
 					"type": "action",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {},
 				"rolls": {
@@ -17,7 +18,10 @@
 						"default": true,
 						"attackType": "rangedSpellAttack",
 						"proficient": true,
-						"ability": "spellcasting"
+						"ability": "spellcasting",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": ""
 					},
 					"IqpL9qqAapEm3lFC": {
 						"type": "damage",
@@ -28,9 +32,18 @@
 							"mode": "cantrip",
 							"formula": "1d8",
 							"config": {
-								"value": "1d8"
+								"value": "1d8",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
 							}
-						}
+						},
+						"canCrit": true,
+						"critBonus": "",
+						"die": {
+							"modifiers": []
+						},
+						"label": ""
 					}
 				},
 				"prompts": {},
@@ -40,24 +53,60 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
 						"threshold": 6
 					}
 				},
 				"ranges": {
 					"WO049JNbKNXTeuSi": {
-						"range": "short"
+						"range": "short",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"target": {
 					"type": "creature",
-					"quantity": 1
+					"quantity": 1,
+					"heard": false,
+					"otherText": "",
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
 				},
 				"duration": {
 					"unit": "round",
-					"value": 1
-				}
+					"value": "1",
+					"concentration": false
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"effects": [],
+				"macro": ""
 			}
 		},
 		"description": "<p>You shoot a skewering tendril of condensed, flailing darkness at a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d8 necrotic damage; if the target is Large-sized or smaller, you can also force the creature to move 5 feet in a direction you choose.</p><p>This spell&rsquo;s damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)</p>",
@@ -70,6 +119,11 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
+				"threshold": 6,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
 				"threshold": 6
 			}
 		},
@@ -77,7 +131,8 @@
 			"cleric",
 			"sorcerer",
 			"warlock",
-			"wizard"
+			"wizard",
+			"warcaster"
 		],
 		"components": {
 			"vocalized": true,
@@ -103,19 +158,26 @@
 			]
 		},
 		"spellBook": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"slug": "",
+		"tags": [],
+		"disciplines": []
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "er9esuksgcujr02n",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.4.10",
+		"createdTime": 1793837017428,
+		"modifiedTime": 1793837017428,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "er9esuksgcujr02n"
 }

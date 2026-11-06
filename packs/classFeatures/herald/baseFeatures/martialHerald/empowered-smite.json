@@ -1,0 +1,477 @@
+{
+	"name": "Empowered Smite",
+	"type": "feature",
+	"img": "icons/skills/melee/strike-axe-energy-pink.webp",
+	"system": {
+		"description": "<p>At 4th level, you are able to call forth power to burden your targets. Whenever you hit a creature with a weapon attack, you can choose one of the following effects. You may use this feature once per long rest at no cost, but additional uses cost 3 exertion.</p><p>Some empowerments require your target to make a saving throw to resist some of the empowerments effects. The DC for these saving throws is the same as your herald combat maneuver DC.</p><h2>Igniting Smite</h2><p>Your weapon’s damage type becomes fire damage and the target must make a Constitution saving throw at the start of each of its turns or take 1d6 fire damage. On a successful save, it takes no damage and the fire is extinguished. The fire can also be put out as an action or by the environment and extinguishes itself after 1 minute.</p><h2>Marking Smite</h2><p>Your attack causes the target to shed bright light for 5 feet and dim light for an additional 5 feet. The effect lasts for up to 1 minute or until you target another creature with a weapon attack. As long as the effect lasts, the target gains no benefit from invisibility and has disadvantage on checks made to hide.</p><h2>Repelling Smite</h2><p>Your weapon’s damage type becomes force damage, and the target must make a Strength saving throw or be pushed back 10 feet and knocked prone. On a successful save, the target is knocked back only 5 feet and is not knocked prone.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"QYXRT7RF5nWV50BE": {
+				"name": "Igniting Smite",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"zRaDTeWhpO617oz4": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.empowered-smite",
+						"resource": "classResource",
+						"quantity": 1,
+						"label": ""
+					},
+					"ylOjy9xm1Jo5VKGQ": {
+						"type": "resource",
+						"default": false,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 3,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"CoaK0NlPpzVipP7V": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					},
+					"cHTaxmcs2qiJi6Kt": {
+						"type": "generic",
+						"default": true,
+						"label": "Ongoing Fire Damage",
+						"formula": "1d6"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"id": "QYXRT7RF5nWV50BE",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/melee/strike-axe-energy-pink.webp",
+				"duration": {
+					"unit": "minute",
+					"value": "1",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			},
+			"qULDNTSW04l9gc1n": {
+				"name": "Marking Smite",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"G1rbDtwBCCyLpWT8": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.empowered-smite",
+						"resource": "classResource",
+						"quantity": 1,
+						"label": ""
+					},
+					"nLnjTc0aqtUTKerP": {
+						"type": "resource",
+						"default": false,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 3,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"effects": [
+					"cQ6xoSCGRlW2k1wz"
+				],
+				"id": "qULDNTSW04l9gc1n",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/melee/strike-axe-energy-pink.webp",
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			},
+			"ZtEfdpTZ9GuDjSyN": {
+				"name": "Repelling Smite",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"A2zKsk3nWyUsdFEf": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.empowered-smite",
+						"resource": "classResource",
+						"quantity": 1,
+						"label": ""
+					},
+					"vSN1uqmF9VOkGxtn": {
+						"type": "resource",
+						"default": false,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 3,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"A2pZkoIj4qUKtSpN": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "Knocked back only 5 feet and is not knocked prone",
+						"label": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"effects": [
+					"1vnU1WbbwZaQGPAn"
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/melee/strike-axe-energy-pink.webp",
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "herald",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [
+		{
+			"origin": "Item.U10BlRlZvE3OblhO",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Marking Smite",
+			"_id": "cQ6xoSCGRlW2k1wz",
+			"disabled": false,
+			"duration": {
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"description": "<p>Shed bright light for 5 feet, and dim light for an additional 5 feet. The effect lasts for up to 1 minute, or until you target another creature with a weapon attack. As long as the effect lasts, the target gains no benefit from invisibility and has disadvantage on checks made to hide.</p>",
+			"statuses": [],
+			"_stats": {
+				"coreVersion": "14.369",
+				"systemId": "a5e",
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793917300495,
+				"createdTime": 1793917272294
+			},
+			"img": "icons/skills/melee/strike-axe-energy-pink.webp",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": [
+					{
+						"key": "@token.light.bright",
+						"type": "override",
+						"value": "5",
+						"phase": "initial",
+						"priority": 0
+					},
+					{
+						"key": "@token.light.dim",
+						"type": "override",
+						"value": "10",
+						"phase": "initial",
+						"priority": 0
+					}
+				]
+			},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null,
+			"start": null,
+			"showIcon": 1
+		},
+		{
+			"origin": "Item.U10BlRlZvE3OblhO",
+			"flags": {
+				"a5e": {}
+			},
+			"transfer": false,
+			"name": "Prone",
+			"_id": "1vnU1WbbwZaQGPAn",
+			"disabled": false,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "",
+			"statuses": [
+				"prone"
+			],
+			"_stats": {
+				"coreVersion": "14.369",
+				"systemId": "a5e",
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793917314823,
+				"createdTime": 1793917272294
+			},
+			"img": "icons/skills/melee/strike-axe-energy-pink.webp",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"prone"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				]
+			},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null,
+			"showIcon": 2,
+			"start": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.369",
+		"systemId": "a5e",
+		"systemVersion": "1.4.10",
+		"createdTime": 1793917272294,
+		"modifiedTime": 1793917320916,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "U10BlRlZvE3OblhO"
+}

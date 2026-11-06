@@ -1,0 +1,234 @@
+{
+	"name": "Overdose",
+	"type": "maneuver",
+	"img": "icons/weapons/daggers/knife-green.webp",
+	"system": {
+		"description": "<p>As an action on your turn, you may expend 5 uses of a healer’s satchel, 3 doses of poison, or 2 uses of another medicinal item, in an attempt to force a creature into an overdose situation. When you do so,your target must make a Constitution saving throw. If you use poison, the saving throw is at disadvantage. On a successful save, the target is [[/condition id=rattled]] and their movement speeds are reduced by 10ft. On a failed saving throw, the creature is overcome by the effects of the overdose and must spend their action retching, staring into the distance, or trying to maintain their balance. This effect lasts for up to 1 minute, and ends once the target makes 3 successful saving throws against it. They make their save at the start of each of their turns.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"GPWXW3EbsNeBxsM6": {
+				"name": "Overdose",
+				"consumers": {
+					"D17BXstzOTPQiHN8": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 3,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"DNZSTggkIWnwv7Wn",
+					"Q0FQyBmJMFB4AGTp"
+				],
+				"macro": "",
+				"prompts": {
+					"qgLsegzVRlG5XY13": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"degree": 4,
+		"exertionCost": 3,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "surgeonsPrecision"
+	},
+	"effects": [
+		{
+			"origin": "Item.fHEfizxnxPVqhasn",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Rattled",
+			"img": "icons/weapons/daggers/knife-green.webp",
+			"_id": "DNZSTggkIWnwv7Wn",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "10",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A rattled creature cannot benefit from expertise dice.</p></li><li><p>A creature that is immune to being stunned is immune to being rattled.</p></li><li><p>A rattled creature cannot take reactions.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567813000
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.fHEfizxnxPVqhasn",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Overdose",
+			"img": "icons/weapons/daggers/knife-green.webp",
+			"_id": "Q0FQyBmJMFB4AGTp",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Must spend their action retching, staring into the distance, or trying to maintain their balance.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567813000
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567812689,
+		"modifiedTime": 1793567812689,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "3EHFyl0I0Y5N8scw"
+}

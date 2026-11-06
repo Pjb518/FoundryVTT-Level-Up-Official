@@ -1,0 +1,257 @@
+{
+	"name": "Open The Door",
+	"type": "feature",
+	"img": "icons/magic/unholy/orb-contained-pink.webp",
+	"system": {
+		"description": "<p>At 20th level, a cultist’s @UUID[Compendium.a5e.a5e-class-features.Item.avpl8VynZrpX6s1y]{Howling Vortex} now opens to another realm. Choose a plane of existence when your cultist uses this ability. Creatures which reach the four squares at the center of the vortex must make a Charisma save or be transported to the selected plane. Once a creature is banished, it may make a Charisma save at the beginning of each of its turns to return to the center of the vortex. Using this version of howling vortex applies one level of fatigue and strife on the cultist.</p><p>If the cultist maintains concentration for the full 10 rounds of this ability’s duration, the vortex closes. Any creature that did not successfully escape is then trapped on the selected plane. In addition, the cultist takes another two levels of fatigue and strife.</p><p>If the cultist’s concentration is broken, all creatures that have passed through the portal may make a Charisma save with advantage to escape as it closes.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"r0AaCHmRYVmlM2qo": {
+				"name": "Open The Door",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"oG6ijxo8e8LRdT1o": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "howling-vortex",
+						"resource": "classResource",
+						"quantity": 1,
+						"label": ""
+					},
+					"GMzXBUhGkf1PrRGs": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "fatigue",
+						"quantity": 1,
+						"label": ""
+					},
+					"MtJh6V9E3V59DKL3": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "strife",
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"wf4Ft4yDzdN5P1LQ": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			},
+			"6PV8v9mRpJlMbStO": {
+				"name": "Open The Door (10 Rounds)",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"UGDWyYGipmXbKwaD": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "fatigue",
+						"quantity": 2,
+						"label": ""
+					},
+					"bXQRdNT9Ado75QC1": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "strife",
+						"quantity": 2,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "sentinel",
+		"concentration": true,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.369",
+		"systemId": "a5e",
+		"systemVersion": "1.4.10",
+		"createdTime": 1793751145069,
+		"modifiedTime": 1793807243908,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "IbP915lCXV9QRwNe"
+}

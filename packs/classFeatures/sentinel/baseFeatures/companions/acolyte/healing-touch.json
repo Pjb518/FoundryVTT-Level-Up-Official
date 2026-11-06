@@ -1,0 +1,188 @@
+{
+	"name": "Healing Touch",
+	"type": "feature",
+	"img": "icons/magic/life/heart-cross-blue.webp",
+	"system": {
+		"description": "<p>At 1st level, an acolyte can provide 2d4 + Wisdom modifier of healing per short or long rest by touching a creature. You may split the healing into uses of 1d4 each if you choose.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"B2hoROpmnZhxuM3K": {
+				"name": "Healing Touch (Single Use)",
+				"consumers": {
+					"fRPkR3ayjOlVq2rN": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "healing-touch",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "B2hoROpmnZhxuM3K",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/life/heart-cross-blue.webp",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"v3mDlw9WpSHss7Au": {
+						"type": "healing",
+						"default": true,
+						"formula": "1d4 + @wis.mod",
+						"healingType": "healing",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"9V7vdtcP7lTc08Hs": {
+				"name": "Healing Touch (Double Use)",
+				"consumers": {
+					"TXOckifISdEUlNnt": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "healing-touch",
+						"resource": "classResource",
+						"quantity": 2,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"v3mDlw9WpSHss7Au": {
+						"type": "healing",
+						"default": true,
+						"formula": "2d4 + @wis.mod",
+						"healingType": "healing",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "sentinel",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567753087,
+		"modifiedTime": 1793567753087,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "egiKYWbHc9XYSpf6"
+}

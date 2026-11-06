@@ -1,0 +1,220 @@
+{
+	"folder": null,
+	"name": "Treatise: Combat Techniques",
+	"type": "feature",
+	"img": "icons/sundries/documents/blueprint-axe.webp",
+	"system": {
+		"description": "<p>Also at 3rd level, you gain some measure of mastery over martial combat through the use of writings and designs on tactics, maneuvers, and weaponry. This Treatise is a book containing historical combat information, weapons, and images and descriptions of fighting styles and maneuvers. It costs 10gp to replace a Treatise if it is lost or damaged.</p><p>You gain access to two combat traditions of your choice from the following list: Adamant Mountain, Arcane Knight, Biting Zephyr, Mist and Shade, and Tempered Iron. Of these combat traditions you may select four combat maneuvers to write down in your Treatise.</p><p>You may spend one hour in rigorous training each morning to prepare a number of combat maneuvers equal to your proficiency bonus selected from your Treatise. Once you have selected your combat maneuvers, you are considered to have them memorized until you choose to undergo training again. You may prepare 1st degree maneuvers in this manner and gain access to 2nd degree maneuvers at level 6. At 12th level you may prepare 3rd degree maneuvers and you gain 4th degree maneuvers at level 16.</p><p>You may add new maneuvers that you have witnessed to your Treatise for 10 gold pieces per degree if they are tied to one of the combat traditions you know, or 100 gold pieces per degree if they are tied to a combat tradition you do not know due to the extensive practice you must do to truly understand the maneuver. Once you have added a maneuver to your Treatise, you may prepare it whether you know the combat tradition it is tied to or not.</p><p>You gain an exertion pool equal to twice your proficiency bonus, regaining any spent exertion at the end of a short or long rest. You use your maneuvers by spending points from your exertion pool.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"cZn9Qd0z0CU3Yhqo": {
+				"name": "Training",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "hour",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "artificer",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"HEO30NSbJ3siQcLw": {
+				"grantType": "exertion",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Treatise: Combat Techniques",
+				"exertionType": "pool",
+				"poolType": "doubleProf",
+				"img": "",
+				"bonus": "",
+				"id": "",
+				"name": "Treatise: Combat Techniques",
+				"flags": {},
+				"restriction": "",
+				"type": "exertion",
+				"config": {
+					"bonus": "",
+					"exertionType": "pool",
+					"poolType": "doubleProf"
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "exertion",
+					"exertionType": "",
+					"bonusId": ""
+				}
+			},
+			"zgnUcoC0bqcuPgYj": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Treatise: Combat Techniques",
+				"keys": {
+					"base": [],
+					"options": [
+						"adamantMountain",
+						"arcaneKnight",
+						"bitingZephyr",
+						"mistAndShade",
+						"temperedIron"
+					],
+					"total": 2
+				},
+				"proficiencyType": "tradition",
+				"id": "",
+				"name": "Treatise: Combat Techniques",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 2,
+								"candidates": [
+									"tradition:adamantMountain",
+									"tradition:arcaneKnight",
+									"tradition:bitingZephyr",
+									"tradition:arcaneKnightMartialArtistry",
+									"tradition:mistAndShade",
+									"tradition:temperedIron"
+								]
+							}
+						]
+					},
+					"isExpertise": false,
+					"upgradeToExpertise": false
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "proficiency",
+					"selected": [],
+					"upgraded": false
+				},
+				"isExpertise": false
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.369",
+		"systemId": "a5e",
+		"systemVersion": "1.4.10",
+		"createdTime": 1793903916301,
+		"modifiedTime": 1793913306982,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "ampMQv1IDzgvblFm"
+}

@@ -6,7 +6,11 @@
 		"actions": {
 			"JftfVlUotGIiwtod": {
 				"name": "Cast Spell",
-				"activation": {},
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
 				"consumers": {},
 				"rolls": {
 					"0ftsldsJrqhPPeVD": {
@@ -18,9 +22,18 @@
 							"mode": "cantrip",
 							"formula": "1d8",
 							"config": {
-								"value": "1d8"
+								"value": "1d8",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
 							}
-						}
+						},
+						"canCrit": true,
+						"critBonus": "",
+						"die": {
+							"modifiers": []
+						},
+						"label": ""
 					}
 				},
 				"prompts": {},
@@ -30,8 +43,11 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
 						"threshold": 6
 					}
 				},
@@ -45,8 +61,37 @@
 						"config": {
 							"value": "1"
 						}
-					}
-				}
+					},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": ""
 			}
 		},
 		"description": "<p>You charge your weapon with electricity and strike with it, jolting your target and its nearby allies.</p><p>As part of the action to cast this spell, make an attack with your melee weapon. If you hit with the weapon attack, in addition to dealing normal weapon damage, electricity jolts your primary target and jumps to a secondary target within 5 feet, dealing lightning damage equal to your spellcasting ability modifier to each.</p><p>Beginning at 5th level, the damage done to the primary and secondary targets increases by 1d8 lightning damage. At 11th level, the damage to the primary target increases to 2d8. You can select an additional secondary target within range of any of the previous targets, and the range to each secondary target increases to 10 feet. At 17th level, the damage to the primary target increases to 3d8. You can select two additional secondary targets, each within range of any of the previous targets, and the secondary target range increases to 15 feet.</p>",
@@ -59,13 +104,19 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
+				"threshold": 6,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
 				"threshold": 6
 			}
 		},
 		"classes": [
 			"druid",
 			"sorcerer",
-			"wizard"
+			"wizard",
+			"warcaster"
 		],
 		"components": {
 			"vocalized": true,
@@ -89,19 +140,26 @@
 			]
 		},
 		"spellBook": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"slug": "",
+		"tags": [],
+		"disciplines": []
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "zeev01b727n22pr5",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.4.10",
+		"createdTime": 1793836950014,
+		"modifiedTime": 1793836950014,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "zeev01b727n22pr5"
 }

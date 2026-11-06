@@ -1,0 +1,191 @@
+{
+	"name": "Portalfall",
+	"type": "feature",
+	"img": "icons/environment/wilderness/portal.webp",
+	"system": {
+		"description": "<p>As an action, you can spend four exertion points to open a portal underneath your feet. You and one creature of Large size or smaller tumble through the portal. An unwilling creature can attempt to make a Dexterity save to avoid falling, but on a failed save they land prone at your destination.</p><p>The destination of the portal is any space large enough to accomodate both you and the creature you bring with you within 500ft. You do not need to see where you are opening the destination portal, but you must be able to describe it in words.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"npVvEpydZL7GNZF2": {
+				"name": "Portalfall",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"vpaf0VGEfLb9w2oZ"
+				],
+				"macro": "",
+				"consumers": {
+					"kOt0S4Ng2A5g5M1c": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 4,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"lMYNRrX6uj2lCcjC": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"qONc3YGBJbCBxvhr": {
+						"range": 500,
+						"unit": "feet"
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "warcaster",
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "Level 10, Burst of Speed",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.wYCeL3lgceMBY30E",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Prone",
+			"img": "icons/environment/wilderness/portal.webp",
+			"_id": "vpaf0VGEfLb9w2oZ",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A prone creature's only movement option is to crawl (every 1 foot of movement while crawling costs 1 extra foot) until it stands up.</p></li><li><p>Standing up requires half a creature’s movement.</p></li><li><p>A prone creature makes melee attack rolls with disadvantage.</p></li><li><p>An attack roll against a prone creature is made with advantage if the attacker is within 5 feet. Otherwise, the attack roll is made with disadvantage.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"prone"
+			],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567753561
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567753398,
+		"modifiedTime": 1793567753398,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "NE45yFeCIpl5Ii8C"
+}

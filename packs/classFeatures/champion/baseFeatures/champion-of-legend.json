@@ -1,0 +1,205 @@
+{
+	"name": "Champion of Legend",
+	"type": "feature",
+	"img": "icons/skills/melee/sword-winged-holy-orange.webp",
+	"system": {
+		"description": "<p>At 20th level, you have become a legend among those who whisper your name in reverent tones and hushed halls or shout it from parapets and street corners in breathless cheers.</p><p>If you are reduced to 0 HP while you have @UUID[Compendium.a5e.a5e-class-features.Item.kdy4n7MRzAVYykI4]{Rise to the Challenge} active, you do not fall unconscious; though you do begin dying and must make death saving throws normally.</p><p>If you are reduced to 0 HP while within reach of completing your current quest, you may instead choose to become Doomed and continue acting toward that goal. Your HP total increases to 1/2 of your normal maximum, leaving you bloodied. Should you be reduced to 0 HP again before achieving your goal you will die permanently when the Doomed condition ends, and no magic can resurrect you.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"4pc4USAMLWKkrVqw": {
+				"name": "Reach of Quest",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"WQGsb3Y25NR9uC5u"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "champion",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [
+		{
+			"origin": "Item.xH2OcTKDE0hLDdh0",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"doomed"
+						],
+						"phase": "initial",
+						"priority": 0
+					},
+					{
+						"key": "system.attributes.hp.max",
+						"type": "add",
+						"value": "floor(@attributes.hp.baseMax/2)",
+						"phase": "initial",
+						"priority": 0
+					}
+				]
+			},
+			"name": "Champion of Legend",
+			"img": "icons/skills/melee/sword-winged-holy-orange.webp",
+			"_id": "WQGsb3Y25NR9uC5u",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>If you are reduced to 0 HP while within reach of completing your current quest, you may instead choose to become Doomed and continue acting toward that goal. Your HP total increases to 1/2 of your normal maximum, leaving you bloodied. Should you be reduced to 0 HP again before achieving your goal you will die permanently when the Doomed condition ends, and no magic can resurrect you.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"doomed",
+				"bloodied"
+			],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.369",
+				"systemId": "a5e",
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793720174156,
+				"createdTime": 1793720094792
+			},
+			"folder": null,
+			"showIcon": 2,
+			"start": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.369",
+		"systemId": "a5e",
+		"systemVersion": "1.4.10",
+		"createdTime": 1793720094792,
+		"modifiedTime": 1793720203534,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "xH2OcTKDE0hLDdh0"
+}

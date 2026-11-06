@@ -1,0 +1,330 @@
+{
+	"name": "Improved Holy Bolt",
+	"type": "feature",
+	"img": "icons/magic/light/beam-rays-teal.webp",
+	"system": {
+		"description": "<p>At level 10, your acolyte’s @UUID[Compendium.a5e.a5e-spells.Item.tvtm60k5wxyki9qc]{Sacred Flame} now strikes down upon two separate targets, or deals 2d8 to one target.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"jr78Z574eiZaON6Y": {
+				"name": "Sacred Flame (2 Targets)",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"SXFYtkwUpfIHcCkZ": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 2,
+					"type": "creature",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"rolls": {
+					"L1nL06P1tAgjXyw7": {
+						"canCrit": false,
+						"damageType": "radiant",
+						"formula": "1d8",
+						"type": "damage",
+						"scaling": {
+							"mode": null,
+							"formula": "1d8"
+						},
+						"critBonus": "",
+						"default": true,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"F19vETbdh2bsjnOg": {
+						"ability": "dex",
+						"onSave": "Deals no damage to targets who pass their save",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
+					}
+				},
+				"consumers": {},
+				"id": "jr78Z574eiZaON6Y",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/light/beam-rays-teal-small.webp",
+				"effects": [
+					"YgDicN85UVDB7XQ7"
+				],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"9INn7wv3ZnWAxOoh": {
+				"name": "Sacred Flame (1 Target)",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"SXFYtkwUpfIHcCkZ": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"rolls": {
+					"L1nL06P1tAgjXyw7": {
+						"canCrit": false,
+						"damageType": "radiant",
+						"formula": "2d8",
+						"type": "damage",
+						"scaling": {
+							"mode": null,
+							"formula": "1d8"
+						},
+						"critBonus": "",
+						"default": true,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"F19vETbdh2bsjnOg": {
+						"ability": "dex",
+						"onSave": "Deals no damage to targets who pass their save",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
+					}
+				},
+				"consumers": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/light/beam-rays-teal-small.webp",
+				"effects": [
+					"MrVBvdZhY5IVeHo1"
+				],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "sentinel",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.LSEhOGIKC65o2YCn",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Divine Flames",
+			"img": "icons/magic/light/projectile-beam-yellow.webp",
+			"_id": "YgDicN85UVDB7XQ7",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The next attack against them before the end of your next turn to have advantage.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567752673
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.LSEhOGIKC65o2YCn",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Divine Flames",
+			"img": "icons/magic/light/projectile-beam-yellow.webp",
+			"_id": "MrVBvdZhY5IVeHo1",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The next attack against them before the end of your next turn to have advantage.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567752673
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567752450,
+		"modifiedTime": 1793567752450,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "x3Fa6fkj4AuqKMho"
+}

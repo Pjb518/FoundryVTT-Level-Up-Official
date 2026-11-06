@@ -1,0 +1,200 @@
+{
+	"folder": null,
+	"name": "Vitrify",
+	"type": "feature",
+	"img": "icons/magic/water/barrier-ice-crystal-wall-jagged-blue.webp",
+	"system": {
+		"description": "<p>You may spend a bonus action to alter your cellular membranes into a hard crystalline structure that is particularly durable. Doing so reduces your movement speed by 5ft but grants you a +1 AC bonus and allows you to live normally in environments below 5c (41f) without difficulty. Vitrification forcibly reverts you to your natural form, and you cannot shapeshift while vitrified. You can end this state by spending another bonus action to revert your cellular membranes.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"l6ZeNFtFxdoiGhkU": {
+				"name": "Vitrify",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"effects": [
+					"CQPR62QxZckR9b5u"
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/water/barrier-ice-crystal-wall-jagged-blue.webp",
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "",
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [
+		{
+			"origin": "Item.WVAIhHa9RlnWlpja",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": [
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"type": "subtract",
+						"value": "5",
+						"phase": "initial",
+						"priority": 0
+					},
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"type": "add",
+						"value": "1",
+						"phase": "initial",
+						"priority": 0
+					}
+				]
+			},
+			"name": "Vitrify",
+			"img": "icons/magic/water/barrier-ice-crystal-wall-jagged-blue.webp",
+			"_id": "CQPR62QxZckR9b5u",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Reduces your movement speed by 5ft but grants you a +1 AC bonus and allows you to live normally in environments below 5c (41f) without difficulty. Vitrification forcibly reverts you to your natural form, and you cannot shapeshift while vitrified.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.369",
+				"systemId": "a5e",
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793636869278,
+				"createdTime": 1793636755930
+			},
+			"folder": null,
+			"start": null,
+			"showIcon": 1
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.369",
+		"systemId": "a5e",
+		"systemVersion": "1.4.10",
+		"createdTime": 1793636755930,
+		"modifiedTime": 1793636873707,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "WVAIhHa9RlnWlpja"
+}

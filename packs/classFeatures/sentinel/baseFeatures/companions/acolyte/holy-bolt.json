@@ -1,0 +1,275 @@
+{
+	"name": "Holy Bolt",
+	"type": "feature",
+	"img": "icons/magic/light/beam-rays-teal-small.webp",
+	"system": {
+		"description": "<p>Also at 1st level, your acolyte gains the @UUID[Compendium.a5e.a5e-spells.Item.tvtm60k5wxyki9qc]{Sacred Flame} cantrip. This cantrip does not increase in damage based on Sentinel or character level. Targets that fail their saving throw against the holy bolt are limned with divine flames, causing the next attack against them before the end of your next turn to have advantage.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"XCVyw4BPuoKepqVZ": {
+				"name": "Sacred Flame",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": "",
+					"concentration": false
+				},
+				"ranges": {
+					"SXFYtkwUpfIHcCkZ": {
+						"range": "medium",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"area": {
+					"shape": "none",
+					"quantity": 1,
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature",
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"rolls": {
+					"L1nL06P1tAgjXyw7": {
+						"canCrit": false,
+						"damageType": "radiant",
+						"formula": "1d8",
+						"type": "damage",
+						"scaling": {
+							"mode": null,
+							"formula": "1d8",
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							}
+						},
+						"critBonus": "",
+						"default": true,
+						"label": "",
+						"die": {
+							"modifiers": []
+						}
+					}
+				},
+				"prompts": {
+					"F19vETbdh2bsjnOg": {
+						"ability": "dex",
+						"onSave": "Deals no damage to targets who pass their save",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
+					}
+				},
+				"consumers": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/light/projectile-beam-yellow.webp",
+				"effects": [
+					"cbrdV7tghxwaI7o8"
+				],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "sentinel",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"lmeh4ppnkjxJB2Kt": {
+				"id": "lmeh4ppnkjxJB2Kt",
+				"label": "",
+				"name": "Holy Bolt",
+				"img": "",
+				"flags": {},
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"restriction": "",
+				"type": "spell",
+				"grantType": "spell",
+				"config": {
+					"selectionType": "limited",
+					"spells": {
+						"base": [
+							"Compendium.a5e.a5e-spells.Item.tvtm60k5wxyki9qc"
+						],
+						"options": [],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {}
+					},
+					"alwaysPrepared": false,
+					"changes": "\"\"",
+					"consumerData": {
+						"type": "spell",
+						"recover": "",
+						"value": "longRest"
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [
+		{
+			"origin": "Item.VFJh3dlvsSvkow0e",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Divine Flames",
+			"img": "icons/magic/light/projectile-beam-yellow.webp",
+			"_id": "cbrdV7tghxwaI7o8",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": 1,
+				"units": "turns",
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"description": "<p>The next attack against them before the end of your next turn to have advantage.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "14.369",
+				"systemId": "a5e",
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793740493448,
+				"createdTime": 1793740493430
+			},
+			"folder": null,
+			"start": null,
+			"showIcon": 1
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.369",
+		"systemId": "a5e",
+		"systemVersion": "1.4.10",
+		"createdTime": 1793740493430,
+		"modifiedTime": 1793740944993,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "VFJh3dlvsSvkow0e"
+}

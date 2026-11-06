@@ -1,0 +1,324 @@
+{
+	"name": "Arcane Denial",
+	"type": "feature",
+	"img": "icons/magic/defensive/barrier-shield-dome-pink.webp",
+	"system": {
+		"description": "<p>At 17th level, your defensive capabilities reach their peak, allowing you to create a field of force that protects you and your allies, or contains your enemies, to a terrifying degree. As a bonus action on your turn, you can summon a translucent force-shield in the form of a 15ft diameter hemisphere centered on your space. This is a Concentration effect.</p><p>Allies within the shield’s radius when it is raised can pass out of it without issue, but no creature may enter the effect. Hostile creatures within the shield cannot pass through it. Magical effects that begin outside the effect, such as a @UUID[Compendium.a5e.a5e-spells.Item.764ocg0phxmyw7y2]{Cloudkill} spell do not affect creatures within the field, even if it is placed inside the area of effect of the spell. Your cantrips, however, pass through the field as if it were not there.</p><p>At the end of each of your turns that the field is active you must make a concentration check DC 12 plus the number of rounds the field has been active in order to maintain the effect. If you fail your concentration check, you take a level of Strife, though you can end your concentration at any time with no ill effects.</p><p>You can use this ability once per long rest for free, but if you choose to use it again it has a 2 point exertion cost.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"xXMfolpcbjDlS9wu": {
+				"name": "Arcane Denial",
+				"id": "xXMfolpcbjDlS9wu",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/defensive/barrier-shield-dome-pink.webp",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 7,
+					"width": 0,
+					"height": 0,
+					"length": 0,
+					"isAura": true,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"jq3NMfhX9zdzdCID"
+				],
+				"macro": "",
+				"consumers": {
+					"FvnnDix8WxwErmBY": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {
+					"xlCqJHAMeWjvlXNh": {
+						"range": "self",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			},
+			"ilu4c3vLpQjuq75N": {
+				"name": "Arcane Denial (Exertion)",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 7,
+					"length": 0,
+					"height": 0,
+					"width": 0,
+					"isAura": true,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"nMITtKfdzaCcb3CR"
+				],
+				"macro": "",
+				"consumers": {
+					"LTixLdMgwR4ag5HU": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 2,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {
+					"xlCqJHAMeWjvlXNh": {
+						"range": "self",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "warcaster",
+		"concentration": true,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [
+		{
+			"origin": "Item.npW7ZkOmkfqGTwU6",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Strife",
+			"img": "icons/magic/defensive/barrier-shield-dome-pink.webp",
+			"_id": "jq3NMfhX9zdzdCID",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.369",
+				"systemId": "a5e",
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793828123367,
+				"createdTime": 1793828123338
+			},
+			"folder": null,
+			"start": null,
+			"showIcon": 1
+		},
+		{
+			"origin": "Item.npW7ZkOmkfqGTwU6",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Strife",
+			"img": "icons/magic/defensive/barrier-shield-dome-pink.webp",
+			"_id": "nMITtKfdzaCcb3CR",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.369",
+				"systemId": "a5e",
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793828123368,
+				"createdTime": 1793828123338
+			},
+			"folder": null,
+			"start": null,
+			"showIcon": 1
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.369",
+		"systemId": "a5e",
+		"systemVersion": "1.4.10",
+		"createdTime": 1793828123338,
+		"modifiedTime": 1793828197227,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "npW7ZkOmkfqGTwU6"
+}

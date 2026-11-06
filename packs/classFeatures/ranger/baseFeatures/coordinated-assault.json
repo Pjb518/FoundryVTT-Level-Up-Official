@@ -1,0 +1,199 @@
+{
+	"name": "Coordinated Assault",
+	"type": "feature",
+	"img": "icons/skills/social/diplomacy-handshake.webp",
+	"system": {
+		"description": "<p>When you and a companion, animal or otherwise, act on the same initiative to attack the same target, you each gain +1d6 damage to one successful weapon attack. If you have extra attack, you and your companion each get +1d6 on two successful weapon attacks. In addition, you gain expertise on animal handling checks.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"sLwbHUtZiX2ZUW6f": {
+				"name": "Coordinated Assault",
+				"consumers": {
+					"bCjvAWOgaDqoasRH": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					},
+					"3WgMm5TsJrjsfPz9": {
+						"type": "resource",
+						"default": false,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 2,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"RFXXFsKmkOB4BnmO"
+				],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"ZyxdUG33qm8maZaC": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "",
+						"formula": "1d6",
+						"scaling": {},
+						"label": ""
+					},
+					"8QSuhC6j7zfw8kS9": {
+						"type": "damage",
+						"default": false,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "",
+						"formula": "1d6",
+						"scaling": {},
+						"label": "Extra Attack"
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "ranger",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.y6aND3BIPRpNGn4H",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Coordinated Assault",
+			"img": "icons/skills/social/diplomacy-handshake.webp",
+			"_id": "RFXXFsKmkOB4BnmO",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.skills.ani.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain expertise on animal handling checks.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567753564
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567753398,
+		"modifiedTime": 1793567753398,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "K7iyBy571KF1ZTjL"
+}

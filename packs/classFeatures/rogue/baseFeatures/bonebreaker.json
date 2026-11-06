@@ -1,0 +1,252 @@
+{
+	"name": "Bonebreaker",
+	"type": "feature",
+	"img": "icons/skills/wounds/bone-broken-marrow-red.webp",
+	"system": {
+		"description": "<p>When you deal sneak attack damage to a target with a weapon that deals bludgeoning or slashing damage, either reduce the target’s movement by 10ft or cause your target to become incapable of gaining advantage or expertise on attack rolls. In either case, it lasts until the start of your next turn.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"uQYCeCMMA2ix3zzP": {
+				"name": "Bonebreaker",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"eP2XZftaFmdFb4xE",
+					"dMzEvvqwMTofQ6h0"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "rogue",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [
+		{
+			"origin": "Item.tcmGVlIF3FOHP77U",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": [
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"type": "subtract",
+						"value": "10",
+						"phase": "initial",
+						"priority": 0
+					}
+				]
+			},
+			"name": "Reduce Movement",
+			"img": "icons/skills/wounds/bone-broken-marrow-red.webp",
+			"_id": "eP2XZftaFmdFb4xE",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": 1,
+				"units": "rounds",
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"description": "<p>Reduce the target’s movement by 10ft.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "14.369",
+				"systemId": "a5e",
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793917812485,
+				"createdTime": 1793917787450
+			},
+			"folder": null,
+			"start": null,
+			"showIcon": 1
+		},
+		{
+			"origin": "Item.tcmGVlIF3FOHP77U",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "No Advantage or Expertise",
+			"img": "icons/skills/wounds/bone-broken-marrow-red.webp",
+			"_id": "dMzEvvqwMTofQ6h0",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": 1,
+				"units": "rounds",
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"description": "<p>Incapable of gaining advantage or expertise on attack rolls.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "14.369",
+				"systemId": "a5e",
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793917787467,
+				"createdTime": 1793917787450
+			},
+			"folder": null,
+			"start": null,
+			"showIcon": 1
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.369",
+		"systemId": "a5e",
+		"systemVersion": "1.4.10",
+		"createdTime": 1793917787450,
+		"modifiedTime": 1793917819929,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "tcmGVlIF3FOHP77U"
+}

@@ -1,0 +1,225 @@
+{
+	"folder": null,
+	"name": "Bullet Hell",
+	"type": "feature",
+	"img": "icons/weapons/ammunition/bullets-cartridge-shell-gray.webp",
+	"system": {
+		"description": "<p>At 17th level, your mastery of Gun-fu is unparalleled. You wield light firearms as extensions of your own body, and no example of Gun-fu will ever be as encapsulating of that fact as the unleashing of Bullet Hell.  As an action, expend 3 exertion and make an attack roll with advantage. Ignoring cover, including total cover of 1 inch or less of stone or up to 4 inches of wood, compare your attack roll to the AC of any number of hostile creatures of your choosing within your light firearm's normal range. On a hit, they take damage as if you shot them with your light firearm.</p><p>Should you critically hit, each target must make a Wisdom save or be stunned until the start of your next turn.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"SgmAXkrjhK12ebe1": {
+				"name": "Bullet Hell",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"RZnu5vjD5A0yMoWK": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 3,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"NRzJxnHCp6uBvGSp"
+				],
+				"macro": "",
+				"prompts": {
+					"7MKxV04bCfBD0fP3": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "wis",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "adept",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [
+		{
+			"origin": "Item.3YYojQIJMcn9uUvE",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"stunned"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				]
+			},
+			"name": "Stunned",
+			"img": "icons/weapons/guns/gun-pistol-brown.webp",
+			"_id": "NRzJxnHCp6uBvGSp",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": 1,
+				"units": "rounds",
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"description": "<ul><li><p>A stunned creature is incapacitated (see the condition), can't move, and can speak only falteringly.</p></li><li><p>The creature automatically fails Strength and Dexterity saving throws.</p></li><li><p>Attack rolls against the creature have advantage.</p></li><li><p>A creature that is immune to being stunned is immune to being rattled.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"stunned"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "14.369",
+				"systemId": "a5e",
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793903807893,
+				"createdTime": 1793903779290
+			},
+			"folder": null,
+			"showIcon": 2,
+			"start": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.369",
+		"systemId": "a5e",
+		"systemVersion": "1.4.10",
+		"createdTime": 1793903779290,
+		"modifiedTime": 1793913306983,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "3YYojQIJMcn9uUvE"
+}

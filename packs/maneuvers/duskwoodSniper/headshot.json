@@ -1,0 +1,176 @@
+{
+	"name": "Headshot",
+	"type": "maneuver",
+	"img": "icons/weapons/ammunition/arrow-broadhead-glowing-orange.webp",
+	"system": {
+		"description": "<p>Striking the brain of a creature can be a lethal shot, but in some cases it disorients, disables, or redirects an enemy to lash out at anyone within range. Make a ranged weapon attack which deals damage as normal. On a hit, your target must make an Intelligence save or become [[/condition id=confused]] for up to 1 minute. Your target may make additional saving throws at the end of each of their turns to end this effect.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"Libb9vJzOs4fFrRK": {
+				"name": "Headshot",
+				"consumers": {
+					"jpyu7QTclfkbEVn1": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 2,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"gwx7AIrbWCaKaaWR"
+				],
+				"macro": "",
+				"prompts": {
+					"BKEPSX2o1X7CXXwq": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "int",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"degree": 4,
+		"exertionCost": 2,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "duskwoodSniper"
+	},
+	"effects": [
+		{
+			"origin": "Item.tzcTcpel5buhHGIt",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Confused",
+			"img": "icons/weapons/ammunition/arrow-broadhead-glowing-orange.webp",
+			"_id": "gwx7AIrbWCaKaaWR",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"confused\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A confused creature can't take reactions.</p></li><li><p>On its turn a confused creature rolls a [[/r 1d8]] to determine what it does.</p><ul><li><p>On a 1 to 4, a confused creature does nothing.</p></li><li><p>On a 5 or 6, a confused creature takes no action or bonus action and uses all its movement to move in a randomly determined direction.</p></li><li><p>On a 7 or 8, a confused creature makes a melee attack against a randomly determined creature within its reach or does nothing if it can't make such an attack.</p></li></ul></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"confused"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567813215
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567813045,
+		"modifiedTime": 1793567813045,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "DbhAbtHFvSqnGmZx"
+}

@@ -1,0 +1,242 @@
+{
+	"name": "Deathgrip",
+	"type": "maneuver",
+	"img": "icons/magic/unholy/hand-claw-glow-orange.webp",
+	"system": {
+		"actions": {
+			"ODaJSQ4aMfVVbnwW": {
+				"name": "Deathgrip",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"9MsCVkz0ZJ0JIAjy": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 4,
+						"classIdentifier": "",
+						"restore": false,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"V3JorzuQJL8OkWqy": {
+						"type": "damage",
+						"default": true,
+						"critBonus": "",
+						"label": "",
+						"formula": "@prof",
+						"damageType": "necrotic",
+						"canCrit": false,
+						"scaling": {}
+					},
+					"Bbe14DsgBLEEoN8u": {
+						"type": "damage",
+						"default": false,
+						"label": "Cursed",
+						"formula": "1d6 + @prof",
+						"canCrit": false,
+						"damageType": "necrotic",
+						"critBonus": "",
+						"scaling": {}
+					}
+				},
+				"prompts": {
+					"sboVPfYawYXXJ8Oz": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"ranges": {
+					"EWtirXt3mV16kXnZ": {
+						"range": 20,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1,
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [
+					"FCxeia4so0KhEATn",
+					"j91Y4Ixy3hZgIBQG"
+				],
+				"macro": ""
+			}
+		},
+		"description": "<p>A phantasmal hand launches from you toward your target and clutches about their throat; digging sickly green claws into their flesh, it lifts them upward. A creature within 20ft becomes restrained and takes necrotic damage equal to your proficiency bonus, or 1d6 + proficiency bonus if cursed. They may use a bonus action to make Strength Saves to end the effect.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "gpg11",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"degree": 4,
+		"exertionCost": 4,
+		"isStance": true,
+		"prerequisite": "",
+		"tradition": "eldritchBlackguardMartialArtistry",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.yZbxFdfyKdtpk7pn",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Restrained",
+			"img": "icons/magic/unholy/hand-claw-glow-orange.webp",
+			"_id": "FCxeia4so0KhEATn",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"restrained\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A restrained creature's Speed becomes 0, and it can't benefit from bonuses to speed.</p></li><li><p>Attack rolls against a restrained creature are made with advantage.</p></li><li><p>A restrained creature makes attack rolls with disadvantage.</p></li><li><p>The restrained creature has disadvantage on Dexterity saving throws.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"restrained"
+			],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567813230
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.yZbxFdfyKdtpk7pn",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Deathgrip",
+			"img": "icons/magic/unholy/hand-claw-glow-orange.webp",
+			"_id": "j91Y4Ixy3hZgIBQG",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567813230
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567813045,
+		"modifiedTime": 1793567813045,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "jG0QHc3R8at0pIQe"
+}

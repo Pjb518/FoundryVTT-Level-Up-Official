@@ -589,6 +589,17 @@ export const products: Record<string, ProductEntry> = {
 		url: '',
 		excludeFromWiki: true,
 	},
+	martialArtistry: {
+		abbreviation: 'MA',
+		affiliate: true,
+		category: 'premium',
+		publisher: 'steampunkette',
+		systems: ['a5e'],
+		title: 'Martial Artistry',
+		url: 'https://www.drivethrurpg.com/en/product/526346/martial-artistry-a-compendium-of-combat-for-a5e-and-5e-compatible-games?affiliate_id=1388381',
+		moduleName: 'a5e-martial-artistry',
+		moduleDeprecated: true,
+	},
 	moarComplete: {
 		abbreviation: 'MoAR',
 		affiliate: true,

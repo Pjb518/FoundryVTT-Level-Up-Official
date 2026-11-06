@@ -15,21 +15,39 @@
 				},
 				"duration": {
 					"unit": "round",
-					"value": "1"
+					"value": "1",
+					"concentration": false
 				},
 				"ranges": {
 					"al94e8mRmJ0H50vM": {
-						"range": "long"
+						"range": "long",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
+					"shape": "none",
+					"quantity": 1,
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				},
 				"target": {
-					"quantity": "",
-					"type": "creature"
+					"quantity": 0,
+					"type": "creature",
+					"heard": false,
+					"otherText": "",
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
 				},
 				"rolls": {
 					"Dvc81NtaaQR9zJgs": {
@@ -37,25 +55,60 @@
 						"critThreshold": 20,
 						"type": "attack",
 						"attackType": "rangedSpellAttack",
-						"ability": "spellcasting"
+						"ability": "spellcasting",
+						"proficient": true,
+						"default": true,
+						"label": ""
 					},
 					"9FPRNSAhPQxFaDz4": {
 						"canCrit": true,
 						"damageType": "necrotic",
 						"formula": "1d8",
-						"name": "",
 						"type": "damage",
 						"scaling": {
 							"mode": "cantrip",
 							"formula": "1d8",
 							"config": {
-								"value": "1d8"
+								"value": "1d8",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
 							}
-						}
+						},
+						"critBonus": "",
+						"die": {
+							"modifiers": []
+						},
+						"default": true,
+						"label": ""
 					}
 				},
 				"consumers": {},
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
 			}
 		},
 		"description": "<p>You reach out with a spectral hand that carries the chill of death. Make a ranged spell attack. On a hit, the target takes 1d8 necrotic damage, and it cannot regain hit points until the start of your next turn. The hand remains visibly clutching onto the target for the duration. If the target you hit is undead, it makes attack rolls against you with disadvantage until the end of your next turn.</p><p>The spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
@@ -68,14 +121,20 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"classes": [
 			"artificer",
 			"sorcerer",
 			"warlock",
-			"wizard"
+			"wizard",
+			"warcaster"
 		],
 		"components": {
 			"vocalized": true,
@@ -100,17 +159,24 @@
 			]
 		},
 		"spellBook": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"slug": "",
+		"tags": [],
+		"disciplines": []
 	},
 	"folder": null,
-	"_id": "bpkked98u8mb2q3w",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.4.10",
+		"createdTime": 1793836971327,
+		"modifiedTime": 1793836971327,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "bpkked98u8mb2q3w"
 }

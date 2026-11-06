@@ -1,0 +1,256 @@
+{
+	"name": "Press Gang",
+	"type": "feature",
+	"img": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+	"system": {
+		"description": "<p>At 6th level, you’ve gained some skill in press ganging. When striking a target that is unaware of your hostile intent and attempting to attack them in a nonlethal manner, you deal additional damage equal to your level. If this damage would make your target bloodied, or if they are already bloodied, they must make a Constitution save or be rendered [[/condition id=unconscious]] for 1 minute.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"8F0QP4WQJzdc9UGi": {
+				"name": "Press Gang",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"8460qKdWJm8Kw38I"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {
+					"JzLJ3DOfaoyysaua": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "sentinel",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"YmHOpolA0rQ5qhWZ": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Press Gang",
+				"bonus": "@class.sentinel.level",
+				"context": {
+					"default": false,
+					"attackTypes": [],
+					"damageTypes": [],
+					"isCritBonus": false,
+					"spellLevels": []
+				},
+				"id": "",
+				"name": "Press Gang",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"type": "damage",
+				"config": {
+					"damageType": "",
+					"bonus": "@classes.sentinel.level",
+					"context": {
+						"attackTypes": [],
+						"damageTypes": [],
+						"isCritBonus": false,
+						"spellLevels": [],
+						"default": false
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "bonus",
+					"bonusId": "",
+					"bonusType": ""
+				},
+				"damageType": ""
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [
+		{
+			"origin": "Item.4gWDcsdqogn9UD4m",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"unconscious"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				]
+			},
+			"name": "Unconscious",
+			"img": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+			"_id": "8460qKdWJm8Kw38I",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"description": "<ul><li><p>An unconscious creature is incapacitated, can't move or speak, and is unaware of its surroundings.</p></li><li><p>An unconscious creature drops whatever it's holding and falls prone.</p></li><li><p>An unconscious creature automatically fails Strength and Dexterity saving throws.</p></li><li><p>Attack rolls against an unconscious creature are made with advantage.</p></li><li><p>Any attack that hits an unconscious creature is a critical hit if the attacker is within 5 feet.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"unconscious"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "14.369",
+				"systemId": "a5e",
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793815415436,
+				"createdTime": 1793815376337
+			},
+			"folder": null,
+			"showIcon": 2,
+			"start": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.369",
+		"systemId": "a5e",
+		"systemVersion": "1.4.10",
+		"createdTime": 1793815376337,
+		"modifiedTime": 1793815418700,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "4gWDcsdqogn9UD4m"
+}

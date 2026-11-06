@@ -8,7 +8,8 @@
 				"name": "Cast Spell",
 				"activation": {
 					"type": "action",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {},
 				"rolls": {
@@ -21,10 +22,18 @@
 							"mode": "cantrip",
 							"formula": "1d6",
 							"config": {
-								"value": "1d6"
+								"value": "1d6",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
 							}
 						},
-						"canCrit": false
+						"canCrit": false,
+						"critBonus": "",
+						"die": {
+							"modifiers": []
+						},
+						"label": ""
 					}
 				},
 				"prompts": {
@@ -33,9 +42,11 @@
 						"default": true,
 						"ability": "str",
 						"saveDC": {
-							"type": "spellcasting"
+							"type": "spellcasting",
+							"bonus": ""
 						},
-						"onSave": "Strength negates"
+						"onSave": "Strength negates",
+						"label": ""
 					}
 				},
 				"uses": {
@@ -44,23 +55,60 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
 						"threshold": 6
 					}
 				},
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "instantaneous",
+					"value": "0",
+					"concentration": false
 				},
 				"ranges": {
 					"2GK8LehpvrGxHetQ": {
-						"range": "short"
+						"range": "short",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"target": {
 					"type": "creatureObject",
-					"quantity": 1
-				}
+					"quantity": 1,
+					"heard": false,
+					"otherText": "",
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"effects": [],
+				"macro": ""
 			}
 		},
 		"description": "<p>You unleash a jet of condensed air which threatens to damage property and lift creatures off their feet. One target within range must make a Strength saving throw. On a fail, it takes 1d6 bludgeoning damage; if the target is Large-sized or smaller, it is also pushed 5 feet. The damage increases by 1d6 and the distance increases by 5 when you reach 5th level (2d6, 10 feet), 11th level (3d6, 15 feet), and 17th level (4d6, 20 feet).</p>",
@@ -73,13 +121,19 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
+				"threshold": 6,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
 				"threshold": 6
 			}
 		},
 		"classes": [
 			"sorcerer",
 			"witch",
-			"druid"
+			"druid",
+			"warcaster"
 		],
 		"components": {
 			"vocalized": true,
@@ -101,19 +155,26 @@
 			]
 		},
 		"spellBook": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"slug": "",
+		"tags": [],
+		"disciplines": []
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
-	"_id": "qc1twosyysl11i9e",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.4.10",
+		"createdTime": 1793836952993,
+		"modifiedTime": 1793836952993,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "qc1twosyysl11i9e"
 }

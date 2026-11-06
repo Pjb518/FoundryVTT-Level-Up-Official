@@ -1,0 +1,385 @@
+{
+	"folder": null,
+	"name": "Poison and Pollution",
+	"type": "feature",
+	"img": "icons/magic/acid/dissolve-drip-droplet-smoke.webp",
+	"system": {
+		"description": "<p>You gain resistance to Poison damage and advantage on saving throws against Disease or Poison effects. In addition, you can use a bonus action to envenom your weapons. Doing so causes your next successful attack before the start of your next turn to deal 1d4 ongoing poison damage for up to 1 minute. You may use this ability a number of times equal to your Constitution modifier and recover all uses at the end of a short or long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"91BN0RhNRt7HURTW": {
+				"name": "Poison and Pollution",
+				"consumers": {
+					"sSAb4YIgKxut8HYk": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"id": "91BN0RhNRt7HURTW",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/nature/plant-vines-skull-green.webp",
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"NbRsfidMGyx2ABRf",
+					"Bb8eNY77M7TcHs9y"
+				],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			},
+			"OrhAwlrw8Qdilvf6": {
+				"name": "Ongoing Damage",
+				"consumers": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"Kq8qtkTw0S0HMnHo": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "poison",
+						"formula": "1d4",
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							},
+							"mode": ""
+						},
+						"label": "",
+						"die": {
+							"modifiers": []
+						}
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "@con.mod",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "druid",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"TBVujFm7S9RmMe4W": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Poison and Pollution",
+				"traits": {
+					"base": [],
+					"options": [],
+					"total": 0,
+					"traitType": "damageResistances"
+				},
+				"id": "",
+				"name": "Poison and Pollution",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"type": "trait",
+				"config": {
+					"traits": {
+						"base": [
+							"poison"
+						],
+						"options": [],
+						"total": 1,
+						"traitType": "damageResistances"
+					},
+					"upgradeResist": false,
+					"resistance": {
+						"bonus": 0,
+						"expertiseDice": 0,
+						"maxRoll": 20,
+						"minRoll": 1,
+						"rollMode": 0
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "trait",
+					"selected": [],
+					"upgraded": [],
+					"total": 0,
+					"traitType": "",
+					"resistanceIds": []
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [
+		{
+			"origin": "Item.eW6kmWFrWsduVuLE",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Poison and Pollution",
+			"img": "icons/magic/nature/plant-vines-skull-green.webp",
+			"_id": "NbRsfidMGyx2ABRf",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": 1,
+				"units": "rounds",
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"description": "<p>Next successful attack before the start of your next turn to deal 1d4 ongoing poison damage for up to 1 minute.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "14.369",
+				"systemId": "a5e",
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793904756161,
+				"createdTime": 1793904756135
+			},
+			"folder": null,
+			"start": null,
+			"showIcon": 1
+		},
+		{
+			"origin": "Item.eW6kmWFrWsduVuLE",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Envenomed",
+			"img": "icons/magic/nature/plant-vines-skull-green.webp",
+			"_id": "Bb8eNY77M7TcHs9y",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"description": "<p>1d4 ongoing poison damage for up to 1 minute.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "14.369",
+				"systemId": "a5e",
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793904756162,
+				"createdTime": 1793904756135
+			},
+			"folder": null,
+			"start": null,
+			"showIcon": 1
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.369",
+		"systemId": "a5e",
+		"systemVersion": "1.4.10",
+		"createdTime": 1793904756135,
+		"modifiedTime": 1793913306981,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "eW6kmWFrWsduVuLE"
+}

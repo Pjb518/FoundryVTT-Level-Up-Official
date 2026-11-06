@@ -1,0 +1,190 @@
+{
+	"name": "Gunslinger’s Grit",
+	"type": "feature",
+	"img": "icons/skills/ranged/cannon-barrel-firing-orange.webp",
+	"system": {
+		"description": "<p>Finally, at level 1, you gain access to two special abilities and 1 exertion to power them. You gain additional exertion as you level up. Any saving throw against your grit abilities uses your combat maneuver DC. All options cost 1 exertion. Your grit stacks with exertion from other sources.</p><p><strong>Bite the Bullet:</strong> As a reaction to taking damage from a ranged attack, you may reduce the damage by 1d6 + your Constitution modifier.</p><p><strong>Duck and Roll:</strong> As a bonus action, you may dive and roll ignoring difficult terrain and moving up to 15ft without provoking opportunity attacks. If your roll puts you into cover, treat half cover as three-quarters cover and three-quarters cover as total cover.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"e84uXBxGEKTkWxn7": {
+				"name": "Bite the Bullet",
+				"id": "e84uXBxGEKTkWxn7",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/ranged/cannon-barrel-firing-orange.webp",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "Taking damage from a ranged attack"
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"ggDW3HKIQf6GPcop": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"j6PgcUWdawMAbq5I": {
+						"type": "healing",
+						"default": true,
+						"formula": "1d6 + @con.mod",
+						"healingType": "healing",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"T2jsa3tmYCbmCJHa": {
+				"name": "Duck and Roll",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"FD5gNEGECWQJC8wO": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "gunslinger",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"L2UViMQpyFbVOgRX": {
+				"grantType": "exertion",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "L2UViMQpyFbVOgRX",
+				"label": "Gunslinger’s Grit",
+				"exertionType": "bonus",
+				"bonus": "@classResources.grit"
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567752755,
+		"modifiedTime": 1793567752755,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "ASowcvXZ64ksgd7G"
+}

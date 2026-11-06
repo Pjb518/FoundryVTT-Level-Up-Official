@@ -1,0 +1,213 @@
+{
+	"name": "Defensive (Casting Style Improvement)",
+	"type": "feature",
+	"img": "icons/magic/defensive/shield-barrier-flaming-diamond-blue-yellow.webp",
+	"system": {
+		"description": "<p>Allies within your threatened area also gain a +1 bonus to AC if you are wearing magical armor or are under the effects of the @UUID[Compendium.a5e.a5e-spells.Item.ip8c3zrbrngrx1oe]{Mage Armor} spell.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"wFrrSTCsPpyLIIga": {
+				"name": "Defensive (Casting Style Improvement)",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"Alv6g16qT5R26KnV"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {
+					"FfU6C9lRgMJDsYGu": {
+						"range": "self",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "emanation",
+					"length": 0,
+					"height": 0,
+					"radius": 10,
+					"width": 0,
+					"isAura": true,
+					"behaviors": {
+						"JspM9hIBHM0ccEAS": {
+							"name": "Defensive",
+							"type": "applyActiveEffect",
+							"isAura": true,
+							"dispositions": [
+								1
+							],
+							"creatureSizes": [],
+							"creatureTypes": [],
+							"effects": [
+								"Item.MsMHLtv1IRtUFRJX.ActiveEffect.Alv6g16qT5R26KnV"
+							]
+						}
+					},
+					"scaling": {}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "warcaster",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [
+		{
+			"origin": "Item.MsMHLtv1IRtUFRJX",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": [
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"type": "add",
+						"value": "1",
+						"phase": "initial",
+						"priority": 0
+					}
+				]
+			},
+			"name": "Defensive",
+			"img": "icons/magic/defensive/shield-barrier-glowing-triangle-blue.webp",
+			"_id": "Alv6g16qT5R26KnV",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Allies within your threatened area also gain a +1 bonus to AC.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.369",
+				"systemId": "a5e",
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793827913955,
+				"createdTime": 1793827878072
+			},
+			"folder": null,
+			"start": null,
+			"showIcon": 1
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.369",
+		"systemId": "a5e",
+		"systemVersion": "1.4.10",
+		"createdTime": 1793827878072,
+		"modifiedTime": 1793827949415,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "MsMHLtv1IRtUFRJX"
+}

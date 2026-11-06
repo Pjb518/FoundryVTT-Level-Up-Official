@@ -1,0 +1,373 @@
+{
+	"name": "Journeyman Mage",
+	"type": "feature",
+	"img": "icons/magic/symbols/rune-sigil-red-orange.webp",
+	"system": {
+		"description": "<p>At 7th level, your apprentice mage’s spellcasting ability improves further. They gain the @UUID[Compendium.a5e.a5e-spells.Item.4gcxix2l4zvy9kdu]{Message} cantrip and may cast @UUID[Compendium.a5e.a5e-spells.Item.ztgij3hd5gktogqt]{Hold Person} and @UUID[Compendium.a5e.a5e-spells.Item.7e9cvnpmbg3knm9l]{Shatter} each once per long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"USdJicBQlalm1VCa": {
+				"name": "Hold Person",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1",
+					"concentration": false
+				},
+				"ranges": {
+					"rmPJFnEeukXjCUNG": {
+						"range": "medium",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"area": {
+					"shape": "none",
+					"quantity": 1,
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"target": {
+					"quantity": 0,
+					"type": "creature",
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"prompts": {
+					"Npdatp8WDrXifPQc": {
+						"ability": "wis",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
+					}
+				},
+				"consumers": {
+					"sJbFEeOMmph5VwnY": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"effects": [
+					"zKv09PTWNhMQuf3L"
+				],
+				"id": "USdJicBQlalm1VCa",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/control/debuff-chains-blue.webp",
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			},
+			"84t0aIc1rzsqEv3y": {
+				"name": "Shatter",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": "",
+					"concentration": false
+				},
+				"ranges": {
+					"EvHFEGUcyQTmKGf3": {
+						"range": "medium",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"radius": 10,
+					"quantity": 1,
+					"length": 0,
+					"height": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"target": {
+					"quantity": 0,
+					"type": "",
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"rolls": {
+					"C3oTsTKrSzRw6k20": {
+						"canCrit": false,
+						"damageType": "thunder",
+						"formula": "3d8",
+						"type": "damage",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d8",
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							}
+						},
+						"critBonus": "",
+						"default": true,
+						"label": "",
+						"die": {
+							"modifiers": []
+						}
+					}
+				},
+				"prompts": {
+					"bsqDTMKJveP4gUoq": {
+						"ability": "con",
+						"onSave": "Constitution halves.",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
+					}
+				},
+				"consumers": {
+					"MDDaDLTPurSc3rQx": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/sonic/explosion-shock-wave-teal.webp",
+				"effects": [],
+				"macro": "",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "sentinel",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"D8gG5AhUDivXeBIr": {
+				"id": "D8gG5AhUDivXeBIr",
+				"label": "",
+				"name": "Journeyman Mage",
+				"img": "",
+				"flags": {},
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"restriction": "",
+				"type": "spell",
+				"grantType": "spell",
+				"config": {
+					"selectionType": "limited",
+					"spells": {
+						"base": [
+							"Compendium.a5e.a5e-spells.Item.4gcxix2l4zvy9kdu"
+						],
+						"options": [],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {}
+					},
+					"alwaysPrepared": false,
+					"changes": null,
+					"consumerData": {
+						"type": "spell",
+						"recover": "",
+						"value": "longRest"
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [
+		{
+			"origin": "Item.Aglvuw21G3jb85Il",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Held",
+			"_id": "zKv09PTWNhMQuf3L",
+			"disabled": false,
+			"duration": {
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"description": "<p>The target is paralyzed. At the end of each of its turns, the target makes another saving throw, ending the spell's effects on it on a successful save.</p>",
+			"statuses": [
+				"paralyzed"
+			],
+			"_stats": {
+				"coreVersion": "14.369",
+				"systemId": "a5e",
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793807632469,
+				"createdTime": 1793807632451
+			},
+			"img": "icons/magic/control/debuff-chains-blue.webp",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null,
+			"showIcon": 2,
+			"start": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.369",
+		"systemId": "a5e",
+		"systemVersion": "1.4.10",
+		"createdTime": 1793807632451,
+		"modifiedTime": 1793807653997,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "Aglvuw21G3jb85Il"
+}

@@ -1,0 +1,689 @@
+{
+	"name": "Adept Mage",
+	"type": "feature",
+	"img": "icons/magic/symbols/rune-sigil-black-pink.webp",
+	"system": {
+		"description": "<p>At 13th level, your apprentice mage can cast two of the following spells per long rest: @UUID[Compendium.a5e.a5e-spells.Item.hms9kdl2qoqjjrs4]{Dispel Magic}, @UUID[Compendium.a5e.a5e-spells.Item.eylrruf1qarmqngq]{Magic Circle}, and @UUID[Compendium.a5e.a5e-spells.Item.yxv1t526gv41a6uc]{Slow}. In addition, they may cast one of the @UUID[Compendium.a5e.a5e-class-features.Item.Aglvuw21G3jb85Il]{Journeyman Mage} and @UUID[Compendium.a5e.a5e-class-features.Item.MZZLPAA5NjvOaQrq]{Tricky Training} spells twice per long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"BChQ8uACHDH01Zjg": {
+				"name": "Dispel Magic",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"TBb5HLRP8RqIxjlD": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 0,
+					"type": "creatureObject",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"consumers": {
+					"3YhxQ4b9bekFdjPr": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"id": "BChQ8uACHDH01Zjg",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/lightning/bolt-strike-explosion-blue.webp",
+				"effects": [],
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"eDfQQ2TpVPWe41KA": {
+				"name": "Magic Circle",
+				"activation": {
+					"cost": 1,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "1"
+				},
+				"ranges": {
+					"bePypHrv0addlE0a": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "cylinder",
+					"radius": "10",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 0,
+					"type": "",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"consumers": {
+					"aE6C8X59eQZRta31": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"id": "eDfQQ2TpVPWe41KA",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/symbols/runes-star-pentagon-orange-purple.webp",
+				"effects": [],
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"xEEZDeQynMpQBKj9": {
+				"name": "Slow",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"P7zM7y5gK6auQG95": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "cube",
+					"width": "40",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 0,
+					"type": "",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"prompts": {
+					"rxgMWdskeKlIcFPZ": {
+						"ability": "wis",
+						"onSave": "Negates effect and rattled for one round",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
+					}
+				},
+				"consumers": {
+					"OQoEBCXySFqpjcOm": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"effects": [
+					"TpcAe7RH0iTMfTd8"
+				],
+				"id": "xEEZDeQynMpQBKj9",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/time/hourglass-yellow-green.webp",
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"JYhiQlZ02RvlrED8": {
+				"name": "Hold Person",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"rmPJFnEeukXjCUNG": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 0,
+					"type": "creature",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"prompts": {
+					"Npdatp8WDrXifPQc": {
+						"ability": "wis",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
+					}
+				},
+				"consumers": {
+					"U7W30FB601pDPAi6": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "adept-mage",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"effects": [
+					"LHOX1OHBndMISWLP"
+				],
+				"id": "JYhiQlZ02RvlrED8",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/control/debuff-chains-blue.webp",
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"EqTyU4daMitkCEil": {
+				"name": "Shatter",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"EvHFEGUcyQTmKGf3": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"radius": "10",
+					"placeTemplate": true
+				},
+				"target": {
+					"quantity": 0,
+					"type": "",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"rolls": {
+					"C3oTsTKrSzRw6k20": {
+						"canCrit": false,
+						"damageType": "thunder",
+						"formula": "3d8",
+						"type": "damage",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d8"
+						},
+						"critBonus": "",
+						"default": true,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"bsqDTMKJveP4gUoq": {
+						"ability": "con",
+						"onSave": "Constitution halves.",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
+					}
+				},
+				"consumers": {
+					"fPSkC7BPW5KviD0a": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "adept-mage",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "EqTyU4daMitkCEil",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/sonic/explosion-shock-wave-teal.webp",
+				"effects": [],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"JP6i9J3wa2XZjbVj": {
+				"name": "Color Spray",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "round",
+					"value": "1"
+				},
+				"ranges": {
+					"h6n4jeQH8M79f8fY": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "cone",
+					"length": 15,
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 0,
+					"type": "",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"consumers": {
+					"xbVdwNhZt0Ug6QkV": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "adept-mage",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"oBGd6ysFUceyrL5h": {
+						"type": "generic",
+						"default": true,
+						"formula": "6d10",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "2d10"
+						},
+						"label": "Hit Point Pool"
+					}
+				},
+				"prompts": {},
+				"id": "JP6i9J3wa2XZjbVj",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/light/beams-rays-orange-purple-small.webp",
+				"effects": [],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"SBTHEkjJ0nRtbJQI": {
+				"name": "Grease",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"BUdL0wxxhsJgZimT": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "square",
+					"width": "10",
+					"placeTemplate": true,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 0,
+					"type": "",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"prompts": {
+					"x3fsh7AbWzZKqIT6": {
+						"ability": "dex",
+						"onSave": "Dexterity negates",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
+					}
+				},
+				"consumers": {
+					"8V383b9hQr8JgXn6": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "adept-mage",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/water/vortex-water-whirlpool-blue.webp",
+				"effects": [],
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 2,
+			"max": "2",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "sentinel",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.A9I8ksISkN02N1oo",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Slowed",
+			"_id": "TpcAe7RH0iTMfTd8",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"slowed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>If a slowed target casts a spell with a casting time of 1 action, roll a d20. On an 11 or higher, the target doesn't finish casting the spell until its next turn. The target must use its action on that turn to complete the spell or the spell fails.</p><p>At the end of each of its turns, a slowed target repeats the saving throw to end the spell's effect on it.</p>",
+			"statuses": [
+				"slowed"
+			],
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567752330
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"img": "icons/magic/time/hourglass-yellow-green.webp",
+			"type": "base",
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.A9I8ksISkN02N1oo",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Held",
+			"_id": "LHOX1OHBndMISWLP",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"paralyzed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target is paralyzed. At the end of each of its turns, the target makes another saving throw, ending the spell's effects on it on a successful save.</p>",
+			"statuses": [
+				"paralyzed"
+			],
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567752330
+			},
+			"img": "icons/magic/control/debuff-chains-blue.webp",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567752092,
+		"modifiedTime": 1793567752092,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "GKOffznzzc2xeuJ9"
+}

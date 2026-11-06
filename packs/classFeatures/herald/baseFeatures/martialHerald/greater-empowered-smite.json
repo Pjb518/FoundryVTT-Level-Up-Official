@@ -1,0 +1,560 @@
+{
+	"name": "Greater Empowered Smite",
+	"type": "feature",
+	"img": "icons/skills/melee/strike-axe-energy-pink.webp",
+	"system": {
+		"description": "<p>At 8th level, you learn the following new empowered smites and can use the feature twice at no cost in-between long rests.</p><h2>Blinding Smite</h2><p>The target makes a Constitution saving throw. On a failure, it is blinded for 1 minute. At the end of each of its turns, the target can repeat the saving throw, ending the effect on a success.</p><h2>Disorienting Smite</h2><p>Your weapon’s damage type becomes psychic damage and the target makes a Wisdom saving throw. On a failed save, it has disadvantage on attack rolls for 1 minute. At the end of each of its turns, the target can repeat the saving throw, ending the effect on a success.</p><h2>Taunting Smite</h2><p>The target makes a Wisdom saving throw. On a failed save, it takes an additional 1d6 radiant damage when attacking a creature other than you and cannot make opportunity attacks against anyone but you. This effect lasts up to 1 minute, and the target can repeat the saving throw at the end of each of its turns, ending the effect on a success.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"MoZaPiGrFbMAAN6Y": {
+				"name": "Blinding Smite",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"G8OqSQX7NhibIgWZ": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.empowered-smite",
+						"resource": "classResource",
+						"quantity": 1,
+						"label": ""
+					},
+					"3gQwfWBlNeVnX4u7": {
+						"type": "resource",
+						"default": false,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 3,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"LuIRynywRZptduzY": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"effects": [
+					"GJ4xzv6HRq5o17BN"
+				],
+				"id": "MoZaPiGrFbMAAN6Y",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/melee/strike-axe-energy-pink.webp",
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			},
+			"lZJSAEyVc6P6xdl5": {
+				"name": "Disorienting Smite",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"sAk66xB7bQdqq3uJ": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.empowered-smite",
+						"resource": "classResource",
+						"quantity": 1,
+						"label": ""
+					},
+					"w11Pz6ctRHQNSglm": {
+						"type": "resource",
+						"default": false,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 3,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"IYhyDysm6nFtJzDp": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"effects": [
+					"AAHSQFnGUzbGwIZ3"
+				],
+				"id": "lZJSAEyVc6P6xdl5",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/melee/strike-axe-energy-pink.webp",
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			},
+			"Dvs7CriZ9vlMTc4L": {
+				"name": "Taunting Smite",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"G3h3xw1rLpJODjT1": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.empowered-smite",
+						"resource": "classResource",
+						"quantity": 1,
+						"label": ""
+					},
+					"aBRbljFd1kxgiIzT": {
+						"type": "resource",
+						"default": false,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 3,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"Hx2IxSLIpxIK9UY0": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "radiant",
+						"formula": "1d6",
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							},
+							"mode": ""
+						},
+						"label": "",
+						"die": {
+							"modifiers": []
+						}
+					}
+				},
+				"prompts": {
+					"yIOWxhXjAMiTIHnh": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					},
+					"VyQGueJhJKuvpgQm": {
+						"type": "generic",
+						"default": true,
+						"label": "Failed Save",
+						"formula": "1d6"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/melee/strike-axe-energy-pink.webp",
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"RAeoLDyFCVUohvdc"
+				],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "herald",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [
+		{
+			"origin": "Item.fheQitalmvTdnZvx",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blinded",
+			"_id": "GJ4xzv6HRq5o17BN",
+			"disabled": false,
+			"duration": {
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"description": "",
+			"statuses": [
+				"blinded"
+			],
+			"_stats": {
+				"coreVersion": "14.369",
+				"systemId": "a5e",
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793917336340,
+				"createdTime": 1793917325035
+			},
+			"img": "icons/skills/melee/strike-axe-energy-pink.webp",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"blinded"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				]
+			},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null,
+			"showIcon": 2,
+			"start": null
+		},
+		{
+			"origin": "Item.fheQitalmvTdnZvx",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Disorienting Smite",
+			"_id": "AAHSQFnGUzbGwIZ3",
+			"disabled": false,
+			"duration": {
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"description": "<p>Disadvantage on attack rolls.</p>",
+			"statuses": [],
+			"_stats": {
+				"coreVersion": "14.369",
+				"systemId": "a5e",
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793917355976,
+				"createdTime": 1793917325035
+			},
+			"img": "icons/skills/melee/strike-axe-energy-pink.webp",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": [
+					{
+						"key": "flags.a5e.effects.rollMode.attack.all",
+						"type": "add",
+						"value": -1,
+						"phase": "initial",
+						"priority": 0
+					}
+				]
+			},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null,
+			"start": null,
+			"showIcon": 1
+		},
+		{
+			"origin": "Item.fheQitalmvTdnZvx",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Taunting Smite",
+			"img": "icons/skills/melee/strike-axe-energy-pink.webp",
+			"_id": "RAeoLDyFCVUohvdc",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"description": "<p>Takes an additional 1d6 radiant damage when attacking a creature other than you and cannot make opportunity attacks against anyone but you. </p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "14.369",
+				"systemId": "a5e",
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793917325063,
+				"createdTime": 1793917325035
+			},
+			"folder": null,
+			"start": null,
+			"showIcon": 1
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.369",
+		"systemId": "a5e",
+		"systemVersion": "1.4.10",
+		"createdTime": 1793917325035,
+		"modifiedTime": 1793917371881,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "fheQitalmvTdnZvx"
+}

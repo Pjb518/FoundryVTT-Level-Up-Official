@@ -8,7 +8,8 @@
 				"name": "Cast Spell At Target",
 				"activation": {
 					"type": "action",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {},
 				"rolls": {
@@ -21,9 +22,18 @@
 							"mode": "cantrip",
 							"formula": "1d4",
 							"config": {
-								"value": "1d4"
+								"value": "1d4",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
 							}
-						}
+						},
+						"canCrit": true,
+						"critBonus": "",
+						"die": {
+							"modifiers": []
+						},
+						"label": ""
 					}
 				},
 				"prompts": {},
@@ -33,33 +43,69 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
 						"threshold": 6
 					}
 				},
 				"ranges": {
 					"Msdn73QR2mm1D4Pd": {
-						"range": "medium"
+						"range": "medium",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"duration": {
 					"unit": "minute",
-					"value": 1
+					"value": "1",
+					"concentration": false
 				},
 				"target": {
 					"type": "creatureObject",
-					"quantity": 1
+					"quantity": 1,
+					"heard": false,
+					"otherText": "",
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
 				},
 				"effects": [
 					"R2sDkL9ZcWz4S6SQ"
-				]
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"macro": ""
 			},
 			"iJFX6TM2acMJyafb": {
 				"name": "Cast Spell At Sky",
 				"activation": {
 					"type": "action",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {},
 				"rolls": {},
@@ -70,24 +116,60 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
 						"threshold": 6
 					}
 				},
 				"ranges": {
 					"Msdn73QR2mm1D4Pd": {
-						"range": "medium"
+						"range": "medium",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"duration": {
 					"unit": "minute",
-					"value": 1
+					"value": "1",
+					"concentration": false
 				},
 				"target": {
 					"type": "",
-					"quantity": 1
-				}
+					"quantity": 1,
+					"heard": false,
+					"otherText": "",
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"effects": [],
+				"macro": ""
 			}
 		},
 		"description": "<p>Your shot glows brightly as it streaks toward its target.&nbsp;As part of the action used to cast this spell, make a ranged weapon attack against a target within range of your weapon. On a hit, the target takes normal weapon damage and sheds bright light to a range of 20 feet from its point of impact and dim light to a range of 40 feet from its point of impact.</p><p>Alternatively, you may fire the shot into the sky, where it slowly descends over the course of a minute, shedding bright light to a range of 100 feet and dim light to a range of 200 feet. If it impacts something, the ranges decrease to 20/40 feet as if you had fired it into a target.</p><p>You may only have one such light effect active at a time. If you cast the spell again, the prior target or shot stops glowing immediately.</p><p><strong><em>Cast at Higher Levels:</em></strong></p><p>At 5th level, the target takes an additional 1d4 points of <em>radiant</em> damage on a hit.&nbsp;At 11th level, the damage increases to 2d4.&nbsp;At 17th level, the damage increases to 3d4.</p>",
@@ -100,12 +182,18 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
+				"threshold": 6,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
 				"threshold": 6
 			}
 		},
 		"classes": [
 			"cleric",
-			"sorcerer"
+			"sorcerer",
+			"warcaster"
 		],
 		"components": {
 			"vocalized": true,
@@ -129,15 +217,18 @@
 			]
 		},
 		"spellBook": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"slug": "",
+		"tags": [],
+		"disciplines": []
 	},
 	"effects": [
 		{
-			"icon": "icons/magic/light/projectile-beam-yellow.webp",
 			"origin": "Item.wwt8tl6wfx5up0x0",
 			"flags": {
 				"a5e": {
@@ -151,21 +242,21 @@
 			"_id": "R2sDkL9ZcWz4S6SQ",
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "",
 			"statuses": [],
 			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.4.10",
+				"createdTime": 1793836987852,
+				"modifiedTime": 1793836987852,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
 			},
 			"system": {
 				"applyToSelf": false,
@@ -173,26 +264,43 @@
 				"changes": [
 					{
 						"key": "@token.light.bright",
-						"value": "20",
+						"value": 20,
 						"priority": null,
-						"type": "override"
+						"type": "override",
+						"phase": "initial"
 					},
 					{
 						"key": "@token.light.dim",
-						"value": "40",
+						"value": 40,
 						"priority": null,
-						"type": "override"
+						"type": "override",
+						"phase": "initial"
 					}
-				]
-			}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"start": null,
+			"img": "icons/svg/aura.svg",
+			"type": "base",
+			"tint": "#ffffff",
+			"showIcon": 1,
+			"sort": 0
 		}
 	],
 	"flags": {},
 	"folder": null,
-	"_id": "wwt8tl6wfx5up0x0",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.4.10",
+		"createdTime": 1793836987852,
+		"modifiedTime": 1793836987852,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "wwt8tl6wfx5up0x0"
 }

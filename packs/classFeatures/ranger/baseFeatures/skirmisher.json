@@ -1,0 +1,189 @@
+{
+	"name": "Skirmisher",
+	"type": "feature",
+	"img": "icons/skills/melee/swords-parry-block-blue.webp",
+	"system": {
+		"description": "<p>While in the skirmisher stance, if you move at least 15ft before using the attack action, you gain +1d6 damage on every successful weapon attack you make during the attack action, and any bonus action attacks. In addition, you gain expertise when you parry, increasing the d4 to a d6.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"PfQUhpJJ0YYepRR4": {
+				"name": "Skirmisher",
+				"consumers": {
+					"UGNpAMz120jljnRH": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					},
+					"B0HSCnEKpWqcfXet": {
+						"type": "resource",
+						"default": false,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 2,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "PfQUhpJJ0YYepRR4",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/melee/swords-parry-block-blue.webp",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"sVpSZfTtTg3GU6K1"
+				],
+				"macro": "",
+				"prompts": {
+					"chTI6ABgIUmo1zE7": {
+						"type": "generic",
+						"default": true,
+						"formula": "1d6",
+						"label": "Parry"
+					}
+				},
+				"ranges": {},
+				"rolls": {
+					"5Srg2Em68ncpPqLa": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "",
+						"formula": "1d6",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "ranger",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.U18lQelOwkrwnEbJ",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Skirmisher",
+			"img": "icons/skills/melee/swords-parry-block-blue.webp",
+			"_id": "sVpSZfTtTg3GU6K1",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>While in the skirmisher stance, if you move at least 15ft before using the attack action, you gain +1d6 damage on every successful weapon attack you make during the attack action, and any bonus action attacks. In addition, you gain expertise when you parry, increasing the d4 to a d6.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567752941
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567752755,
+		"modifiedTime": 1793567752755,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "psd56HdDeH5PBcU7"
+}

@@ -15,21 +15,39 @@
 				},
 				"duration": {
 					"unit": "round",
-					"value": "1"
+					"value": "1",
+					"concentration": false
 				},
 				"ranges": {
 					"1TxRy2uSQkkGdtLg": {
-						"range": "self"
+						"range": "self",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
+					"shape": "none",
+					"quantity": 1,
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				},
 				"target": {
-					"quantity": "",
-					"type": "self"
+					"quantity": 0,
+					"type": "self",
+					"heard": false,
+					"otherText": "",
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
 				},
 				"rolls": {
 					"uStKsIpPTZq2gg1m": {
@@ -37,11 +55,38 @@
 						"critThreshold": 20,
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
-						"ability": "spellcasting"
+						"ability": "spellcasting",
+						"proficient": true,
+						"default": true,
+						"label": ""
 					}
 				},
 				"consumers": {},
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
 			}
 		},
 		"description": "<p>You briefly transform your weapon or fist into another material and strike with it, making a melee weapon attack against a target within your reach.</p><p>You use your spellcasting ability for your attack and damage rolls, and your melee weapon attack counts as if it were made with a different material for the purpose of overcoming resistance and immunity to nonmagical attacks and damage: either bone, bronze, cold iron, steel, stone, or wood.</p><p>When you reach 5th level, you can choose silver or mithral as the material.</p><p>When you reach 11th level, if you have the Extra Attack feature you make two melee weapon attacks as part of the casting of this spell instead of one. In addition, you can choose adamantine as the material.</p><p>When you reach 17th level, your attacks with this spell deal an extra 1d6 damage.</p>",
@@ -54,7 +99,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"classes": [
@@ -62,7 +112,8 @@
 			"bard",
 			"herald",
 			"sorcerer",
-			"wizard"
+			"wizard",
+			"warcaster"
 		],
 		"components": {
 			"vocalized": true,
@@ -87,17 +138,24 @@
 			]
 		},
 		"spellBook": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"slug": "",
+		"tags": [],
+		"disciplines": []
 	},
 	"folder": null,
-	"_id": "7mwrwjjj3mn4yzxr",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.4.10",
+		"createdTime": 1793836943910,
+		"modifiedTime": 1793836943910,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "7mwrwjjj3mn4yzxr"
 }

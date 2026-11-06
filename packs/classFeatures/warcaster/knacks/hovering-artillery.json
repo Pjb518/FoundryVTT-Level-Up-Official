@@ -1,0 +1,144 @@
+{
+	"name": "Hovering Artillery",
+	"type": "feature",
+	"img": "icons/magic/control/debuff-energy-hold-yellow.webp",
+	"system": {
+		"description": "<p>You gain the ability to cast @UUID[Compendium.a5e.a5e-spells.Item.42mrmh4skb5qibp6]{Levitate} without expending a spell slot as a bonus action once per short rest but may only target yourself.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"jKJjPtxyCU4j3Ncp": {
+				"name": "Levitate",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"ranges": {
+					"cOhU4VaL2lluttPp": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"prompts": {
+					"8kE6DnVwczNtGqFz": {
+						"ability": "con",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
+					}
+				},
+				"consumers": {
+					"xuFbmSAISqzAbZP2": {
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3,
+						"type": "spell",
+						"charges": 0,
+						"default": true,
+						"label": ""
+					},
+					"guEXH6XTUrBBmUBS": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/control/debuff-energy-hold-yellow.webp",
+				"effects": [],
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "warcaster",
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "Level 5",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567753398,
+		"modifiedTime": 1793567753398,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "26RILSK5YN44d6sq"
+}

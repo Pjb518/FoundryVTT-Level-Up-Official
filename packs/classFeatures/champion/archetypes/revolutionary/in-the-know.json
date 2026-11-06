@@ -1,0 +1,222 @@
+{
+	"name": "In the Know",
+	"type": "feature",
+	"img": "icons/skills/social/diplomacy-handshake.webp",
+	"system": {
+		"description": "<p>A revolutionary must make connections to support their aims. At 6th level, your connections provide you with powerful benefits. Once per long rest, if you are in a settlement, you can choose to seek one of the following three options:</p><ul><li><p><strong>Equipment:</strong> You know a guy who knows a guy who can get you minor items within an hour at no cost with no hassle. You can call in up to 3gp worth of Adventuring Gear per champion level at a time.</p></li><li><p><strong>Information:</strong> You know a sage, informant, or minor noble in the area who can provide you with some information. You may ask any question when you use this ability that can be answered with an Arcana, Culture, History, or Religion skill check. The response you get from your contact is as if they rolled a 14 plus your proficiency bonus.</p></li><li><p><strong>Shelter:</strong> You know someone in town who will hide you and up to 4 other people from the authorities and provide poor lifestyle expenses for you all for up to a week or moderate lifestyle expenses for a single night.</p></li></ul><p>Depending on the size of the community, you may use this ability multiple times, calling in various favors. A village allows only one connection with this ability. A town allows two. A city allows all three.</p><p>For example, if you know a hedge wizard in a village who provides you with Information, you cannot also use this ability to seek Equipment in the same village. But if that hedge wizard lived in a town you could, since towns allow two connections.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"JUbkIOhfCnvCjh2v": {
+				"name": "Equipment",
+				"consumers": {
+					"D5Uzf3L4mb0dbQtd": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "JUbkIOhfCnvCjh2v",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/social/diplomacy-handshake.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"SQrIhrdkwtPPTmw0": {
+						"type": "generic",
+						"default": true,
+						"formula": "3 * @classes.champion.level",
+						"scaling": {},
+						"label": "GP"
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"E9YtKp8fETTsWEP4": {
+				"name": "Information",
+				"consumers": {
+					"AnJALGCaioyOtRX0": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "E9YtKp8fETTsWEP4",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/social/diplomacy-handshake.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"VZk0xvQSoGxxUWxi": {
+				"name": "Shelter",
+				"consumers": {
+					"76TE1barSO3Kan8t": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "champion",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567752755,
+		"modifiedTime": 1793567752755,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "jzcPgM1SwlC0ESED"
+}

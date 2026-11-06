@@ -1,0 +1,311 @@
+{
+	"name": "Enthrallment",
+	"type": "feature",
+	"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+	"system": {
+		"description": "<p>At 4th level, a fey companion can act as a powerful distraction with a tiny bit of inherent magic. Activating this ability is an action which requires concentration, and while concentrating on this ability you cannot move. Your fey gains a number of uses of this ability equal to your Charisma modifier, and recover uses at the end of a long rest. Choose one of the following options:</p><p><strong>Enthralling Gaze.</strong> As an action, your fey creates a 30ft cone with their gaze. Creatures within the cone must make a Wisdom saving throw or be unable to move away from the fey. In addition, they have disadvantage on perception checks and attack rolls unless used against the fey companion. A creature must be able to see to be affected by this ability.</p><p><strong>Hypnotic Song.</strong> As an action, your fey begins singing to all creatures within 20ft. Creatures within this area must make a Wisdom saving throw or be unable to move away from the fey. In addition, they have disadvantage on perception checks and attack rolls unless used against the fey companion. A creature must be able to hear to be affected by this ability.</p><p>A creature may attempt the saving throw, again, at the end of each of their turns. If a creature is forcibly moved out of the area of the fey’s enthrallment they must use their movement, and if necessary action, to try and return to the area. However, if they end their turn outside the area of effect they automatically succeed on their saving throw.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"The9qlR7HSQ0sM2U": {
+				"name": "Enthralling Gaze",
+				"id": "The9qlR7HSQ0sM2U",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"-=width": null,
+					"-=radius": null,
+					"-=height": null,
+					"-=length": null,
+					"shape": "cone",
+					"quantity": 1,
+					"length": 30,
+					"placeTemplate": true
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"PIG0tsTAb1xYBeMo"
+				],
+				"macro": "",
+				"consumers": {
+					"DV7VOYSrbLYxiiul": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"B8QzqIxRPYErTnt4": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "custom",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"NMfebLMROfBrtnYu": {
+						"range": "self"
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"bLona11UKRcbb65W": {
+				"name": "Hypnotic Song",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"-=width": null,
+					"-=radius": null,
+					"-=height": null,
+					"-=length": null,
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 20,
+					"placeTemplate": true
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"4Ck0KxvZ5OKNaBfl"
+				],
+				"macro": "",
+				"consumers": {
+					"3fBnubj12sGHKGEo": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"zN0obBcxsHynVRFa": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "custom",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"TcTFFzCwO9seYhWx": {
+						"range": "self"
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "sentinel",
+		"concentration": true,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.Zuj1k8dThPNrD9zA",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Enthralling Gaze",
+			"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+			"_id": "PIG0tsTAb1xYBeMo",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Unable to move away from the fey. In addition, they have disadvantage on perception checks and attack rolls unless used against the fey companion.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567752964
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.Zuj1k8dThPNrD9zA",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Hypnotic Song",
+			"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+			"_id": "4Ck0KxvZ5OKNaBfl",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Unable to move away from the fey. In addition, they have disadvantage on perception checks and attack rolls unless used against the fey companion.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567752964
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567752755,
+		"modifiedTime": 1793567752755,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "GDHCpLTxf2SkQI1v"
+}

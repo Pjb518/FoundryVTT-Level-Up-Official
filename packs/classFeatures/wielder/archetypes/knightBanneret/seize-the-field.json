@@ -1,0 +1,221 @@
+{
+	"folder": null,
+	"name": "Seize the Field",
+	"type": "feature",
+	"img": "icons/sundries/flags/banner-standard-moon.webp",
+	"system": {
+		"description": "<p>At 18th level, your artifact grants you its most legendary of powers, allowing you to hasten your victory. As an action, the artifact can be commanded to cast @UUID[Compendium.a5e.a5e-spells.Item.zhtyft34531a9nil]{Haste} at 7th level on up to 5 targets, including yourself, within the aura. As the spell is being cast by the artifact rather than by you, you do not need to maintain concentration on the effect. Though counterspelling, dispelling of magic, or antimagic fields can cause it to end early. </p><p>You may use this ability twice per long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"JtcqcyeXJDqvxZX3": {
+				"name": "Haste",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"iJgiGVcGyD05b5sJ": {
+						"range": 25,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 5,
+					"type": "creature",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"consumers": {
+					"sGV7fJi6pKJyQUJn": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"effects": [
+					"KRMB2MtcMBWOmkqS"
+				],
+				"id": "",
+				"default": false,
+				"description": "<p>Until the spell ends, the target's Speed is doubled, it gains a +2 bonus to AC, it has advantage on Dexterity saving throws, and it gains one additional action on each of its turns. This action can be used to make a single weapon attack, or to take the Dash, Disengage, Hide, or Use an Object action.</p><p>When the spell ends, the target is tired and cannot move or take actions until after its next turn.</p><p><em><strong>Cast at Higher Levels.</strong></em> Target one additional creature for each slot level above 3rd. All targets of this spell must be within 30 feet of each other.</p>",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/movement/trail-streak-zigzag-yellow.webp",
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 2,
+			"max": "2",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "wielder",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.DVE7BiSTxbZBfpam",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Hasted",
+			"_id": "KRMB2MtcMBWOmkqS",
+			"changes": [
+				{
+					"key": "system.attributes.movement.burrow.distance",
+					"value": "2",
+					"mode": 1,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.climb.distance",
+					"value": "2",
+					"mode": 1,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "2",
+					"mode": 1,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.swim.distance",
+					"value": "2",
+					"mode": 1,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "2",
+					"mode": 1,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.dex",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the spell ends, the target's Speed is doubled, it gains a +2 bonus to AC, it has advantage on Dexterity saving throws, and it gains one additional action on each of its turns. This action can be used to make a single weapon attack, or to take the Dash, Disengage, Hide, or Use an Object action.</p><p>When the spell ends, the target is tired and cannot move or take actions until after its next turn.</p>",
+			"statuses": [],
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567752316
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"img": "icons/magic/movement/trail-streak-zigzag-yellow.webp",
+			"type": "base",
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567752092,
+		"modifiedTime": 1793567752092,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "T7vNrzLMbKTdlImJ"
+}

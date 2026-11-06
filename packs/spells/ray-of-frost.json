@@ -4,7 +4,6 @@
 	"img": "icons/magic/water/projectile-icecicle-glowing.webp",
 	"effects": [
 		{
-			"icon": "icons/magic/water/projectile-icecicle-glowing.webp",
 			"origin": "Item.9ot2c39ypiu4l8ws",
 			"flags": {
 				"a5e": {
@@ -19,21 +18,21 @@
 			"_id": "6meIM37yip1QShpH",
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": 1,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": 1,
+				"units": "rounds",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "<p>The target's Speed by 10 feet until the start of your next turn.</p>",
 			"statuses": [],
 			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.4.10",
+				"createdTime": 1793836997947,
+				"modifiedTime": 1793836997947,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
 			},
 			"system": {
 				"applyToSelf": false,
@@ -41,36 +40,78 @@
 				"changes": [
 					{
 						"key": "system.attributes.movement.burrow.distance",
-						"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
+						"value": {
+							"comparisonOperator": ">",
+							"comparisonValue": "10",
+							"positiveValue": "@original - 10",
+							"negativeValue": "0"
+						},
 						"priority": null,
-						"type": "conditional"
+						"type": "conditional",
+						"phase": "initial"
 					},
 					{
 						"key": "system.attributes.movement.climb.distance",
-						"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
+						"value": {
+							"comparisonOperator": ">",
+							"comparisonValue": "10",
+							"positiveValue": "@original - 10",
+							"negativeValue": "0"
+						},
 						"priority": null,
-						"type": "conditional"
+						"type": "conditional",
+						"phase": "initial"
 					},
 					{
 						"key": "system.attributes.movement.fly.distance",
-						"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
+						"value": {
+							"comparisonOperator": ">",
+							"comparisonValue": "10",
+							"positiveValue": "@original - 10",
+							"negativeValue": "0"
+						},
 						"priority": null,
-						"type": "conditional"
+						"type": "conditional",
+						"phase": "initial"
 					},
 					{
 						"key": "system.attributes.movement.swim.distance",
-						"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
+						"value": {
+							"comparisonOperator": ">",
+							"comparisonValue": "10",
+							"positiveValue": "@original - 10",
+							"negativeValue": "0"
+						},
 						"priority": null,
-						"type": "conditional"
+						"type": "conditional",
+						"phase": "initial"
 					},
 					{
 						"key": "system.attributes.movement.walk.distance",
-						"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
+						"value": {
+							"comparisonOperator": ">",
+							"comparisonValue": "10",
+							"positiveValue": "@original - 10",
+							"negativeValue": "0"
+						},
 						"priority": null,
-						"type": "conditional"
+						"type": "conditional",
+						"phase": "initial"
 					}
-				]
-			}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"start": null,
+			"img": "icons/svg/aura.svg",
+			"type": "base",
+			"tint": "#ffffff",
+			"showIcon": 1,
+			"sort": 0
 		}
 	],
 	"flags": {},
@@ -85,21 +126,39 @@
 				},
 				"duration": {
 					"unit": "instantaneous",
-					"value": ""
+					"value": "",
+					"concentration": false
 				},
 				"ranges": {
 					"MiX7YFyH7f21pqZL": {
-						"range": "medium"
+						"range": "medium",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
+					"shape": "none",
+					"quantity": 1,
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				},
 				"target": {
-					"quantity": "",
-					"type": "creature"
+					"quantity": 0,
+					"type": "creature",
+					"heard": false,
+					"otherText": "",
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
 				},
 				"rolls": {
 					"9Edhi5INnPDZEEz3": {
@@ -107,28 +166,62 @@
 						"critThreshold": 20,
 						"type": "attack",
 						"attackType": "rangedSpellAttack",
-						"ability": "spellcasting"
+						"ability": "spellcasting",
+						"proficient": true,
+						"default": true,
+						"label": ""
 					},
 					"8PiujKc60ugoEB2e": {
 						"canCrit": true,
 						"damageType": "cold",
 						"formula": "1d8",
-						"name": "",
 						"type": "damage",
 						"scaling": {
 							"mode": "cantrip",
 							"formula": "1d8",
 							"config": {
-								"value": "1d8"
+								"value": "1d8",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
 							}
-						}
+						},
+						"critBonus": "",
+						"die": {
+							"modifiers": []
+						},
+						"default": true,
+						"label": ""
 					}
 				},
 				"consumers": {},
 				"prompts": {},
 				"effects": [
 					"6meIM37yip1QShpH"
-				]
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
 			}
 		},
 		"description": "<p>An icy beam shoots from your outstretched fingers.</p><p>Make a ranged spell attack. On a hit, you deal 1d8 cold damage and reduce the target's Speed by 10 feet until the start of your next turn.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
@@ -141,14 +234,20 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"classes": [
 			"artificer",
 			"sorcerer",
 			"witch",
-			"wizard"
+			"wizard",
+			"warcaster"
 		],
 		"components": {
 			"vocalized": true,
@@ -172,17 +271,24 @@
 			]
 		},
 		"spellBook": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"slug": "",
+		"tags": [],
+		"disciplines": []
 	},
 	"folder": null,
-	"_id": "9ot2c39ypiu4l8ws",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.4.10",
+		"createdTime": 1793836997947,
+		"modifiedTime": 1793836997947,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "9ot2c39ypiu4l8ws"
 }
