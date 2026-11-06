@@ -120,7 +120,7 @@
         </dt>
 
         <dd class="a5e-dl-box__content">
-          {CONFIG.A5E.products[itemStore.source].title ?? itemStore.source}
+          {CONFIG.A5E.products[itemStore.source]?.title ?? itemStore.source}
         </dd>
       </div>
 

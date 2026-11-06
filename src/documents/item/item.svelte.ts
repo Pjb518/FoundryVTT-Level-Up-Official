@@ -1645,6 +1645,11 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 		// biome-ignore lint/suspicious/noConfusingVoidType: <This can be void>
 		let create: boolean | void = true;
 
+    if (!this.system.source) {
+      // @ts-expect-error
+      this.updateSource({ 'system.source': 'homebrew' });
+    }
+
 		// Call sub methods
 		if (this.isType('feature')) create = await this._preCreateFeature(data, options, user);
 		if (this.isType('spell')) create = await this._preCreateSpell(data, options, user);
