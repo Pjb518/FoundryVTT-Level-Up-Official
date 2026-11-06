@@ -16,14 +16,19 @@
 		"actions": {
 			"jqVCjrUaBtHiqr5V": {
 				"name": "Compelling Inquiry",
-				"activation": {},
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
 				"consumers": {
 					"QHX5HnvbTvB0o5Zt": {
 						"type": "resource",
 						"default": true,
 						"resource": "namedResource",
 						"quantity": 1,
-						"resourceSlug": "channel-divinity"
+						"resourceSlug": "channel-divinity",
+						"label": ""
 					}
 				},
 				"rolls": {},
@@ -33,8 +38,11 @@
 						"default": true,
 						"ability": "con",
 						"saveDC": {
-							"type": "spellcasting"
-						}
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
 					}
 				},
 				"uses": {
@@ -43,20 +51,63 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
 						"threshold": 6
 					}
 				},
 				"effects": [
 					"SKz8W0jlVLs30NdK"
-				]
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				}
 			},
 			"ielFTHdtiEsz9Fqm": {
 				"name": "Inquisitorial Challenge",
 				"activation": {
 					"type": "bonusAction",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {
 					"QHX5HnvbTvB0o5Zt": {
@@ -64,7 +115,8 @@
 						"default": true,
 						"resource": "namedResource",
 						"quantity": 1,
-						"resourceSlug": "channel-divinity"
+						"resourceSlug": "channel-divinity",
+						"label": ""
 					}
 				},
 				"rolls": {},
@@ -74,8 +126,11 @@
 						"default": true,
 						"ability": "wis",
 						"saveDC": {
-							"type": "spellcasting"
-						}
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
 					}
 				},
 				"uses": {
@@ -84,23 +139,62 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
 						"threshold": 6
 					}
 				},
 				"ranges": {
 					"6RQ4KlZeQrkNBGbp": {
-						"range": "short"
+						"range": "short",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"target": {
 					"type": "creature",
-					"quantity": 1
+					"quantity": 1,
+					"heard": false,
+					"otherText": "",
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
 				},
 				"effects": [
 					"6lLjzJHsbt70SGCP"
-				]
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"macro": ""
 			}
 		},
 		"description": "<p>At 3rd level when you choose this archetype, you gain the following two Channel Divinity options.</p>\n<h2>Compelling Inquiry</h2>\n<p>When questioning a creature with which you share a language, you can use your Channel Divinity to compel it to speak the truth. The creature makes a Constitution saving throw or finds itself unable to be dishonest for 1 minute. Regardless of whether it succeeds or fails, you know the outcome of the saving throw.</p>\n<h2>Inquisitorial Challenge</h2>\n<p>As a bonus action, you can use your Channel Divinity to issue a challenge of combat to one creature you can see within 30 feet. The creature makes a Wisdom saving throw. On a failed save, the creature can&rsquo;t move more than 30 feet away from you and has disadvantage on attacks against creatures other than you for 1 minute.</p>",
@@ -113,72 +207,40 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
+				"threshold": 6,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
 				"threshold": 6
 			}
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {
-			"3CX4cVYi29JDuQDB": {
-				"grantType": "feature",
-				"level": 1,
-				"levelType": "character",
-				"optional": false,
-				"_id": "3CX4cVYi29JDuQDB",
-				"label": "Channel Divinity",
-				"features": {
-					"base": [
-						{
-							"uuid": "Compendium.a5e.a5e-class-features.Item.1ifhyd5nq36jaash",
-							"name": "Compelling Inquiry",
-							"img": "icons/svg/item-bag.svg",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e.a5e-class-features.Item.0c0vmc1mp9pbeqvy",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						}
-					]
-				},
-				"id": "3CX4cVYi29JDuQDB",
-				"name": "Channel Divinity",
-				"img": "",
-				"type": "feature",
-				"config": {
-					"features": {
-						"base": [
-							{
-								"uuid": "Compendium.a5e.a5e-class-features.Item.1ifhyd5nq36jaash",
-								"limitedReselection": true,
-								"selectionLimit": 1
-							},
-							{
-								"uuid": "Compendium.a5e.a5e-class-features.Item.0c0vmc1mp9pbeqvy",
-								"limitedReselection": true,
-								"selectionLimit": 1
-							}
-						],
-						"options": [],
-						"total": 0
-					}
-				}
-			}
-		},
+		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"classes": "herald",
 		"class": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"slug": "",
+		"tags": [],
+		"asi": [],
+		"featClasses": [],
+		"followerType": "",
+		"experienceType": "inexperienced",
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
 	},
 	"effects": [
 		{
-			"origin": "Item.GzEFoBHWh9s095vP",
+			"origin": "Item.mxmm8ingc9r4uoag",
 			"flags": {
 				"a5e": {
 					"duration": {
@@ -194,36 +256,39 @@
 			"system": {
 				"applyToSelf": false,
 				"effectType": "onUse",
-				"changes": []
+				"changes": [],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "<p>Unable to be dishonest for 1 minute</p>",
 			"tint": "#ffffff",
 			"statuses": [],
 			"sort": 0,
 			"_stats": {
-				"compendiumSource": null,
-				"duplicateSource": null,
-				"coreVersion": "12.330",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "0.19.23",
-				"createdTime": 1723751239741,
-				"modifiedTime": 1723751261715,
-				"lastModifiedBy": "Glw114cHAVexdKTu"
+				"systemVersion": "1.4.10",
+				"createdTime": 1793994461926,
+				"modifiedTime": 1793994461941,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		},
 		{
-			"origin": "Item.GzEFoBHWh9s095vP",
+			"origin": "Item.mxmm8ingc9r4uoag",
 			"flags": {
 				"a5e": {
 					"duration": {
@@ -239,44 +304,47 @@
 			"system": {
 				"applyToSelf": false,
 				"effectType": "onUse",
-				"changes": []
+				"changes": [],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "<p>Unable to move more than 30 feet away from you and has disadvantage on attacks against creatures other than you for 1 minute.</p>",
 			"tint": "#ffffff",
 			"statuses": [],
 			"sort": 0,
 			"_stats": {
-				"compendiumSource": null,
-				"duplicateSource": null,
-				"coreVersion": "12.330",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "0.19.23",
-				"createdTime": 1723751295715,
-				"modifiedTime": 1723751313492,
-				"lastModifiedBy": "Glw114cHAVexdKTu"
+				"systemVersion": "1.4.10",
+				"createdTime": 1793994461926,
+				"modifiedTime": 1793994461942,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"flags": {},
 	"folder": null,
 	"_stats": {
-		"coreVersion": "12.330",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "0.19.23",
-		"createdTime": 1723751133400,
-		"modifiedTime": 1723751295750,
-		"lastModifiedBy": "Glw114cHAVexdKTu"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793994461926,
+		"modifiedTime": 1793994470676,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "mxmm8ingc9r4uoag"
 }
