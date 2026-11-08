@@ -5,6 +5,7 @@ import {
 	actorSheetTempSettings,
 } from '#stores/ActorSheetTempSettingsStore.svelte.ts';
 import getDocumentSourceTooltip from '#utils/getDocumentSourceTooltip.ts';
+import { MancerDialog } from '#view/mancer/Mancer.svelte.ts';
 import ActorSheetComponent from '#view/sheets/ActorSheet.svelte';
 
 export default class ActorSheet extends SvelteApplicationMixin(
@@ -58,6 +59,7 @@ export default class ActorSheet extends SvelteApplicationMixin(
 		position: { width: 795, height: 706 },
 		actions: {
 			openSourceLink: ActorSheet.#onSourceLinkClick,
+			openMancer: ActorSheet.#onMancerLinkClick,
 		},
 		window: {
 			resizable: true,
@@ -394,10 +396,11 @@ export default class ActorSheet extends SvelteApplicationMixin(
 		return options;
 	}
 
-	async _renderFrame(options) {
+	override async _renderFrame(options) {
 		const frame = await super._renderFrame(options);
 		if (!this.hasFrame) return frame;
 
+		// Add doc source
 		const docSource = CONFIG.A5E.products?.[this.actor?.system.source];
 		if (docSource) {
 			const sourceLink = document.createElement('button');
@@ -412,8 +415,21 @@ export default class ActorSheet extends SvelteApplicationMixin(
 			sourceLink.dataset.url = docSource.url;
 			sourceLink.innerHTML = `<i class="fa-solid fa-book-open"></i> ${docSource?.abbreviation}`;
 
-			this.window.title.insertAdjacentElement('afterend', sourceLink);
+			this.window.title?.insertAdjacentElement('afterend', sourceLink);
 		}
+
+		// Add Mancer for chars
+		if (this.actor?.type !== 'character') return frame;
+
+		const mancerLink = document.createElement('button');
+		mancerLink.type = 'button';
+		mancerLink.classList.add('header-control');
+		mancerLink.dataset.action = 'openMancer';
+		mancerLink.dataset.uuid = this.actor.uuid;
+		mancerLink.dataset.tooltip = 'Open Char Mancer';
+		mancerLink.innerHTML = '<i class="fa-solid fa-hammer" ></i>';
+
+		this.window?.title?.insertAdjacentElement('afterend', mancerLink);
 
 		return frame;
 	}
@@ -422,6 +438,16 @@ export default class ActorSheet extends SvelteApplicationMixin(
 		const url = target.dataset.url;
 		if (!url) return;
 		window.open(url, '_blank')?.focus();
+	}
+
+	/** Close actor sheet and render the mancer */
+	static #onMancerLinkClick(event, target) {
+		// @ts-expect-error
+		const dialog = new MancerDialog(this.actor);
+		// @ts-expect-error
+		this.close();
+
+		dialog.render({ force: true });
 	}
 }
 

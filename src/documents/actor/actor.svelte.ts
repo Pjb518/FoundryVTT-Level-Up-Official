@@ -2,6 +2,7 @@
 
 import { createSubscriber } from 'svelte/reactivity';
 import { RESOURCE_DATA_TYPES } from '#data/fields/ResourcesField.ts';
+import type { RollModeData } from '#data/fields/RollModeField.ts';
 import { ActorGrantsManager } from '#managers/ActorGrantsManager.ts';
 import { BonusesManager } from '#managers/BonusesManager.ts';
 import HitDiceManager from '#managers/HitDiceManager.ts';
@@ -55,7 +56,7 @@ import type {
 
 import FDoc = foundry.abstract.Document;
 
-import type { RollModeData } from '#data/fields/RollModeField.ts';
+import { MancerDialog } from '#view/mancer/Mancer.svelte.ts';
 
 // *****************************************************************************************
 
@@ -4018,6 +4019,27 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		this: Actor.OfType<'party'>,
 		...[_changed, _options, _userId]: Parameters<Actor['_onUpdate']>
 	) {}
+
+	/** ================================================================= */
+	// Static Methods
+	/** ================================================================= */
+	static override async createDialog<
+		Options extends Actor.CreateDialogOptions | undefined = undefined,
+	>(
+		data?: Actor.CreateDialogData,
+		createOptions?: Actor.Database.CreateDocumentsOperation,
+		options?: Options,
+	): Promise<Actor.CreateDialogReturn<Options>> {
+		const actor = (await super.createDialog(data, createOptions, options)) as unknown as Creature;
+
+		if (actor.type !== 'character') return actor;
+
+		// Close actor sheet and open Mancer
+		await actor.sheet?.close();
+		new MancerDialog(actor).render({ force: true });
+
+		return actor;
+	}
 }
 
 export type A5EChar = ActorA5E<'character'>;
