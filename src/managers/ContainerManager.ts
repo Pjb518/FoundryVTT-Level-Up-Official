@@ -358,7 +358,7 @@ class ContainerManager extends Map<string, ContainerItemData> {
 	}
 
 	/** Creates items from a container onto an Actor */
-	static async unpackContainerOnActor(actor: Actor, item: ObjectA5E): Promise<void> {
+	static async unpackContainerOnActor(actor: Creature, item: ObjectA5E): Promise<void> {
 		const containerData: ContainerItemData[] = Object.values(item.system.items ?? {});
 
 		const items: ObjectA5E[] = [];
@@ -383,6 +383,21 @@ class ContainerManager extends Map<string, ContainerItemData> {
 		);
 
 		if (items.length > 0) await actor.createEmbeddedDocuments('Item', items);
+
+		// Unpack any currency
+		if (actor.isCreature()) {
+			const currency = item.system.currency ?? {};
+			const actorCurrency = actor.system.currency ?? {};
+			const updatedCurrency: Record<string, any> = {};
+
+			Object.keys(CONFIG.A5E.currencyDenominations).forEach((key) => {
+				if (!currency[key]) return;
+				updatedCurrency[key] = (actorCurrency[key] ?? 0) + currency[key];
+			});
+
+			// @ts-expect-error
+			actor.update({ 'system.currency': updatedCurrency });
+		}
 
 		await item.delete();
 	}
@@ -440,6 +455,7 @@ class ContainerManager extends Map<string, ContainerItemData> {
 		// Clear out container
 		if (!containerUuid) {
 			const container = await fromUuid<ObjectA5E>(item.system.containerId);
+			// @ts-expect-error
 			await item.update({ 'system.containerId': '' });
 
 			if (!container) return;
@@ -457,10 +473,12 @@ class ContainerManager extends Map<string, ContainerItemData> {
 			container?.system?.objectType !== 'container' ||
 			container?.parent?.id !== item.parent?.id
 		) {
+			// @ts-expect-error
 			await item.update({ 'system.containerId': '' });
 			return;
 		}
 
+		// @ts-expect-error
 		await item.update({ 'system.containerId': containerUuid });
 		await container.containerItems?.add(item.uuid!);
 	}

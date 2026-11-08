@@ -1802,10 +1802,13 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 				const child = await fromUuid<Item.OfType<'object'>>(item.uuid);
 				if (!child) continue;
 
+        // @ts-expect-error
 				await child.update({ 'system.containerId': '' });
 			}
 
-			await this.update(updates);
+      if (Object.keys(updates.length)) {
+        foundry.utils.mergeObject(data, updates);
+      };
 		}
 	}
 
@@ -1908,6 +1911,7 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 			if (this.parent?.documentName === 'Actor') {
 				if (this.system.contentsOnly) {
 					await ContainerManager.unpackContainerOnActor(this.parent, this);
+          return;
 				} else {
 					await ContainerManager.createContainerOnActor(this.parent, this);
 				}
