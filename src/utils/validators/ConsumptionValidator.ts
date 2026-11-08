@@ -141,7 +141,7 @@ export default class ConsumptionValidator {
 			if (prop + consumer.quantity <= 7) return;
 		} else {
 			const availableUses = prop ?? 0;
-			if (availableUses < consumer.quantity) return;
+			if (consumer.quantity <= availableUses ) return;
 		}
 
 		// Assign Label
