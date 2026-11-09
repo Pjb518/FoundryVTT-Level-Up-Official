@@ -104,6 +104,8 @@ export default class ConsumptionValidator {
 		const { uses } = this.#item.system ?? {};
 		if (foundry.utils.isEmpty(uses)) return;
 
+    if (!inputData.quantity) return;
+
 		const availableUses = uses.value;
 		if (availableUses >= inputData.quantity) return;
 
