@@ -38,7 +38,9 @@ class ContainerManager extends Map<string, ContainerItemData> {
 			this.set(id, data);
 		});
 
-		if (Object.entries(updates).length && !isInPack) {
+    const isLocked = game.a5e.migrations.lock;
+
+		if (Object.entries(updates).length && !isInPack && !isLocked) {
 			ui?.notifications?.warn(`Cleaning up deleted items from ${this.#item.name}`);
 			this.#item.update(updates);
 		}

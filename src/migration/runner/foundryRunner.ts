@@ -630,6 +630,9 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 
 		ui.notifications.info(_loc('A5E.migration.world.starting', { version: systemVersion }));
 
+    // Lock migration lock
+    game.a5e.migrations.lock = true;
+
 		const migrationsToRun = force
 			? this.migrations
 			: this.migrations.filter((m) => migrationVersion.current < m.version);
@@ -655,6 +658,9 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 
 		await game.settings.set('a5e', 'worldSchemaVersion', migrationVersion.latest);
 		ui.notifications.info(_loc('A5E.migration.world.finished', { version: systemVersion }));
+
+    // Unlock migration lock
+    game.a5e.migrations.lock = false;
 	}
 
 	async #getTruePackSource(pack) {
