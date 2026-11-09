@@ -1804,11 +1804,11 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 
         // @ts-expect-error
 				await child.update({ 'system.containerId': '' });
-			}
 
-      if (Object.keys(updates.length)) {
-        foundry.utils.mergeObject(data, updates);
-      };
+        if (Object.keys(updates.length)) {
+          foundry.utils.mergeObject(data, updates);
+        };
+      }
 		}
 	}
 

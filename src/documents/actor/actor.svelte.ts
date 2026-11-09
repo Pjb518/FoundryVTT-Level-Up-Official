@@ -2149,10 +2149,10 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		// Inject Resources
 		Object.entries(this.system.resources ?? {}).forEach(([slug, resource]) => {
 			data.resource ??= {};
-			data.resource[slug] = resource;
+			data.resource[slug] = resource.getRollData();
 		});
 
-		// Call Sub Modules Here becuase target needs to go last
+		// Call Sub Modules Here because target needs to go last
 		if (this.type === 'character') this.getCharRollData(data, item);
 
 		// Inject target data

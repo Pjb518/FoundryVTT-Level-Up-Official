@@ -667,6 +667,19 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 
     // Unlock migration lock
     game.a5e.migrations.lock = false;
+
+    // Run Refresh
+    await foundry.applications.api.DialogV2.prompt({
+      window: { title: 'Refresh World'},
+      content: 'Migration Completed. Proceed to refresh?',
+      ok: {
+        label: 'Refresh',
+        icon: 'fa-solid fa-rotate-right',
+        callback: () => {
+          foundry.utils.debouncedReload()
+        }
+      }
+    })
 	}
 
 	async #getTruePackSource(pack) {

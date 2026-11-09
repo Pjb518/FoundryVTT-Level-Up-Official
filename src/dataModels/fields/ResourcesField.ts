@@ -103,6 +103,11 @@ class CounterResource extends DataModel<CounterResource.Schema> {
 		return { ...counterSchema() };
 	}
 
+  /** Get rollData of this resource */
+  getRollData() {
+    return this.value;
+  }
+
 	/** Logic to apply when using this resource */
 	useResource({ quantity = 1, update = true } = {}) {
 		const actor = this.getNearestDocument() as Actor.Implementation;
@@ -145,6 +150,7 @@ class DiceResource extends DataModel<DiceResource.Schema> {
 		return { ...diceSchema() };
 	}
 
+  /** Get formula version of this resource */
 	getFormula(quantity = 1): string {
 		if (this.consumeType === 'none') {
 			return `${this.size}d${this.denom}${this.modifiers.size > 0 ? `${[...this.modifiers].join('')}` : ''}`;
@@ -152,6 +158,13 @@ class DiceResource extends DataModel<DiceResource.Schema> {
 
 		return `${quantity}d${this.denom}${this.modifiers.size > 0 ? `${[...this.modifiers].join('')}` : ''}`;
 	}
+
+  /** Get rollData of this resource */
+  getRollData() {
+    if (this.consumeType === 'none') return this.value;
+
+    return this.getFormula();
+  }
 
 	/** Logic to apply when using this resource */
 	useResource({ quantity = 1, update = true, rollDice = true } = {}) {
@@ -228,6 +241,17 @@ class ItemResource extends DataModel<ItemResource.Schema> {
 		return { ...itemSchema() };
 	}
 
+  /** Get rollData of this resource */
+  getRollData() {
+    const actor = this.getNearestDocument() as Actor.Implementation;
+    if (!actor && actor?.document !== 'Actor') return 0;
+
+    const item = actor.items.get(this.itemId);
+    if (!item) return 0;
+
+    return item.system?.uses?.value ?? 0;
+  }
+
 	/** Logic to apply when using this resource */
 	useResource({ quantity = 1, update = true } = {}) {
 		const actor = this.getNearestDocument() as Actor.Implementation;
@@ -262,6 +286,11 @@ class UsesResource extends DataModel<UsesResource.Schema> {
 	static override defineSchema(): UsesResource.Schema {
 		return { ...usesSchema() };
 	}
+
+  /** Get rollData of this resource */
+  getRollData() {
+    return this.value;
+  }
 
 	/** Logic to apply when using this resource */
 	useResource({ quantity = 1, update = true }) {
