@@ -244,7 +244,7 @@ class ItemResource extends DataModel<ItemResource.Schema> {
 	/** Get rollData of this resource */
 	getRollData() {
 		const actor = this.getNearestDocument() as Actor.Implementation;
-		if (!actor && actor?.document !== 'Actor') return 0;
+		if (actor?.documentName !== 'Actor') return 0;
 
 		const item = actor.items.get(this.itemId);
 		if (!item) return 0;

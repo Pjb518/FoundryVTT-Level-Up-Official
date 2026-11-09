@@ -1619,10 +1619,10 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 		// biome-ignore lint/suspicious/noConfusingVoidType: <This can be void>
 		let create: boolean | void = true;
 
-    if (!this.system.source) {
-      // @ts-expect-error
-      this.updateSource({ 'system.source': 'homebrew' });
-    }
+		if (!this.system.source) {
+			// @ts-expect-error
+			this.updateSource({ 'system.source': 'homebrew' });
+		}
 
 		// Call sub methods
 		if (this.isType('feature')) create = await this._preCreateFeature(data, options, user);
@@ -1800,15 +1800,16 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 				updates[`system.items.${key}`] = _del;
 
 				const child = await fromUuid<Item.OfType<'object'>>(item.uuid);
-				if (!child) continue;
+				// TODO: This should only occur if child is not in a pack
+				if (!child || child.pack) continue;
 
-        // @ts-expect-error
+				// @ts-expect-error
 				await child.update({ 'system.containerId': '' });
+			}
 
-        if (Object.keys(updates.length)) {
-          foundry.utils.mergeObject(data, updates);
-        };
-      }
+			if (Object.keys(updates.length)) {
+				foundry.utils.mergeObject(data, updates);
+			}
 		}
 	}
 
@@ -1911,7 +1912,7 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 			if (this.parent?.documentName === 'Actor') {
 				if (this.system.contentsOnly) {
 					await ContainerManager.unpackContainerOnActor(this.parent, this);
-          return;
+					return;
 				} else {
 					await ContainerManager.createContainerOnActor(this.parent, this);
 				}
