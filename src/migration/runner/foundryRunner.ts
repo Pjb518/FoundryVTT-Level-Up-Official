@@ -671,7 +671,7 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
     // Run Refresh
     await foundry.applications.api.DialogV2.prompt({
       window: { title: 'Refresh World'},
-      content: 'Migration Completed. Proceed to refresh?',
+      content: 'Migration Completed (Refresh Required). Proceed to refresh?',
       ok: {
         label: 'Refresh',
         icon: 'fa-solid fa-rotate-right',
