@@ -607,6 +607,9 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 			inPreCreate: false,
 		};
 
+    // Lock migration lock
+    game.a5e.migrations.lock = true;
+
 		await this.#setupSourceData();
 
 		const updated =
@@ -615,6 +618,9 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 				: await this.#migrateItem(this.migrations, source, options);
 
 		await source.update(updated);
+
+    // Unlock migration lock
+    game.a5e.migrations.lock = false;
 
 		return true;
 	}
