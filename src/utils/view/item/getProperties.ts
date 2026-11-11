@@ -1,6 +1,14 @@
 export function getProperties(item: ActionItem) {
 	const properties: { value: string; source: string }[] = [];
 
+	// Maneuver
+	if (item.isType('maneuver')) {
+		// Concentration
+		if (item.system.concentration) {
+			properties.push({ value: 'Concentration', source: '' });
+		}
+	}
+
 	// Object
 	if (item.isType('object')) {
 		// Rarity

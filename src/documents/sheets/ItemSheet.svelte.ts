@@ -32,8 +32,8 @@ export default class ItemSheet extends SvelteApplicationMixin(
 			options.position.width = ItemSheet.DEFAULT_OPTIONS.position.width * scale;
 
 			// TEMP: Adds new width for item sheets
-			if (item.document.type === 'object') {
-				options.position.width = 620;
+			if (['maneuver', 'object'].includes(item.document.type)) {
+				options.position.width = 620 * scale;
 				options.position.height = 650;
 			}
 		}
@@ -204,7 +204,9 @@ export default class ItemSheet extends SvelteApplicationMixin(
 		if (type === 'culture') return OriginSheet;
 		if (type === 'destiny') return OriginSheet;
 		if (type === 'heritage') return OriginSheet;
-		if (type === 'object') return ItemSheetComponent;
+		if (['maneuver', 'object'].includes(type)) {
+			return ItemSheetComponent;
+		}
 		return ItemSheetComponentOld;
 	}
 }
