@@ -103,6 +103,11 @@ class CounterResource extends DataModel<CounterResource.Schema> {
 		return { ...counterSchema() };
 	}
 
+	/** Get rollData of this resource */
+	getRollData() {
+		return this.value;
+	}
+
 	/** Logic to apply when using this resource */
 	useResource({ quantity = 1, update = true } = {}) {
 		const actor = this.getNearestDocument() as Actor.Implementation;
@@ -145,12 +150,20 @@ class DiceResource extends DataModel<DiceResource.Schema> {
 		return { ...diceSchema() };
 	}
 
+	/** Get formula version of this resource */
 	getFormula(quantity = 1): string {
 		if (this.consumeType === 'none') {
 			return `${this.size}d${this.denom}${this.modifiers.size > 0 ? `${[...this.modifiers].join('')}` : ''}`;
 		}
 
 		return `${quantity}d${this.denom}${this.modifiers.size > 0 ? `${[...this.modifiers].join('')}` : ''}`;
+	}
+
+	/** Get rollData of this resource */
+	getRollData() {
+		if (this.consumeType === 'none' && this.max) return this.value;
+
+		return this.getFormula();
 	}
 
 	/** Logic to apply when using this resource */
@@ -228,6 +241,17 @@ class ItemResource extends DataModel<ItemResource.Schema> {
 		return { ...itemSchema() };
 	}
 
+	/** Get rollData of this resource */
+	getRollData() {
+		const actor = this.getNearestDocument() as Actor.Implementation;
+		if (actor?.documentName !== 'Actor') return 0;
+
+		const item = actor.items.get(this.itemId);
+		if (!item) return 0;
+
+		return item.system?.uses?.value ?? 0;
+	}
+
 	/** Logic to apply when using this resource */
 	useResource({ quantity = 1, update = true } = {}) {
 		const actor = this.getNearestDocument() as Actor.Implementation;
@@ -261,6 +285,28 @@ class UsesResource extends DataModel<UsesResource.Schema> {
 
 	static override defineSchema(): UsesResource.Schema {
 		return { ...usesSchema() };
+	}
+
+	/** Get rollData of this resource */
+	getRollData() {
+		// FIXME: Temporary fix for accessing resources that have a dice
+		if (this.max) {
+			let value: string | number;
+			try {
+				value = getDeterministicBonus(this.max, {}, { strict: true });
+			} catch {
+				foundry.utils.logCompatibilityWarning(
+					`Setting a uses resource max formula is no longer supported. Please use a dice resource instead. (${this.name})`,
+					{ once: true },
+				);
+				value = this.max;
+			}
+
+			if (!value) return this.value;
+			return value;
+		}
+
+		return this.value;
 	}
 
 	/** Logic to apply when using this resource */

@@ -150,9 +150,6 @@
 
   let targets = rollState.targets;
 
-  // Validator
-  const validator = $derived(new ConsumptionValidator(rollState));
-
   const preventActionRollOnWarning =
     // @ts-expect-error
     (game.settings?.get("a5e", "preventActionRollOnWarning") as boolean) ?? false;
@@ -166,6 +163,7 @@
   let warnings: string[] = $derived([]);
 
   $effect(() => {
+    const validator = new ConsumptionValidator(rollState);
     warnings = validator.validateData(consumerData, selectedConsumers);
   });
 

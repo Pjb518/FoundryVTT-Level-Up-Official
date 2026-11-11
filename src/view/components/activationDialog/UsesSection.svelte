@@ -54,9 +54,11 @@
       <input
         class="a5e-input a5e-input--slim a5e-input--small"
         type="number"
-        bind:value={actionUsesData.quantity}
+        value={actionUsesData.quantity ?? 1}
         min="0"
         max={actionUses.max}
+        onchange={({ currentTarget }) =>
+          (actionUsesData.quantity = Number.parseInt(currentTarget.value))}
       />
 
       <p class="small-text">
@@ -76,9 +78,11 @@
       <input
         class="a5e-input a5e-input--slim a5e-input--small"
         type="number"
-        bind:value={itemUsesData.quantity}
+        value={itemUsesData.quantity ?? 1}
         min="0"
         max={itemUses.max}
+        onchange={({ currentTarget }) =>
+          (itemUsesData.quantity = Number.parseInt(currentTarget.value))}
       />
 
       <p class="small-text">

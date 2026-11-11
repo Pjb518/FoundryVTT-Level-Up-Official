@@ -166,6 +166,7 @@ export default function init() {
 			MigrationRunner: MigrationRunnerFoundry,
 			handleMigration,
 			handlePackMigration,
+      lock: false,
 		},
 		settings: {
 			// store: gameSettings,
