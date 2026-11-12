@@ -2,6 +2,7 @@
 
 import { createSubscriber } from 'svelte/reactivity';
 import { RESOURCE_DATA_TYPES } from '#data/fields/ResourcesField.ts';
+import type { RollModeData } from '#data/fields/RollModeField.ts';
 import { ActorGrantsManager } from '#managers/ActorGrantsManager.ts';
 import { BonusesManager } from '#managers/BonusesManager.ts';
 import HitDiceManager from '#managers/HitDiceManager.ts';
@@ -45,6 +46,7 @@ import { ActiveEffectA5E } from '../activeEffect/ae.svelte.ts';
 import automateHpConditions from '../activeEffect/utils/automateHpConditions.js';
 import automateMultiLevelConditions from '../activeEffect/utils/automateMultiLevelConditions.js';
 import { generateExpandedChanges } from '../activeEffect/utils/generateExpandedChanges.ts';
+import { ActorInventory } from './ActorInventory.ts';
 import type {
 	AbilityCheckRollOptions,
 	ActorDialogs,
@@ -52,10 +54,9 @@ import type {
 	SavingThrowRollOptions,
 	SkillCheckRollOptions,
 } from './data.ts';
+import { ItemTransfer } from './ItemTransfer.ts';
 
 import FDoc = foundry.abstract.Document;
-
-import type { RollModeData } from '#data/fields/RollModeField.ts';
 
 // *****************************************************************************************
 
@@ -115,6 +116,8 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	declare BonusesManager: BonusesManager;
 
 	declare HitDiceManager: HitDiceManager;
+
+	declare inventory: ActorInventory;
 
 	declare grants: ActorGrantsManager;
 
@@ -549,7 +552,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		if (isTypeData) this.system?.prepareBaseData();
 		this.prepareBaseData();
 
-		super.prepareEmbeddedDocuments();
+		this.prepareEmbeddedDocuments();
 
 		// Initialize Grants
 		if (this.isChar()) this.grants = new ActorGrantsManager(this);
@@ -583,6 +586,13 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 			// @ts-expect-error
 			for (const token of tokens) token._onApplyStatusEffect(statusId, isActive);
 		}
+	}
+
+	override prepareEmbeddedDocuments() {
+		super.prepareEmbeddedDocuments();
+
+		const objects = this.itemTypes.object;
+		this.inventory = new ActorInventory(this, objects);
 	}
 
 	/** ================================================================= */
@@ -2405,6 +2415,103 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	}
 
 	/** ================================================================= */
+	// Helpers
+	/** ================================================================= */
+
+	/** Can a user loot this actor? Same as update modification permission but overridable by subclasses */
+	isLootableBy(user: User): boolean {
+		return this.canUserModify(user, 'update');
+	}
+
+	/**
+	 * Moves an item to another actor's inventory
+	 */
+	async transferItemToActor(
+		targetActor: Actor.Implementation,
+		sourceItem: Item.Implementation,
+		quantity: number,
+		containerId: string,
+		newStack = false,
+		isPurchase: boolean = false,
+	) {
+		if (!sourceItem.isType('object')) {
+			ui.notifications.error('Only object type items can be transferred between actors.');
+			return;
+		}
+
+		const item = sourceItem as Item.OfType<'object'>;
+
+		const container = targetActor.items.get(containerId ?? '');
+		if (container && !(container.isType('object') && container.system.objectType === 'container')) {
+			ui.notifications.error('Selected Container Id is referring to a non-container Item.');
+			return;
+		}
+
+		// Limit quantity to available quantity
+		quantity = Math.min(quantity, item.system.quantity);
+
+		const gmMustTransfer = (
+			source: Actor.Implementation,
+			target: Actor.Implementation,
+		): boolean => {
+			const bothAreOwned = source.isOwner && target.isOwner;
+			const sourceIsOwned = source.isLootableBy(game.user);
+			const targetIsOwned = target.isLootableBy(game.user);
+
+			return !bothAreOwned && sourceIsOwned && targetIsOwned;
+		};
+
+		if (gmMustTransfer(this, targetActor)) {
+			const source = { tokenId: this.token?.id, actorId: this.id, itemId: item.id };
+			const target = { tokenId: targetActor.token?.id, actorId: targetActor.id };
+			const mode = isPurchase ? 'purchase' : 'move';
+			await new ItemTransfer({
+				source,
+				target,
+				quantity,
+				containerId: container?.id,
+				mode,
+			}).request();
+			return null;
+		}
+
+		if (!this.canUserModify(game.user, 'update')) {
+			ui.notifications.error('Source actor cannot be modified by user.');
+			return null;
+		}
+
+		if (!targetActor.canUserModify(game.user, 'update')) {
+			ui.notifications.error('Target actor cannot be modified by user.');
+			return null;
+		}
+
+		// If Transaction update coins
+		if (isPurchase) {
+		}
+
+		// Update source actor item quantity
+		const newQuantity = item.system.quantity - quantity;
+		const removeFromSource = newQuantity < 1;
+
+		const update = this.createGroupUpdate();
+
+		if (removeFromSource) update.itemDeletes.push(item.id!);
+		else update.itemUpdates.push({ _id: item.id!, 'system.quantity': newQuantity });
+
+		const newItemData = item.toObject();
+		newItemData._id = foundry.utils.randomID();
+		newItemData.system.quantity = quantity;
+		newItemData.system.equipped = CONFIG.A5E.EQUIPPED_STATES.CARRIED;
+		newItemData.system.containerId = containerId;
+
+		const itemTransfer = [newItemData];
+
+		await this.applyGroupUpdate(update);
+
+		const results = await null;
+	}
+
+	/** ================================================================= */
 	// Sheet Toggles
 	/** ================================================================= */
 
@@ -4105,5 +4212,12 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 export type A5EChar = ActorA5E<'character'>;
 export type A5ENPC = ActorA5E<'npc'>;
 export type A5EParty = ActorA5E<'party'>;
+
+export type ActorGroupUpdate = {
+	actorUpdates: Record<string, unknown>;
+	itemCreates: ({ _id: string } & Record<string, unknown>)[];
+	itemUpdates: ({ _id: string } & Record<string, unknown>)[];
+	itemDeletes: string[];
+};
 
 export { ActorA5E };
