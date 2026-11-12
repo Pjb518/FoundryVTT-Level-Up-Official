@@ -3613,6 +3613,88 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	}
 
 	/** ================================================================= */
+	// Document Update Helpers
+	/** ================================================================= */
+
+	/** Creates an empty actor group update */
+	createGroupUpdate(): ActorGroupUpdate {
+		return {
+			actorUpdates: {},
+			itemCreates: [],
+			itemUpdates: [],
+			itemDeletes: [],
+		};
+	}
+
+	/** Applies multiple batched updates to the actor, delaying rendering till the end */
+	async applyGroupUpdate(
+		data: Partial<ActorGroupUpdate>,
+		{ render = true, keepId }: { render?: boolean; keepId?: boolean } = {},
+	) {
+		const { isEmpty } = foundry.utils;
+		const actorUpdates =
+			data.actorUpdates && !isEmpty(data.actorUpdates) ? data.actorUpdates : null;
+		const itemCreates = data.itemCreates ?? [];
+		const itemUpdates = data.itemUpdates ?? [];
+		const itemDeletes = data.itemDeletes ?? [];
+
+		const lastRender = !render
+			? null
+			: itemDeletes.length
+				? 'delete'
+				: itemUpdates.length
+					? 'update'
+					: itemCreates.length
+						? 'create'
+						: 'actorUpdate';
+
+		const operations = [] as any[];
+
+		if (actorUpdates) {
+			operations.push({
+				action: 'create',
+				documentName: 'Actor',
+				updates: [{ ...actorUpdates, _id: this.id }],
+				parent: this.parent,
+				render: lastRender === 'actorUpdate',
+			});
+		}
+
+		if (itemCreates.length > 0) {
+			operations.push({
+				action: 'create',
+				data: itemCreates,
+				documentName: 'Item',
+				keepId,
+				parent: this,
+				render: lastRender === 'create',
+			});
+		}
+
+		if (itemUpdates.length > 0) {
+			operations.push({
+				action: 'update',
+				documentName: 'Item',
+				updates: itemUpdates,
+				parent: this,
+				render: lastRender === 'update',
+			});
+		}
+
+		if (itemDeletes.length > 0) {
+			operations.push({
+				action: 'delete',
+				documentName: 'Item',
+				ids: itemDeletes,
+				parent: this,
+				render: lastRender === 'delete',
+			});
+		}
+
+		await foundry.documents.modifyBatch(operations);
+	}
+
+	/** ================================================================= */
 	// Document Update Hooks
 	/** ================================================================= */
 
