@@ -1,22 +1,25 @@
+import { Currency } from '#documents/item/Currency.ts';
+
 class ActorInventory extends foundry.utils.Collection<Item.OfType<'object'>> {
 	/** Reference to parent actor */
 	actor: Actor.Implementation;
+
+	/** Reference to currency */
+	currency: Currency;
 
 	constructor(actor: Actor.Implementation, entries?: Item.OfType<'object'>[]) {
 		// @ts-expect-error
 		super(entries?.map((entry) => [entry.id, entry]));
 
 		this.actor = actor;
+		//
+		// @ts-expect-error
+		this.currency = new Currency(this.actor.system.currency);
 	}
 
 	/** ---------------------------------- */
 	// Getters
 	/** ---------------------------------- */
-
-	/** Get currency available on the actor */
-	get currency() {
-		return 0;
-	}
 
 	/** Get currency available on actor and items */
 	get allCurrency() {

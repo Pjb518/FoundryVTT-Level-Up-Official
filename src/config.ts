@@ -483,7 +483,16 @@ const currencyDenominations = {
 	gp: 'A5E.currency.gold',
 	pp: 'A5E.currency.platinum',
 	cr: 'A5E.currency.credits',
-};
+} as const;
+
+const denominationRates = {
+	cp: 1,
+	sp: 10,
+	ep: 50,
+	gp: 100,
+	pp: 1000,
+	cr: 100,
+} as const;
 
 const currencyToCopper = {
 	cp: (v: number) => v,
@@ -494,6 +503,7 @@ const currencyToCopper = {
 	cr: (v: number) => v * 100,
 };
 
+/** @deprecated */
 const currencyToGold = {
 	cp: (v: number) => v * 0.01,
 	sp: (v: number) => v * 0.1,
@@ -710,7 +720,7 @@ const followerTypes = {
 	digger: 'A5E.follower.types.digger',
 	diviner: 'A5E.follower.types.diviner',
 	footpad: 'A5E.follower.types.footpad',
-  gunneryMaster: 'A5E.follower.types.gunneryMaster',
+	gunneryMaster: 'A5E.follower.types.gunneryMaster',
 	healer: 'A5E.follower.types.healer',
 	interpreter: 'A5E.follower.types.interpreter',
 	inventor: 'A5E.follower.types.inventor',
@@ -804,14 +814,14 @@ const knackTypes = {
 	bard: 'Adventuring Trick',
 	berserker: 'Developed Talent',
 	bloodblade: 'Esoteric Arts',
-  champion: "Warrior's Forte",
+	champion: "Warrior's Forte",
 	cleric: 'Sign of Faith',
 	druid: 'Secret of Nature',
 	elementalist: 'Elemental Adaptation',
 	fighter: 'Soldiering Knack',
 	fireLord: 'Edict of Flame',
 	herald: 'Divine Lesson',
-  gunslinger: 'Trick of the Trail',
+	gunslinger: 'Trick of the Trail',
 	marshal: 'Lesson of War',
 	psion: 'Cognitive Discoveries',
 	psyknight: 'Psychic Isometrics',
@@ -821,10 +831,10 @@ const knackTypes = {
 	scholar: 'Scholarly Discovery',
 	scientist: 'Scientific Praxes',
 	scout: 'Clever Trick',
-  sentinel: 'Teamwork',
+	sentinel: 'Teamwork',
 	sorcerer: 'Arcane Innovation',
 	trooper: 'Drill',
-  warcaster: 'Legerdemain',
+	warcaster: 'Legerdemain',
 	warlock: 'Secret of Arcana',
 	wielder: 'Artifact Whisper',
 	witch: 'Magical Mystery',
@@ -1553,8 +1563,8 @@ const skillSpecialties = {
 		concealingEmotions: 'A5E.skillSpecialties.concealingEmotions',
 		liesOfOmission: 'A5E.skillSpecialties.liesOfOmission',
 		mimicry: 'A5E.skillSpecialties.mimicry',
-    nonthreatening: 'A5E.skillSpecialties.nonthreatening',
-    passingBlame: 'A5E.skillSpecialties.passingBlame',
+		nonthreatening: 'A5E.skillSpecialties.nonthreatening',
+		passingBlame: 'A5E.skillSpecialties.passingBlame',
 	},
 	eng: {
 		architecture: 'A5E.skillSpecialties.architecture',
@@ -1662,7 +1672,7 @@ const skillSpecialties = {
 	},
 	slt: {
 		distraction: 'A5E.skillSpecialties.distraction',
-    gunTricks: 'A5E.skillSpecialties.gunTricks',
+		gunTricks: 'A5E.skillSpecialties.gunTricks',
 		legerdemain: 'A5E.skillSpecialties.legerdemain',
 		pickpocketing: 'A5E.skillSpecialties.pickpocketing',
 	},
@@ -2414,6 +2424,7 @@ const A5E = {
 	creatureTypes,
 	currencyDenominations,
 	currencyToCopper,
+	denominationRates,
 	currencyToGold,
 	damagedStates,
 	scalingModes,
