@@ -1,0 +1,219 @@
+{
+	"name": "Static Discharge",
+	"type": "spell",
+	"img": "icons/magic/lightning/barrier-shield-crackling-orb-pink.webp",
+	"folder": null,
+	"system": {
+		"description": "<p>You harness the latent energies of the cosmos and direct them with your mind. Make an unarmed melee attack. On a hit the target takes 1d10 lightning damage and can’t take reactions until the start of its next turn. The damage from this power increases to 2d10 at power rating IV and 3d10 at power rating VI.</p>",
+		"source": "voidrunnersCodex",
+		"level": 0,
+		"classes": [],
+		"components": {
+			"vocalized": false,
+			"seen": false,
+			"material": false
+		},
+		"schools": {
+			"primary": "",
+			"secondary": []
+		},
+		"disciplines": [
+			"dynakinetic"
+		],
+		"concentration": false,
+		"ritual": false,
+		"actions": {
+			"1a7089f3a7eeae57": {
+				"name": "Static Discharge",
+				"default": true,
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"value": "0",
+					"unit": "instantaneous",
+					"concentration": false
+				},
+				"ranges": {
+					"38a6ac77d545ede2": {
+						"range": "touch",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1,
+					"otherText": "One creature",
+					"heard": false,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
+				},
+				"effects": [
+					"3bQjs3N7kNcw5pu6"
+				],
+				"rolls": {
+					"ab1900ab517d0260": {
+						"type": "attack",
+						"default": true,
+						"label": "",
+						"ability": "default",
+						"attackType": "meleeWeaponAttack",
+						"bonus": "0",
+						"proficient": true,
+						"critThreshold": 20
+					},
+					"5d403375619ee148": {
+						"type": "damage",
+						"default": true,
+						"label": "",
+						"formula": "(max(1, floor(@resource.power-level / 2)))d10",
+						"damageType": "lightning",
+						"canCrit": true,
+						"critBonus": "",
+						"die": {
+							"modifiers": [],
+							"number": 0,
+							"denom": 0
+						},
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							},
+							"mode": null
+						}
+					}
+				},
+				"prompts": {},
+				"consumers": {},
+				"id": "",
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"spellBook": "",
+		"slug": "",
+		"tags": []
+	},
+	"effects": [
+		{
+			"name": "Static Discharge",
+			"img": "icons/magic/lightning/barrier-shield-crackling-orb-pink.webp",
+			"origin": "Item.MPNTn7UIbAe4V5Db",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "3bQjs3N7kNcw5pu6",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "rounds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Can’t take reactions until the start of its next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.370",
+				"systemId": "a5e",
+				"systemVersion": "1.5.0",
+				"createdTime": 1794433991000,
+				"modifiedTime": 1794434003281,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
+			}
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.370",
+		"systemId": "a5e",
+		"systemVersion": "1.5.0",
+		"createdTime": 1794432873574,
+		"modifiedTime": 1794441172061,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "uotjuFqyA6TKXbc6"
+}

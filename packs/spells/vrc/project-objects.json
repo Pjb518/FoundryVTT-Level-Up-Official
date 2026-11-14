@@ -1,0 +1,174 @@
+{
+	"name": "Project Objects",
+	"type": "spell",
+	"img": "icons/magic/earth/projectiles-fire-stone-salvo.webp",
+	"folder": null,
+	"system": {
+		"description": "<p>You lift several pebble-sized objects within range and hurl them with your mind. Make a ranged psionic attack with the objects against a target within range. On a hit, the target takes bludgeoning damage equal to 1d6 + your manifesting ability modifier. The base damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p><p><strong>Surge.</strong> You can spend +1 psionic point to target an additional creature or object within 30 feet of the first target [requires power rating II].</p>",
+		"source": "voidrunnersCodex",
+		"level": 0,
+		"classes": [],
+		"components": {
+			"vocalized": false,
+			"seen": false,
+			"material": false
+		},
+		"schools": {
+			"primary": "",
+			"secondary": []
+		},
+		"disciplines": [
+			"telekinetic"
+		],
+		"concentration": false,
+		"ritual": false,
+		"actions": {
+			"1a3d954ad1013781": {
+				"name": "Project Objects",
+				"default": true,
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"value": "0",
+					"unit": "instantaneous",
+					"concentration": false
+				},
+				"ranges": {
+					"38a6ac77d545ede2": {
+						"range": "medium",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1,
+					"otherText": "One creature or object",
+					"heard": false,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
+				},
+				"effects": [],
+				"rolls": {
+					"ab1900ab517d0260": {
+						"type": "attack",
+						"default": true,
+						"label": "",
+						"ability": "default",
+						"attackType": "rangedSpellAttack",
+						"bonus": "0",
+						"proficient": true,
+						"critThreshold": 20
+					},
+					"c2703cfd0fdd33ac": {
+						"type": "damage",
+						"default": true,
+						"label": "",
+						"formula": "@spellcasting.mod",
+						"damageType": "bludgeoning",
+						"canCrit": true,
+						"critBonus": "",
+						"die": {
+							"modifiers": [],
+							"number": 1,
+							"denom": 6
+						},
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 1,
+								"denom": 0,
+								"cap": 5
+							},
+							"mode": "cantrip"
+						}
+					}
+				},
+				"prompts": {},
+				"consumers": {},
+				"id": "",
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"spellBook": "",
+		"slug": "",
+		"tags": []
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.370",
+		"systemId": "a5e",
+		"systemVersion": "1.5.0",
+		"createdTime": 1794432873572,
+		"modifiedTime": 1794493899765,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "DZotXBMn12EntTfL"
+}

@@ -1,0 +1,293 @@
+{
+	"name": "Bolster",
+	"type": "spell",
+	"img": "icons/skills/movement/arrow-upward-blue.webp",
+	"folder": null,
+	"system": {
+		"description": "<p>The target gains one of the following benefits, chosen when you manifest this power:</p><ul><li><p><strong>Lungs.</strong> The target doubles the amount of time it can hold its breath.</p></li><li><p><strong>Gut.</strong> The target has advantage on saving throws made against poison.</p></li><li><p><strong>Skin.</strong> The target’s AC increases by 1.</p></li></ul><p><strong>Surge.</strong> You can spend +1 psionic point per creature to affect up to 4 targets [requires power rating equal to the total number of creatures affected].</p>",
+		"source": "voidrunnersCodex",
+		"level": 0,
+		"classes": [],
+		"components": {
+			"vocalized": false,
+			"seen": false,
+			"material": false
+		},
+		"schools": {
+			"primary": "",
+			"secondary": []
+		},
+		"disciplines": [
+			"kinesthetic"
+		],
+		"concentration": true,
+		"ritual": false,
+		"actions": {
+			"5650be83dffce575": {
+				"name": "Bolster",
+				"default": true,
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"value": "1",
+					"unit": "hour",
+					"concentration": true
+				},
+				"ranges": {
+					"38a6ac77d545ede2": {
+						"range": "touch",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"target": {
+					"type": "other",
+					"quantity": 1,
+					"otherText": "One willing living creature",
+					"heard": false,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
+				},
+				"effects": [
+					"qCAicRtaLsVDigKn",
+					"WnRdjk8zFYRA2657",
+					"oNh43GBY82lGlMqi"
+				],
+				"rolls": {},
+				"prompts": {},
+				"consumers": {},
+				"id": "",
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"spellBook": "",
+		"slug": "",
+		"tags": []
+	},
+	"effects": [
+		{
+			"name": "Lungs",
+			"img": "icons/magic/control/buff-strength-muscle-damage-orange.webp",
+			"origin": "Item.7is8cyfycWv8BZMw",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [],
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "qCAicRtaLsVDigKn",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "hours",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Doubles the amount of time it can hold its breath.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.370",
+				"systemId": "a5e",
+				"systemVersion": "1.5.0",
+				"createdTime": 1794441767705,
+				"modifiedTime": 1794441797439,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
+			}
+		},
+		{
+			"name": "Gut",
+			"img": "icons/magic/control/buff-strength-muscle-damage-orange.webp",
+			"origin": "Item.7is8cyfycWv8BZMw",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [
+					{
+						"key": "flags.a5e.effects.conditionResistances",
+						"type": "custom",
+						"value": {
+							"yzdUu5VieHOypq3X": {
+								"condition": "poisoned",
+								"custom": false,
+								"rollMode": 1
+							}
+						},
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "WnRdjk8zFYRA2657",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "hours",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Advantage on saving throws made against poison.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.370",
+				"systemId": "a5e",
+				"systemVersion": "1.5.0",
+				"createdTime": 1794441802872,
+				"modifiedTime": 1794441833075,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
+			}
+		},
+		{
+			"name": "Skin",
+			"img": "icons/magic/control/buff-strength-muscle-damage-orange.webp",
+			"origin": "Item.7is8cyfycWv8BZMw",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"type": "add",
+						"value": 1,
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "oNh43GBY82lGlMqi",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "hours",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>AC increases by 1.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.370",
+				"systemId": "a5e",
+				"systemVersion": "1.5.0",
+				"createdTime": 1794441864035,
+				"modifiedTime": 1794441885908,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
+			}
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.370",
+		"systemId": "a5e",
+		"systemVersion": "1.5.0",
+		"createdTime": 1794432873553,
+		"modifiedTime": 1794441937622,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "yVsSez6Gs3euQA8x"
+}

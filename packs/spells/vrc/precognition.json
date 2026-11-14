@@ -1,0 +1,192 @@
+{
+	"name": "Precognition",
+	"type": "spell",
+	"img": "icons/magic/perception/third-eye-blue-red.webp",
+	"folder": null,
+	"system": {
+		"description": "<p>Attuning yourself with the environment, you gain a sense of the immediate future. You cannot determine specific events, but you do get a warning feeling when danger is imminent. You gain an expertise die on initiative checks.</p><p><strong>Surge.</strong> You can spend +1 psionic point to gain advantage on initiative checks.</p>",
+		"source": "voidrunnersCodex",
+		"level": 0,
+		"classes": [],
+		"components": {
+			"vocalized": false,
+			"seen": false,
+			"material": false
+		},
+		"schools": {
+			"primary": "",
+			"secondary": []
+		},
+		"disciplines": [
+			"clairsentient"
+		],
+		"concentration": true,
+		"ritual": false,
+		"actions": {
+			"5650be83dffce575": {
+				"name": "Precognition",
+				"default": true,
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"value": "1",
+					"unit": "hour",
+					"concentration": true
+				},
+				"ranges": {
+					"38a6ac77d545ede2": {
+						"range": "self",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"target": {
+					"type": "self",
+					"quantity": 1,
+					"otherText": "Self",
+					"heard": false,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
+				},
+				"effects": [
+					"e1544672398cb195"
+				],
+				"rolls": {},
+				"prompts": {},
+				"consumers": {},
+				"id": "",
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"spellBook": "",
+		"slug": "",
+		"tags": []
+	},
+	"effects": [
+		{
+			"_id": "e1544672398cb195",
+			"name": "Precognition",
+			"type": "base",
+			"img": "icons/magic/perception/third-eye-blue-red.webp",
+			"description": "<p>Gain an expertise die on initiative checks.</p>",
+			"transfer": false,
+			"disabled": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"changes": [
+					{
+						"key": "system.attributes.initiative.expertiseDice",
+						"value": 1,
+						"type": "add",
+						"phase": "initial"
+					}
+				],
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"duration": {
+				"units": "hours",
+				"value": 1,
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"start": null,
+			"origin": "Item.W9OWUSId6QoeRZr0",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.370",
+				"systemId": "a5e",
+				"systemVersion": "1.5.0",
+				"createdTime": 1794432873571,
+				"modifiedTime": 1794493217155,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
+			}
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.370",
+		"systemId": "a5e",
+		"systemVersion": "1.5.0",
+		"createdTime": 1794432873571,
+		"modifiedTime": 1794493225025,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "PTVOF2LK4cPWS0R0"
+}

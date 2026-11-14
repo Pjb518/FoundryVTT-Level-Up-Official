@@ -1,0 +1,147 @@
+{
+	"name": "Move Object",
+	"type": "spell",
+	"img": "icons/commodities/tech/electronics-tech-interface-teal.webp",
+	"folder": null,
+	"system": {
+		"description": "<p>You summon an unattended handheld object to your empty hand from a distance within range. Alternately, you levitate a creature or object and can move it a number of feet per round (within range) based on your power rating and the target’s size. Unwilling creatures or those holding an object you are trying to affect can make a Strength check against your psionics save DC to avoid being affected (or a manifesting ability check, if it can use psionic powers).</p><p>You can interact with objects as though you were using them yourself (open doors, operate a PCD, spin a control dial, fire a pistol, and the like) using the same type of action that you would use if you were interacting with the object normally, although you can only make one attack per turn using this power.</p><p><strong>Surge.</strong> You can spend +1 psionic point per target to affect up to 8 unattended Tiny items or +1 per creature or larger/attended object to affect up to 4 targets.</p><p><strong>Table: Move Object</strong></p><table><thead><tr><th style=\"text-align: center;\"><p>Power Rating</p></th><th style=\"text-align: center;\"><p>Size</p></th><th style=\"text-align: center;\"><p>Distance</p></th><th style=\"text-align: center;\"><p>Duration</p></th></tr></thead><tbody><tr><td style=\"text-align: center;\"><p>I</p></td><td style=\"text-align: center;\"><p>Tiny</p></td><td style=\"text-align: center;\"><p>5 feet</p></td><td style=\"text-align: center;\"><p>Concentration (1 minute)</p></td></tr><tr><td style=\"text-align: center;\"><p>II</p></td><td style=\"text-align: center;\"><p>Small</p></td><td style=\"text-align: center;\"><p>10 feet</p></td><td style=\"text-align: center;\"><p>Concentration (10 minutes)</p></td></tr><tr><td style=\"text-align: center;\"><p>IV</p></td><td style=\"text-align: center;\"><p>Medium</p></td><td style=\"text-align: center;\"><p>20 feet</p></td><td style=\"text-align: center;\"><p>Concentration (10 minutes)</p></td></tr><tr><td style=\"text-align: center;\"><p>VI</p></td><td style=\"text-align: center;\"><p>Large</p></td><td style=\"text-align: center;\"><p>30 feet</p></td><td style=\"text-align: center;\"><p>10 minutes, no concentration</p></td></tr></tbody></table>",
+		"source": "voidrunnersCodex",
+		"level": 0,
+		"classes": [],
+		"components": {
+			"vocalized": false,
+			"seen": false,
+			"material": false
+		},
+		"schools": {
+			"primary": "",
+			"secondary": []
+		},
+		"disciplines": [
+			"telekinetic"
+		],
+		"concentration": true,
+		"ritual": false,
+		"actions": {
+			"5650be83dffce575": {
+				"name": "Move Object",
+				"default": true,
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"value": "1",
+					"unit": "minute",
+					"concentration": true
+				},
+				"ranges": {
+					"38a6ac77d545ede2": {
+						"range": "medium",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1,
+					"otherText": "Creature or object",
+					"heard": false,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
+				},
+				"effects": [],
+				"rolls": {},
+				"prompts": {
+					"LkuVY2PrJZBBo2N3": {
+						"type": "abilityCheck",
+						"default": true,
+						"ability": "str",
+						"label": ""
+					}
+				},
+				"consumers": {},
+				"id": "",
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"spellBook": "",
+		"slug": "",
+		"tags": []
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.370",
+		"systemId": "a5e",
+		"systemVersion": "1.5.0",
+		"createdTime": 1794432873569,
+		"modifiedTime": 1794442876910,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "rTFjcEZ5UDqRhUWF"
+}

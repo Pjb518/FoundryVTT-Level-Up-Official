@@ -1,0 +1,185 @@
+{
+	"name": "Adrenalize",
+	"type": "spell",
+	"img": "icons/magic/control/buff-strength-muscle-damage-orange.webp",
+	"system": {
+		"description": "<p>Your power makes the target more physically capable. The target gains an expertise die to one physical ability check (Strength, Dexterity, or Constitution) of its choice. The target may choose to roll the expertise die after the check is rolled but before the outcome is determined.</p>",
+		"source": "voidrunnersCodex",
+		"level": 0,
+		"classes": [],
+		"components": {
+			"vocalized": false,
+			"seen": false,
+			"material": false
+		},
+		"concentration": true,
+		"ritual": false,
+		"schools": {
+			"primary": "",
+			"secondary": []
+		},
+		"actions": {
+			"ManifestPower001": {
+				"name": "Adrenalize",
+				"default": true,
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1",
+					"concentration": true
+				},
+				"ranges": {
+					"AdrenalizeRange1": {
+						"range": "short",
+						"unit": "feet",
+						"value": 30
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"type": "other",
+					"otherText": "1 willing creature",
+					"heard": false,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
+				},
+				"effects": [
+					"AdrenalizeFX0001"
+				],
+				"consumers": {},
+				"prompts": {},
+				"rolls": {},
+				"id": "",
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"disciplines": [
+			"kinesthetic"
+		],
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"spellBook": "",
+		"slug": "",
+		"tags": []
+	},
+	"effects": [
+		{
+			"_id": "AdrenalizeFX0001",
+			"name": "Adrenalize",
+			"type": "base",
+			"img": "icons/magic/control/buff-strength-muscle-damage-orange.webp",
+			"description": "<p>Gains an expertise die to one physical ability check (Strength, Dexterity, or Constitution) of its choice. The target may choose to roll the expertise die after the check is rolled but before the outcome is determined.</p>",
+			"transfer": false,
+			"duration": {
+				"value": 1,
+				"units": "minutes",
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"changes": [],
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"flags": {},
+			"disabled": false,
+			"start": null,
+			"origin": "Item.vGvqM5NNz1KFBbTB",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"_stats": {
+				"coreVersion": "14.370",
+				"systemId": "a5e",
+				"systemVersion": "1.5.0",
+				"createdTime": 1794432873545,
+				"modifiedTime": 1794433046743,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
+			}
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "14.370",
+		"systemId": "a5e",
+		"systemVersion": "1.5.0",
+		"createdTime": 1794432873545,
+		"modifiedTime": 1794433055547,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "zarKnfUKY4QY9euN"
+}
