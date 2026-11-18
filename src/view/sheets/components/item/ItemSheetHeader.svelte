@@ -147,7 +147,7 @@
       &__input {
         background: transparent;
         text-overflow: ellipses;
-        font-size: var(a5e-text-sm);
+        font-size: var(--a5e-text-sm);
         padding: var(--a5e-spacing-none);
         border: var(--a5e-border-width-none);
         height: calc(var(--a5e-text-sm) + 0.125rem) !important;
