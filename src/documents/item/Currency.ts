@@ -142,9 +142,11 @@ class Currency implements RawCurrency {
 
 		return currency;
 	}
+
+	// TODO: Handle Distribution from our own method of equal share
 }
 
-type CurrencyDenomination = keyof typeof CONFIG.A5E.currencyDenominations;
+export type CurrencyDenomination = keyof typeof CONFIG.A5E.currencyDenominations;
 
 const CURRENCY_DENOMINATIONS = Object.keys(
 	A5E.currencyDenominations,

@@ -607,20 +607,25 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 			inPreCreate: false,
 		};
 
-    // Lock migration lock
-    game.a5e.migrations.lock = true;
+		// Lock migration lock
+		game.a5e.migrations.lock = true;
 
 		await this.#setupSourceData();
 
-		const updated =
-			'items' in source
-				? await this.#migrateActor(this.migrations, source, options)
-				: await this.#migrateItem(this.migrations, source, options);
+		let updated: any;
+
+		if ('items' in source) {
+			game.actors.set(source._id, source);
+			updated = await this.#migrateActor(this.migrations, source, options);
+		} else {
+			game.items.set(source._id, source);
+			updated = await this.#migrateItem(this.migrations, source, options);
+		}
 
 		await source.update(updated);
 
-    // Unlock migration lock
-    game.a5e.migrations.lock = false;
+		// Unlock migration lock
+		game.a5e.migrations.lock = false;
 
 		return true;
 	}
@@ -636,8 +641,8 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 
 		ui.notifications.info(_loc('A5E.migration.world.starting', { version: systemVersion }));
 
-    // Lock migration lock
-    game.a5e.migrations.lock = true;
+		// Lock migration lock
+		game.a5e.migrations.lock = true;
 
 		const migrationsToRun = force
 			? this.migrations
@@ -665,21 +670,21 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 		await game.settings.set('a5e', 'worldSchemaVersion', migrationVersion.latest);
 		ui.notifications.info(_loc('A5E.migration.world.finished', { version: systemVersion }));
 
-    // Unlock migration lock
-    game.a5e.migrations.lock = false;
+		// Unlock migration lock
+		game.a5e.migrations.lock = false;
 
-    // Run Refresh
-    await foundry.applications.api.DialogV2.prompt({
-      window: { title: 'Refresh World'},
-      content: 'Migration Completed (Refresh Required). Proceed to refresh?',
-      ok: {
-        label: 'Refresh',
-        icon: 'fa-solid fa-rotate-right',
-        callback: () => {
-          foundry.utils.debouncedReload()
-        }
-      }
-    })
+		// Run Refresh
+		await foundry.applications.api.DialogV2.prompt({
+			window: { title: 'Refresh World' },
+			content: 'Migration Completed (Refresh Required). Proceed to refresh?',
+			ok: {
+				label: 'Refresh',
+				icon: 'fa-solid fa-rotate-right',
+				callback: () => {
+					foundry.utils.debouncedReload();
+				},
+			},
+		});
 	}
 
 	async #getTruePackSource(pack) {

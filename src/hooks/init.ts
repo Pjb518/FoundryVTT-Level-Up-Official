@@ -45,6 +45,7 @@ import activateActionMacro from '../macros/activateActionMacro.js';
 import activateItemMacro from '../macros/activateItemMacro.js';
 import createMacro from '../macros/createMacro.js';
 import { A5eEnricherManager } from '../managers/A5eEnricherManager.ts';
+import { handleDocumentMigration } from '../migration/handlers/handleDocumentMigration.ts';
 import { handleMigration } from '../migration/handlers/handleMigration.ts';
 import { handlePackMigration } from '../migration/handlers/handlePackMigration.ts';
 import { MigrationList } from '../migration/MigrationList.ts';
@@ -166,7 +167,8 @@ export default function init() {
 			MigrationRunner: MigrationRunnerFoundry,
 			handleMigration,
 			handlePackMigration,
-      lock: false,
+			handleDocumentMigration,
+			lock: false,
 		},
 		settings: {
 			// store: gameSettings,

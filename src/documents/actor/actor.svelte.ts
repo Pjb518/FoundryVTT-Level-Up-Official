@@ -3493,8 +3493,6 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 		remaining += remainder;
 
-		console.log(share, remaining);
-
 		// Update actors
 		const partyUpdates = Object.entries(this.system.currency ?? {}).reduce(
 			(acc, [denom, _val]) => {
