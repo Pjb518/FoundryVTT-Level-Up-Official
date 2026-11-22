@@ -1,0 +1,218 @@
+{
+	"name": "Enervate",
+	"type": "spell",
+	"img": "icons/skills/wounds/injury-face-impact-orange.webp",
+	"folder": null,
+	"system": {
+		"description": "<p>You target a creature within range and overtax its psyche. The target makes an Intelligence saving throw or suffers the enervated condition until the end of your next turn. If the target is able to use psionic powers, it can make a manifesting ability saving throw instead.</p>",
+		"source": "voidrunnersCodex",
+		"level": 2,
+		"classes": [],
+		"components": {
+			"vocalized": false,
+			"seen": false,
+			"material": false
+		},
+		"schools": {
+			"primary": "",
+			"secondary": []
+		},
+		"disciplines": [
+			"general"
+		],
+		"concentration": true,
+		"ritual": false,
+		"actions": {
+			"5650be83dffce575": {
+				"name": "Enervate",
+				"default": true,
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"value": "1",
+					"unit": "round",
+					"concentration": true
+				},
+				"ranges": {
+					"38a6ac77d545ede2": {
+						"range": "short",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1,
+					"otherText": "One creature",
+					"heard": false,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
+				},
+				"effects": [
+					"68e17157065a45f3",
+					"HmrQ9Vm8nBgAMXLc"
+				],
+				"rolls": {},
+				"prompts": {
+					"577451ed71cddad9": {
+						"type": "savingThrow",
+						"ability": "int",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": "",
+						"default": true
+					}
+				},
+				"consumers": {
+					"b02baf16ded04d25": {
+						"type": "spell",
+						"mode": "pointsOnly",
+						"points": 2,
+						"spellLevel": 2,
+						"default": true,
+						"label": "Psionic points",
+						"charges": 0
+					}
+				},
+				"id": "",
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"spellBook": "",
+		"slug": "",
+		"tags": []
+	},
+	"effects": [
+		{
+			"name": "Enervated",
+			"img": "icons/skills/wounds/injury-face-impact-orange.webp",
+			"origin": "Item.jEwEIcnKn7eTmdTY",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"enervated"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "HmrQ9Vm8nBgAMXLc",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "rounds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<ul><li><p>An enervated creature can’t use psionic powers or features that require psionic points.</p></li><li><p>An enervated creature suffers a –2 penalty on all ability checks, saving throws, and attacks.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.370",
+				"systemId": "a5e",
+				"systemVersion": "1.5.0",
+				"createdTime": 1795135721049,
+				"modifiedTime": 1795135761521,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
+			}
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.370",
+		"systemId": "a5e",
+		"systemVersion": "1.5.0",
+		"createdTime": 1794877493554,
+		"modifiedTime": 1795138933196,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "qKUL1fgdv3pWRDr2"
+}

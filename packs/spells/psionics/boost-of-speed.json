@@ -1,0 +1,218 @@
+{
+	"name": "Boost of Speed",
+	"type": "spell",
+	"img": "icons/magic/movement/acceleration-speed-tech-blue.webp",
+	"folder": null,
+	"system": {
+		"description": "<p>Until the end of your next turn, your Speed is doubled, you gain a +2 bonus to AC, you have advantage on Dexterity saving throws, attack rolls against you have disadvantage, and you gain one additional reaction. A creature cannot be targeted by this power more than once in two rounds.</p><p><strong>Surge.</strong> You can spend +1 psionic point to target one willing creature within 30 feet instead.</p>",
+		"source": "voidrunnersCodex",
+		"level": 2,
+		"classes": [],
+		"components": {
+			"vocalized": false,
+			"seen": false,
+			"material": false
+		},
+		"schools": {
+			"primary": "",
+			"secondary": []
+		},
+		"disciplines": [
+			"kinesthetic"
+		],
+		"concentration": false,
+		"ritual": false,
+		"actions": {
+			"5650be83dffce575": {
+				"name": "Boost of Speed",
+				"default": true,
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"value": "0",
+					"unit": "instantaneous",
+					"concentration": false
+				},
+				"ranges": {
+					"38a6ac77d545ede2": {
+						"range": "self",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"target": {
+					"type": "",
+					"quantity": 1,
+					"otherText": "",
+					"heard": false,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
+				},
+				"effects": [
+					"d1a9cb2788f06fcc",
+					"zdUdjpyzzpZCfWLF"
+				],
+				"rolls": {},
+				"prompts": {},
+				"consumers": {
+					"b02baf16ded04d25": {
+						"type": "spell",
+						"mode": "pointsOnly",
+						"points": 2,
+						"spellLevel": 2,
+						"default": true,
+						"label": "",
+						"charges": 0
+					}
+				},
+				"id": "",
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"spellBook": "",
+		"slug": "",
+		"tags": []
+	},
+	"effects": [
+		{
+			"name": "Boost of Speed",
+			"img": "icons/magic/movement/acceleration-speed-tech-blue.webp",
+			"origin": "Item.dkXCaJX0kv2gOiXk",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"changes": [
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"type": "multiply",
+						"value": 2,
+						"phase": "initial",
+						"priority": 0
+					},
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"type": "add",
+						"value": 2,
+						"phase": "initial",
+						"priority": 0
+					},
+					{
+						"key": "system.abilities.dex.save.rollMode",
+						"type": "add",
+						"value": 1,
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "zdUdjpyzzpZCfWLF",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "rounds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Speed is doubled, you gain a +2 bonus to AC, you have advantage on Dexterity saving throws, attack rolls against you have disadvantage, and you gain one additional reaction.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.370",
+				"systemId": "a5e",
+				"systemVersion": "1.5.0",
+				"createdTime": 1795135116110,
+				"modifiedTime": 1795135328377,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
+			}
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.370",
+		"systemId": "a5e",
+		"systemVersion": "1.5.0",
+		"createdTime": 1794877493526,
+		"modifiedTime": 1795138933196,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "Sl56U5mIXBrxae1I"
+}

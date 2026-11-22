@@ -1,0 +1,186 @@
+{
+	"name": "Combust",
+	"type": "spell",
+	"img": "icons/magic/fire/barrier-shield-explosion-yellow.webp",
+	"folder": null,
+	"system": {
+		"description": "<p>You harness the latent energies of the cosmos and direct them with your mind. The target takes 1d10 fire damage. Any unattended flammable objects within 5 feet of the target spontaneously combust. The damage from this power increases to 2d10 at power rating IV and 3d10 at power rating VI.</p>",
+		"source": "voidrunnersCodex",
+		"level": 1,
+		"classes": [],
+		"components": {
+			"vocalized": false,
+			"seen": false,
+			"material": false
+		},
+		"schools": {
+			"primary": "",
+			"secondary": []
+		},
+		"disciplines": [
+			"dynakinetic"
+		],
+		"concentration": false,
+		"ritual": false,
+		"actions": {
+			"uO7POV3mKjPOwyai": {
+				"name": "Combust",
+				"consumers": {
+					"Omy4AyEdzHAMt3bR": {
+						"type": "spell",
+						"default": true,
+						"mode": "pointsOnly",
+						"charges": 1,
+						"spellLevel": 1,
+						"points": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {
+					"umuBLwhrvlChuBaL": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"u9FF2QXuy8wdk9IG": {
+						"range": "medium",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"rolls": {
+					"U5KFOPqLFbdGRxEY": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "fire",
+						"die": {
+							"modifiers": [],
+							"number": 1,
+							"denom": 0
+						},
+						"formula": "(max(1, floor(@resources.power-level / 2)))d10",
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							},
+							"mode": ""
+						},
+						"label": ""
+					}
+				},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": "creature"
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"spellBook": "",
+		"slug": "",
+		"tags": []
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.370",
+		"systemId": "a5e",
+		"systemVersion": "1.5.0",
+		"createdTime": 1794877493538,
+		"modifiedTime": 1795138933200,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "02TeVtkhW6tM1m9n"
+}

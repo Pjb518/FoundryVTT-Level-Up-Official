@@ -1,0 +1,218 @@
+{
+	"name": "Binding",
+	"type": "spell",
+	"img": "icons/magic/control/debuff-chains-orb-movement-blue.webp",
+	"folder": null,
+	"system": {
+		"description": "<p>The target creature makes a Strength saving throw. On a failure, it is restrained. At the end of each of its turns, the target makes another saving throw, ending the condition on a success.</p><p><strong>Surge.</strong> You can spend +3 psionic points to paralyze the target instead [requires power rating II].</p>",
+		"source": "voidrunnersCodex",
+		"level": 1,
+		"classes": [],
+		"components": {
+			"vocalized": false,
+			"seen": false,
+			"material": false
+		},
+		"schools": {
+			"primary": "",
+			"secondary": []
+		},
+		"disciplines": [
+			"telekinetic"
+		],
+		"concentration": true,
+		"ritual": false,
+		"actions": {
+			"5650be83dffce575": {
+				"name": "Binding",
+				"default": true,
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"value": "1",
+					"unit": "minute",
+					"concentration": true
+				},
+				"ranges": {
+					"38a6ac77d545ede2": {
+						"range": "medium",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1,
+					"otherText": "One creature",
+					"heard": false,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
+				},
+				"effects": [
+					"3721582f19ed68cc",
+					"GNN4gfMKSWRIjhSt"
+				],
+				"rolls": {},
+				"prompts": {
+					"c8acc270bc6c1965": {
+						"type": "savingThrow",
+						"ability": "str",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": "",
+						"default": true
+					}
+				},
+				"consumers": {
+					"b02baf16ded04d25": {
+						"type": "spell",
+						"mode": "pointsOnly",
+						"points": 1,
+						"spellLevel": 1,
+						"default": true,
+						"label": "",
+						"charges": 0
+					}
+				},
+				"id": "",
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"spellBook": "",
+		"slug": "",
+		"tags": []
+	},
+	"effects": [
+		{
+			"name": "Restrained",
+			"img": "icons/magic/control/debuff-chains-orb-movement-blue.webp",
+			"origin": "Item.WHIfF5Tzq2S3TWCY",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"restrained"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "GNN4gfMKSWRIjhSt",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "minutes",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<ul><li><p>A restrained creature's Speed becomes 0, and it can't benefit from bonuses to speed.</p></li><li><p>Attack rolls against a restrained creature are made with advantage.</p></li><li><p>A restrained creature makes attack rolls with disadvantage.</p></li><li><p>The restrained creature has disadvantage on Dexterity saving throws.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.370",
+				"systemId": "a5e",
+				"systemVersion": "1.5.0",
+				"createdTime": 1794877677854,
+				"modifiedTime": 1794877764956,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
+			}
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.370",
+		"systemId": "a5e",
+		"systemVersion": "1.5.0",
+		"createdTime": 1794877493523,
+		"modifiedTime": 1794877770010,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "93rxKTyTThwNc66Y"
+}

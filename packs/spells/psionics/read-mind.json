@@ -1,0 +1,238 @@
+{
+	"name": "Read Mind",
+	"type": "spell",
+	"img": "icons/commodities/biological/organ-brain-pink-purple.webp",
+	"folder": null,
+	"system": {
+		"description": "<p>You scan for thinking creatures in range and probe a creature’s mind to read its thoughts by focusing on it. The creature makes a Wisdom saving throw. On a successful save, you fail to read the creature’s thoughts, and the creature gains an expertise die on saves against this power for the next 24 hours; unlike normal, this expertise die has a maximum of 1d12. On a failed save, you learn the creature’s surface thoughts—what is most on its mind in that moment. As a reaction to learning its thoughts, you can make a Deception check to masquerade as its internal voice to ask it direct questions which it answers truthfully on a success. On a failure, the creature shakes your presence off as it would an intrusive thought and the power ends.</p><p>The power penetrates most barriers but is blocked by 2 feet of stone, 2 inches of common metal, or a thin sheet of lead.</p><p><strong>Surge.</strong> You can spend +1 psionic points to bypass stone; +2 psionic points to bypass metals; +2 psionic points to increase the range to 1 mile.</p>",
+		"source": "voidrunnersCodex",
+		"level": 2,
+		"classes": [],
+		"components": {
+			"vocalized": false,
+			"seen": false,
+			"material": false
+		},
+		"schools": {
+			"primary": "",
+			"secondary": []
+		},
+		"disciplines": [
+			"telepathic"
+		],
+		"concentration": true,
+		"ritual": false,
+		"actions": {
+			"5650be83dffce575": {
+				"name": "Read Mind",
+				"default": true,
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"value": "1",
+					"unit": "minute",
+					"concentration": true
+				},
+				"ranges": {
+					"38a6ac77d545ede2": {
+						"range": "medium",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"target": {
+					"type": "other",
+					"quantity": 1,
+					"otherText": "One creature with an Intelligence score of 4 or higher that can speak a language",
+					"heard": false,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
+				},
+				"effects": [
+					"42043fd3c4c029e2"
+				],
+				"rolls": {},
+				"prompts": {
+					"b89fff2c08f480c4": {
+						"type": "savingThrow",
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": "",
+						"default": true
+					}
+				},
+				"consumers": {
+					"b02baf16ded04d25": {
+						"type": "spell",
+						"mode": "pointsOnly",
+						"points": 2,
+						"spellLevel": 2,
+						"default": true,
+						"label": "",
+						"charges": 0
+					}
+				},
+				"id": "",
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			},
+			"8lN4tVfobdb0h6yd": {
+				"name": "Learned Thoughts",
+				"consumers": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"kbp0QcSWNjumVpOS": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "dec",
+						"ability": "cha",
+						"bonus": "",
+						"label": ""
+					}
+				},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"spellBook": "",
+		"slug": "",
+		"tags": []
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.370",
+		"systemId": "a5e",
+		"systemVersion": "1.5.0",
+		"createdTime": 1794877493635,
+		"modifiedTime": 1795138933194,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "rmrzNm54HFDzCsm3"
+}

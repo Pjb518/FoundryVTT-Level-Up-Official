@@ -1,0 +1,206 @@
+{
+	"name": "Mask Presence",
+	"type": "spell",
+	"img": "icons/magic/perception/mask-stone-eyes-orange.webp",
+	"folder": null,
+	"system": {
+		"description": "<p>You mask your presence from visible forms of detection, effectively rendering yourself invisible. This effect ends early if you exceed your Speed when moving, make an attack, or force another creature to make a saving throw. When your power rating is equal to or greater than III, the power’s effect does not end when you exceed your Speed or make an attack. When your power rating is equal to or greater than V, you can target up to 4 willing creatures at once.</p><p><strong>Surge.</strong> You can spend +1 psionic point to target one willing creature instead; +1 psionic point to mask from audible and olfactory senses as well [requires power rating II]; +1 psionic point to mask from psionic and other supernatural forms of detection, such as truesight [requires power rating IV].</p>",
+		"source": "voidrunnersCodex",
+		"level": 1,
+		"classes": [],
+		"components": {
+			"vocalized": false,
+			"seen": false,
+			"material": false
+		},
+		"schools": {
+			"primary": "",
+			"secondary": []
+		},
+		"disciplines": [
+			"telepathic"
+		],
+		"concentration": true,
+		"ritual": false,
+		"actions": {
+			"5650be83dffce575": {
+				"name": "Mask Presence",
+				"default": true,
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"value": "1",
+					"unit": "minute",
+					"concentration": true
+				},
+				"ranges": {
+					"38a6ac77d545ede2": {
+						"range": "short",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"target": {
+					"type": "self",
+					"quantity": 1,
+					"otherText": "Self",
+					"heard": false,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
+				},
+				"effects": [
+					"af36467e45a0f4f8",
+					"o3OH1ESKzWkxJoMN"
+				],
+				"rolls": {},
+				"prompts": {},
+				"consumers": {
+					"b02baf16ded04d25": {
+						"type": "spell",
+						"mode": "pointsOnly",
+						"points": 1,
+						"spellLevel": 1,
+						"default": true,
+						"label": "",
+						"charges": 0
+					}
+				},
+				"id": "",
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"spellBook": "",
+		"slug": "",
+		"tags": []
+	},
+	"effects": [
+		{
+			"name": "Invisible",
+			"img": "icons/magic/perception/mask-stone-eyes-orange.webp",
+			"origin": "Item.TKP6XBODXc7jK8N5",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"invisible"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "o3OH1ESKzWkxJoMN",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "minutes",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<ul><li><p>An invisible creature is impossible to see without the aid of magic or a special sense (it gains no benefits from this condition against creatures still able to see it).</p></li><li><p>An invisible creature is heavily obscured for the purpose of hiding.</p></li><li><p>An invisible creature's location can be detected by noises it makes or tracks it leaves.</p></li><li><p>Attack rolls against an invisible creature are made with disadvantage.</p></li><li><p>An invisible creature makes attack rolls with advantage.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.370",
+				"systemId": "a5e",
+				"systemVersion": "1.5.0",
+				"createdTime": 1794879051786,
+				"modifiedTime": 1794879097765,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
+			}
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.370",
+		"systemId": "a5e",
+		"systemVersion": "1.5.0",
+		"createdTime": 1794877493601,
+		"modifiedTime": 1795138933198,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "0Fj4Nss3tunkWzak"
+}

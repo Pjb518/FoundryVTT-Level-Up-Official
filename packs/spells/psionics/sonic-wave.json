@@ -1,0 +1,186 @@
+{
+	"name": "Sonic Wave",
+	"type": "spell",
+	"img": "icons/magic/air/air-wave-gust-blue.webp",
+	"folder": null,
+	"system": {
+		"description": "<p>You harness the latent energies of the cosmos and direct them with your mind. Targets in the area take 1d6 thunder damage and have disadvantage on the first attack roll they make before the end of its next turn. The damage from this power increases to 2d6 at power rating III and 3d6 at power rating V.</p>",
+		"source": "voidrunnersCodex",
+		"level": 1,
+		"classes": [],
+		"components": {
+			"vocalized": false,
+			"seen": false,
+			"material": false
+		},
+		"schools": {
+			"primary": "",
+			"secondary": []
+		},
+		"disciplines": [
+			"dynakinetic"
+		],
+		"concentration": false,
+		"ritual": false,
+		"actions": {
+			"29OSmMPJHIYUNreX": {
+				"name": "Sonic Wave",
+				"consumers": {
+					"tSQImPzAxm43p7GQ": {
+						"type": "spell",
+						"default": true,
+						"mode": "pointsOnly",
+						"charges": 1,
+						"spellLevel": 1,
+						"points": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "cone",
+					"length": 15,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {
+					"uIRRjPPb9zOuCCVU": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"vZ7ms30fuTxwqfsV": {
+						"range": "short",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"rolls": {
+					"jeEEZiHZukHr5i4O": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "thunder",
+						"die": {
+							"modifiers": [],
+							"number": 1,
+							"denom": 0
+						},
+						"formula": "(min(3, ceil(@resources.power-level / 2)))d6",
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							},
+							"mode": ""
+						},
+						"label": ""
+					}
+				},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"spellBook": "",
+		"slug": "",
+		"tags": []
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.370",
+		"systemId": "a5e",
+		"systemVersion": "1.5.0",
+		"createdTime": 1794877493650,
+		"modifiedTime": 1795138933197,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "uEyuFkDIK1q4ShOD"
+}

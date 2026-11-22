@@ -1,0 +1,164 @@
+{
+	"name": "Force Field",
+	"type": "spell",
+	"img": "icons/magic/defensive/barrier-shield-dome-blue-purple.webp",
+	"folder": null,
+	"system": {
+		"description": "<p>You create an invisible forcefield at a point you choose. The forcefield is 1/4 inch thick and can be free floating or resting or connected to a solid surface. You may form it into a hemispherical dome or sphere, either with a radius of up to 10 feet. Alternatively, you may create a horizontal, vertical, or diagonal surface made up of up to a contiguous group of ten 10-foot square sections. If the force field enters a creature’s space when it appears, the creature is pushed to one side of the wall (your choice), but when a creature would be surrounded on all sides by the force field (or the force field and another solid surface) it can use its reaction to make a Dexterity saving throw to move up to its Speed to escape. Any creature without a special sense like blindsight has disadvantage on this saving throw. Nothing can physically pass through the force field. It can be destroyed with a successful use of surged psionic disruption or by being dealt at least 10 force damage by a single attack or effect. It is otherwise immune to damage.</p><p><strong>Surge.</strong> You can spend +1 psionic point to increase the duration to Concentration (10 minutes) [requires power rating IV].5: Psionics</p>",
+		"source": "voidrunnersCodex",
+		"level": 2,
+		"classes": [],
+		"components": {
+			"vocalized": false,
+			"seen": false,
+			"material": false
+		},
+		"schools": {
+			"primary": "",
+			"secondary": []
+		},
+		"disciplines": [
+			"dynakinetic"
+		],
+		"concentration": true,
+		"ritual": false,
+		"actions": {
+			"5650be83dffce575": {
+				"name": "Force Field",
+				"default": true,
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"value": "1",
+					"unit": "minute",
+					"concentration": true
+				},
+				"ranges": {
+					"38a6ac77d545ede2": {
+						"range": "medium",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"target": {
+					"type": "",
+					"quantity": 1,
+					"otherText": "",
+					"heard": false,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
+				},
+				"effects": [
+					"b3407f59e87f5619"
+				],
+				"rolls": {},
+				"prompts": {
+					"kMdwHpEoF7H2JB1m": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "Move up to Speed",
+						"label": ""
+					}
+				},
+				"consumers": {
+					"b02baf16ded04d25": {
+						"type": "spell",
+						"mode": "pointsOnly",
+						"points": 2,
+						"spellLevel": 2,
+						"default": true,
+						"label": "Psionic points",
+						"charges": 0
+					}
+				},
+				"id": "",
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"shape": "none",
+					"behaviors": {},
+					"scaling": {},
+					"quantity": 1,
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false
+				},
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"spellBook": "",
+		"slug": "",
+		"tags": []
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.370",
+		"systemId": "a5e",
+		"systemVersion": "1.5.0",
+		"createdTime": 1794877493565,
+		"modifiedTime": 1795138933196,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "RqEFIbvtlm87zO3F"
+}

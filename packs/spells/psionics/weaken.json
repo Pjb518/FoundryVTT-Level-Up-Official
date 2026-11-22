@@ -1,0 +1,208 @@
+{
+	"name": "Weaken",
+	"type": "spell",
+	"img": "icons/magic/control/silhouette-hold-change-green.webp",
+	"folder": null,
+	"system": {
+		"description": "<p>Until the power’s effects end, the target doesn’t benefit from any positive Strength, Constitution, or Dexterity modifiers.</p><p><strong>Surge.</strong> You can spend +1 psionic point to target 2 additional creatures; +1 psionic point to increase the power’s range to Medium (60 feet) [requires power rating III]; +2 psionic points to also cause the target to make attack rolls and Strength, Dexterity, and Constitution saving throws with disadvantage [requires power rating IV].</p>",
+		"source": "voidrunnersCodex",
+		"level": 2,
+		"classes": [],
+		"components": {
+			"vocalized": false,
+			"seen": false,
+			"material": false
+		},
+		"schools": {
+			"primary": "",
+			"secondary": []
+		},
+		"disciplines": [
+			"kinesthetic"
+		],
+		"concentration": true,
+		"ritual": false,
+		"actions": {
+			"5650be83dffce575": {
+				"name": "Weaken",
+				"default": true,
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"value": "1",
+					"unit": "minute",
+					"concentration": true
+				},
+				"ranges": {
+					"38a6ac77d545ede2": {
+						"range": "short",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 3,
+					"otherText": "Up to 3 creatures",
+					"heard": false,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
+				},
+				"effects": [
+					"a2519df123bca22d",
+					"PAptz1Lvyvadwxml"
+				],
+				"rolls": {},
+				"prompts": {
+					"c4b3f4e359c65dad": {
+						"type": "savingThrow",
+						"ability": "cha",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": "",
+						"default": true
+					}
+				},
+				"consumers": {
+					"b02baf16ded04d25": {
+						"type": "spell",
+						"mode": "pointsOnly",
+						"points": 2,
+						"spellLevel": 2,
+						"default": true,
+						"label": "",
+						"charges": 0
+					}
+				},
+				"id": "",
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"spellBook": "",
+		"slug": "",
+		"tags": []
+	},
+	"effects": [
+		{
+			"name": "Weaken",
+			"img": "icons/magic/control/silhouette-hold-change-green.webp",
+			"origin": "Item.oFr27g6ZyPbtjF9v",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "PAptz1Lvyvadwxml",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "minutes",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Doesn’t benefit from any positive Strength, Constitution, or Dexterity modifiers.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.370",
+				"systemId": "a5e",
+				"systemVersion": "1.5.0",
+				"createdTime": 1795138850037,
+				"modifiedTime": 1795138915355,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
+			}
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.370",
+		"systemId": "a5e",
+		"systemVersion": "1.5.0",
+		"createdTime": 1794877493666,
+		"modifiedTime": 1795138933192,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "8KAcDDpG88iBO5uA"
+}
