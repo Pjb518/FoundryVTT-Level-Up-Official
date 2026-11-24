@@ -57,6 +57,7 @@ class ActorInventory extends foundry.utils.Collection<Item.OfType<'object'>> {
 		});
 	}
 
+	/** Remove currency for actor and containers */
 	async removeCurrency(currency: Partial<Record<CurrencyDenomination, number>>) {
 		const availableCoins = this.allCurrency;
 		const toRemove = new Currency(currency).copperValue;
@@ -65,14 +66,27 @@ class ActorInventory extends foundry.utils.Collection<Item.OfType<'object'>> {
 		return true;
 	}
 
+	/** Find a stackable item in the inventory */
 	findStackableItem(
 		item: Item.OfType<'object'>,
 		{ containerId = null }: { containerId?: string | null } = {},
 	) {
 		const testItem = item.clone();
-
 		if (!testItem.isType('object')) return null;
-		// TODO:
+
+		const candidates = this.filter(
+			(i) =>
+				(containerId ? i.system.containerId === containerId : !i.system.containerId) &&
+				i.isStackableWith(item),
+		);
+
+		if (candidates.length > 1) {
+			// Prefer stacking with unequipped items
+			const notEquipped = candidates.filter((item) => [0, 1].includes(item.system.equippedState));
+			return notEquipped.length > 0 ? notEquipped[0] : candidates[0];
+		}
+
+		return candidates.at(0) ?? 0;
 	}
 }
 

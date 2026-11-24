@@ -1,3 +1,4 @@
+import * as R from 'remeda';
 import { createSubscriber } from 'svelte/reactivity';
 import { ActionsManager } from '#managers/ActionsManager.ts';
 import { ContainerManager } from '#managers/ContainerManager.ts';
@@ -1439,6 +1440,60 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 	/** ---------------------------------- */
 	//  Helper Methods (Object)
 	/** ---------------------------------- */
+
+	/** Check if this item is stackable with the provided item. */
+	isStackableWith(this: Item.OfType<'object'>, item: Item.OfType<'object'>) {
+		if (this.type !== 'object') return false;
+
+		const preCheck =
+			this !== item &&
+			this.type === item.type &&
+			this.name === item.name &&
+			this.system.unidentified === item.system.unidentified;
+
+		if (!preCheck) return false;
+
+		// Skip items that don't have full uses
+		if (
+			item.system.uses.value <
+			getDeterministicBonus(item.system.uses.max, this.actor?.getRollData() ?? {})
+		) {
+			return false;
+		}
+
+		// TODO: Remove this
+		// Skip Items with different equipped states
+		if (!this.system.containerId) {
+			if (this.system.equippedState !== item.system.equippedState) return false;
+		}
+
+		const thisData = this.toObject().system;
+		const otherData = this.toObject().system;
+
+		thisData.quantity = otherData.quantity;
+		thisData.equippedState = otherData.equippedState;
+		thisData.containerId = otherData.containerId;
+		thisData.migrationData = otherData.migrationData;
+		thisData.source = otherData.source;
+		thisData.siege = otherData.siege;
+		thisData.proficient = otherData.proficient;
+		thisData.favorite = otherData.favorite;
+
+		return R.isDeepEqual(thisData, otherData);
+	}
+
+	/** Combine item with another item */
+	async stackWith(this: Item.OfType<'object'>, targetItem: Item.OfType<'object'>) {
+		if (!this.isStackableWith(targetItem)) return;
+
+		const stackQuantity = this.system.quantity + targetItem.system.quantity;
+
+		if (await this.delete({ render: false })) {
+			await targetItem.update({
+				system: { quantity: stackQuantity },
+			});
+		}
+	}
 
 	/** ================================================================= */
 	//  Toggles
