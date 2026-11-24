@@ -202,13 +202,21 @@ class RestManager {
 			if (r.type === 'item') return;
 			if (!r.type) return;
 
-			const { data, restored } = r.resetResource(false);
+			let { data, restored } = r.resetResource(false);
+
+			// Update resource with value if it doesn't exist
+			if (!this.#actor._source.system?.resources?.[slug]?.type) {
+				const updates = { [`system.resources.${slug}`]: foundry.utils.deepClone(r) };
+				data = foundry.utils.mergeObject(updates, data);
+			}
 
 			if (restored) {
 				if (r.type === 'counter') this.#summary.push(`Reset ${r.name} counter to 0.`);
 				if (r.type === 'dice') this.#summary.push(`Recovered ${restored} uses of ${r.name}.`);
 				if (r.type === 'uses') this.#summary.push(`Recovered ${restored} uses of ${r.name}.`);
 			}
+
+			console.log(data);
 
 			Object.assign(this.#updates.actor, data);
 		});
