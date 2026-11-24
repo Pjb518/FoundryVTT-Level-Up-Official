@@ -92,6 +92,13 @@
         />
       {/if}
 
+      <Checkbox
+        label="A5E.objects.stackable"
+        checked={itemStore.stackable}
+        onUpdateSelection={(value) =>
+          updateDocumentDataFromField(item, "system.stackable", value)}
+      />
+
       {#if itemStore.objectType === "consumable"}
         <Checkbox
           label="A5E.supply.title"

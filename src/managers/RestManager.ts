@@ -216,8 +216,6 @@ class RestManager {
 				if (r.type === 'uses') this.#summary.push(`Recovered ${restored} uses of ${r.name}.`);
 			}
 
-			console.log(data);
-
 			Object.assign(this.#updates.actor, data);
 		});
 	}

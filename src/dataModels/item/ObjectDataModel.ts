@@ -143,9 +143,22 @@ const schema = () => ({
 	}),
 	siege: new fields.SchemaField({
 		size: new fields.StringField({ required: true, nullable: false, initial: 'lg' }),
-		ac: new fields.NumberField({ required: true, nullable: false, initial: 0, integer: true, min: 0 }),
-		hp: new fields.NumberField({ required: true, nullable: false, initial: 0, integer: true, min: 0 }),
+		ac: new fields.NumberField({
+			required: true,
+			nullable: false,
+			initial: 0,
+			integer: true,
+			min: 0,
+		}),
+		hp: new fields.NumberField({
+			required: true,
+			nullable: false,
+			initial: 0,
+			integer: true,
+			min: 0,
+		}),
 	}),
+	stackable: new fields.BooleanField({ required: true, nullable: false, initial: true }),
 	supply: new fields.BooleanField({ required: true, nullable: false, initial: false }),
 	techLevel: new fields.StringField({ required: true, initial: 'archaic' }),
 	unidentified: new fields.BooleanField({ required: true, initial: false }),
@@ -185,6 +198,7 @@ class A5EObjectData extends A5EBaseItemData<
 > {
 	/** @inheritDoc */
 	static override defineSchema(): A5EObjectData.Schema {
+		// @ts-expect-error
 		return {
 			...super.defineSchema(),
 			...actions(),
