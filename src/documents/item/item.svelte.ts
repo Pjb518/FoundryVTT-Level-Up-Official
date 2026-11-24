@@ -1788,6 +1788,18 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 		this: Item.OfType<'object'>,
 		...[data, options, user]: Parameters<Item['_preUpdate']>
 	) {
+		// Quantity for stackable
+		if (
+			foundry.utils.getProperty(data, 'system.quantity') &&
+			!this.system.stackable &&
+			// @ts-expect-error
+			data.system.quantity > 1
+		) {
+			ui.notifications.warn('A5E | Quantity cannot exceed 1 for non-stackable objects');
+			// @ts-expect-error
+			data.system.quantity = 1;
+		}
+
 		// Containers
 		if (
 			foundry.utils.getProperty(data, 'system.objectType') &&
