@@ -1,0 +1,184 @@
+{
+	"name": "Pyrotechnic Conduit",
+	"type": "spell",
+	"img": "icons/magic/fire/barrier-shield-explosion-yellow.webp",
+	"folder": null,
+	"system": {
+		"description": "<p>A burst of flame explodes in a 10-foot radius around a spot you choose within range. The fire spreads around corners and ignites unattended flammable objects. Each creature in the area takes 6d6 fire damage. On a successful Dexterity saving throw, a creature takes half damage. The damage increases by 1d6 each time your power rating increases beyond III.</p>",
+		"source": "voidrunnersCodex",
+		"level": 3,
+		"classes": [],
+		"components": {
+			"vocalized": false,
+			"seen": false,
+			"material": false
+		},
+		"schools": {
+			"primary": "",
+			"secondary": []
+		},
+		"disciplines": [
+			"dynakinetic"
+		],
+		"concentration": false,
+		"ritual": false,
+		"actions": {
+			"a495489745c4d32f": {
+				"name": "Pyrotechnic Conduit",
+				"default": true,
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"value": "0",
+					"unit": "instantaneous",
+					"concentration": false
+				},
+				"ranges": {
+					"38a6ac77d545ede2": {
+						"range": "medium",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"target": {
+					"type": "",
+					"quantity": 1,
+					"otherText": "",
+					"heard": false,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
+				},
+				"effects": [],
+				"rolls": {
+					"67e9c3efd5e683be": {
+						"type": "damage",
+						"default": true,
+						"label": "",
+						"formula": "(max(6, @resources.power-level + 3))d6",
+						"damageType": "fire",
+						"canCrit": false,
+						"critBonus": "",
+						"die": {
+							"modifiers": []
+						},
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							},
+							"mode": ""
+						}
+					}
+				},
+				"prompts": {
+					"dc02e37055a12873": {
+						"type": "savingThrow",
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "Half damage",
+						"label": "",
+						"default": true
+					}
+				},
+				"consumers": {
+					"b02baf16ded04d25": {
+						"type": "spell",
+						"mode": "pointsOnly",
+						"points": 3,
+						"spellLevel": 3,
+						"default": true,
+						"label": "",
+						"charges": 0
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"radius": 10,
+					"quantity": 1,
+					"length": 0,
+					"height": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"id": "",
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"spellBook": "",
+		"slug": "",
+		"tags": []
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.370",
+		"systemId": "a5e",
+		"systemVersion": "1.5.0",
+		"createdTime": 1794877493633,
+		"modifiedTime": 1795797245180,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "g3vSLSSgKmDf7F1s"
+}

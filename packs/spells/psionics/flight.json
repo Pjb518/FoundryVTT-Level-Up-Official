@@ -1,0 +1,337 @@
+{
+	"name": "Flight",
+	"type": "spell",
+	"img": "icons/magic/air/wind-swirl-pink-purple.webp",
+	"folder": null,
+	"system": {
+		"description": "<p>You gain a flying speed of 30 feet. On subsequent turns, you can use a bonus action to increase your flying speed by 30 feet up to a maximum of 90 feet. You can maintain flight for a number of turns equal to your Constitution modifier (minimum 1). Flight ends early if you become unconscious. When the power’s effect ends, you fall if you are off the ground. You can target one additional creature for each power rating you have gained above III.</p><p><strong>Surge.</strong> You can spend +1 psionic point per target to float down gently for up to 30 feet when the duration ends; +1 psionic point to maintain flight for an additional number of turns equal to your proficiency bonus.</p>",
+		"source": "voidrunnersCodex",
+		"level": 3,
+		"classes": [],
+		"components": {
+			"vocalized": false,
+			"seen": false,
+			"material": false
+		},
+		"schools": {
+			"primary": "",
+			"secondary": []
+		},
+		"disciplines": [
+			"telekinetic"
+		],
+		"concentration": false,
+		"ritual": false,
+		"actions": {
+			"5650be83dffce575": {
+				"name": "Flight",
+				"default": true,
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"value": "0",
+					"unit": "special",
+					"concentration": false
+				},
+				"ranges": {
+					"38a6ac77d545ede2": {
+						"range": "self",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"target": {
+					"type": "",
+					"quantity": 1,
+					"otherText": "Self",
+					"heard": false,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
+				},
+				"effects": [
+					"95f4e144333538ea",
+					"DryoK12Qb9hY42O4"
+				],
+				"rolls": {},
+				"prompts": {},
+				"consumers": {
+					"b02baf16ded04d25": {
+						"type": "spell",
+						"mode": "pointsOnly",
+						"points": 3,
+						"spellLevel": 3,
+						"default": true,
+						"label": "",
+						"charges": 0
+					}
+				},
+				"id": "",
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			},
+			"cQXgYWBQsex2Uuc2": {
+				"name": "Flight (Reaction)",
+				"default": true,
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "Falling from a height greater than or equal to 10 feet"
+				},
+				"duration": {
+					"value": "0",
+					"unit": "special",
+					"concentration": false
+				},
+				"ranges": {
+					"38a6ac77d545ede2": {
+						"range": "self",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"target": {
+					"type": "",
+					"quantity": 1,
+					"otherText": "Self",
+					"heard": false,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
+				},
+				"effects": [
+					"8YXlci4zV9Wf2h9U"
+				],
+				"rolls": {},
+				"prompts": {},
+				"consumers": {
+					"b02baf16ded04d25": {
+						"type": "spell",
+						"mode": "pointsOnly",
+						"points": 3,
+						"spellLevel": 3,
+						"default": true,
+						"label": "",
+						"charges": 0
+					}
+				},
+				"id": "",
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"spellBook": "",
+		"slug": "",
+		"tags": []
+	},
+	"effects": [
+		{
+			"name": "Flight",
+			"img": "icons/magic/air/wind-swirl-pink-purple.webp",
+			"origin": "Item.etZ0CuXnOEQUOHF9",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"changes": [
+					{
+						"key": "system.attributes.movement.fly.distance",
+						"type": "add",
+						"value": 30,
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "DryoK12Qb9hY42O4",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Gain a flying speed of 30 feet. On subsequent turns, you can use a bonus action to increase your flying speed by 30 feet up to a maximum of 90 feet. You can maintain flight for a number of turns equal to your Constitution modifier (minimum 1).</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.370",
+				"systemId": "a5e",
+				"systemVersion": "1.5.0",
+				"createdTime": 1795706421538,
+				"modifiedTime": 1795706459365,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
+			}
+		},
+		{
+			"name": "Flight",
+			"img": "icons/magic/air/wind-swirl-pink-purple.webp",
+			"origin": "Item.etZ0CuXnOEQUOHF9",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"changes": [
+					{
+						"key": "system.attributes.movement.fly.distance",
+						"type": "add",
+						"value": 30,
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "8YXlci4zV9Wf2h9U",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Gain a flying speed of 30 feet. On subsequent turns, you can use a bonus action to increase your flying speed by 30 feet up to a maximum of 90 feet. You can maintain flight for a number of turns equal to your Constitution modifier (minimum 1).</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.370",
+				"systemId": "a5e",
+				"systemVersion": "1.5.0",
+				"createdTime": 1795706529383,
+				"modifiedTime": 1795706529383,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
+			}
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.370",
+		"systemId": "a5e",
+		"systemVersion": "1.5.0",
+		"createdTime": 1794877493559,
+		"modifiedTime": 1795706588299,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "SNepGQ4FKYqM5RWF"
+}

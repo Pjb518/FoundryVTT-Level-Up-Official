@@ -1,0 +1,240 @@
+{
+	"name": "Sonic Conduit",
+	"type": "spell",
+	"img": "icons/magic/air/air-burst-spiral-blue-gray.webp",
+	"folder": null,
+	"system": {
+		"description": "<p>A ground-quaking vibration emanates in a 10-foot radius around a point you choose within range. Creatures in the area take 4d6 thunder damage and are deafened until the beginning of your next turn. A creature made of stone, metal, or other inorganic material has disadvantage on its saving throw. Any mundane items within the area that are not worn or carried also take damage. On a successful Constitution saving throw, a creature takes half damage and is not deafened. The damage increases by 1d6 each time your power rating increases beyond III.</p>",
+		"source": "voidrunnersCodex",
+		"level": 3,
+		"classes": [],
+		"components": {
+			"vocalized": false,
+			"seen": false,
+			"material": false
+		},
+		"schools": {
+			"primary": "",
+			"secondary": []
+		},
+		"disciplines": [
+			"dynakinetic"
+		],
+		"concentration": false,
+		"ritual": false,
+		"actions": {
+			"a495489745c4d32f": {
+				"name": "Sonic Conduit",
+				"default": true,
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"value": "0",
+					"unit": "instantaneous",
+					"concentration": false
+				},
+				"ranges": {
+					"38a6ac77d545ede2": {
+						"range": "medium",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"target": {
+					"type": "",
+					"quantity": 1,
+					"otherText": "",
+					"heard": false,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
+				},
+				"effects": [
+					"17089430f409a764",
+					"0Nb8AdPd38iGy4Dm"
+				],
+				"rolls": {
+					"70f73a6a35181b07": {
+						"type": "damage",
+						"default": true,
+						"label": "",
+						"formula": "(max(4, @resources.power-level + 1))d6",
+						"damageType": "thunder",
+						"canCrit": false,
+						"critBonus": "",
+						"die": {
+							"modifiers": []
+						},
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							},
+							"mode": ""
+						}
+					}
+				},
+				"prompts": {
+					"54ebea323141ed26": {
+						"type": "savingThrow",
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "Half damage, not deafened",
+						"label": "",
+						"default": true
+					}
+				},
+				"consumers": {
+					"b02baf16ded04d25": {
+						"type": "spell",
+						"mode": "pointsOnly",
+						"points": 3,
+						"spellLevel": 3,
+						"default": true,
+						"label": "",
+						"charges": 0
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"radius": 10,
+					"quantity": 1,
+					"length": 0,
+					"height": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"id": "",
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"spellBook": "",
+		"slug": "",
+		"tags": []
+	},
+	"effects": [
+		{
+			"name": "Deafened",
+			"img": "icons/magic/air/air-burst-spiral-blue-gray.webp",
+			"origin": "Item.kPBn9z5GevQGzQpR",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"deafened"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "0Nb8AdPd38iGy4Dm",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "rounds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<ul><li><p>A deafened creature can't hear and automatically fails ability checks that require hearing.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.370",
+				"systemId": "a5e",
+				"systemVersion": "1.5.0",
+				"createdTime": 1795797422216,
+				"modifiedTime": 1795797447424,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
+			}
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.370",
+		"systemId": "a5e",
+		"systemVersion": "1.5.0",
+		"createdTime": 1794877493646,
+		"modifiedTime": 1795797537302,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "WrUrG0RjLC3gHOLY"
+}

@@ -1,0 +1,208 @@
+{
+	"name": "Mental Domination",
+	"type": "spell",
+	"img": "icons/skills/wounds/injury-face-impact-orange.webp",
+	"folder": null,
+	"system": {
+		"description": "<p>You overpower your target’s mind, forcing it to do your bidding. The target makes a Wisdom saving throw. On a success, the power has no effect. If the target fails the saving throw, for the duration of the power you may issue instructions (no action required) which it will do its best to obey. The target must be able to hear and understand the instructions. The target is aware that it is being controlled. If an instruction would cause it harm, it makes a new Wisdom saving throw against the power. If it succeeds on this saving throw, the power ends. If the target does not receive any instructions, or if it completes a task with no further instructions, it is able to act freely until it receives another instruction.</p><p><strong>Surge.</strong> You can spend +1 psionic point to increase the duration to Concentration (1 hour) [requires power rating IV]; +2 psionic points to make the target unaware that it is being controlled, although it will realize the truth once the power ends [requires power rating IV].</p>",
+		"source": "voidrunnersCodex",
+		"level": 3,
+		"classes": [],
+		"components": {
+			"vocalized": false,
+			"seen": false,
+			"material": false
+		},
+		"schools": {
+			"primary": "",
+			"secondary": []
+		},
+		"disciplines": [
+			"telepathic"
+		],
+		"concentration": true,
+		"ritual": false,
+		"actions": {
+			"5650be83dffce575": {
+				"name": "Mental Domination",
+				"default": true,
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"value": "1",
+					"unit": "minute",
+					"concentration": true
+				},
+				"ranges": {
+					"38a6ac77d545ede2": {
+						"range": "short",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1,
+					"otherText": "One creature",
+					"heard": false,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
+				},
+				"effects": [
+					"37ddf433493a575b",
+					"dxhgKZOehlmetTlf"
+				],
+				"rolls": {},
+				"prompts": {
+					"b89fff2c08f480c4": {
+						"type": "savingThrow",
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": "",
+						"default": true
+					}
+				},
+				"consumers": {
+					"b02baf16ded04d25": {
+						"type": "spell",
+						"mode": "pointsOnly",
+						"points": 3,
+						"spellLevel": 3,
+						"default": true,
+						"label": "",
+						"charges": 0
+					}
+				},
+				"id": "",
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"spellBook": "",
+		"slug": "",
+		"tags": []
+	},
+	"effects": [
+		{
+			"name": "Mental Domination",
+			"img": "icons/skills/wounds/injury-face-impact-orange.webp",
+			"origin": "Item.nMa7taeEaObusCXh",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "dxhgKZOehlmetTlf",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "minutes",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.370",
+				"systemId": "a5e",
+				"systemVersion": "1.5.0",
+				"createdTime": 1795796491500,
+				"modifiedTime": 1795796508781,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
+			}
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.370",
+		"systemId": "a5e",
+		"systemVersion": "1.5.0",
+		"createdTime": 1794877493608,
+		"modifiedTime": 1795796529076,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "AnUaxq5RVHmoaf3n"
+}

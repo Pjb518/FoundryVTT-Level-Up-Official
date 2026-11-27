@@ -1,0 +1,242 @@
+{
+	"name": "Cryogenic Conduit",
+	"type": "spell",
+	"img": "icons/magic/water/barrier-ice-crystal-wall-faceted-blue.webp",
+	"folder": null,
+	"system": {
+		"description": "<p>Sheets of freezing cold blast outward from your hands in a 60-foot cone. Each creature in the area takes 4d6 cold damage and is slowed. On a successful Dexterity saving throw, a creature takes half damage and isn’t slowed. The damage increases by 1d6 each time your power rating increases beyond III.</p>",
+		"source": "voidrunnersCodex",
+		"level": 3,
+		"classes": [],
+		"components": {
+			"vocalized": false,
+			"seen": false,
+			"material": false
+		},
+		"schools": {
+			"primary": "",
+			"secondary": []
+		},
+		"disciplines": [
+			"dynakinetic"
+		],
+		"concentration": false,
+		"ritual": false,
+		"actions": {
+			"a495489745c4d32f": {
+				"name": "Cryogenic Conduit",
+				"default": true,
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"value": "0",
+					"unit": "instantaneous",
+					"concentration": false
+				},
+				"ranges": {
+					"38a6ac77d545ede2": {
+						"range": "self",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"target": {
+					"type": "",
+					"quantity": 1,
+					"otherText": "",
+					"heard": false,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
+				},
+				"effects": [
+					"4c63d6de6ae68a69",
+					"62WTglcLs7ZRJtXJ"
+				],
+				"rolls": {
+					"a24db5fc8388416b": {
+						"type": "damage",
+						"default": true,
+						"label": "",
+						"formula": "(max(4, @resources.power-level + 1))d6",
+						"damageType": "cold",
+						"canCrit": false,
+						"critBonus": "",
+						"die": {
+							"modifiers": [],
+							"number": 4,
+							"denom": 0
+						},
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							},
+							"mode": ""
+						}
+					}
+				},
+				"prompts": {
+					"dc02e37055a12873": {
+						"type": "savingThrow",
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "Half damage, not slowed",
+						"label": "",
+						"default": true
+					}
+				},
+				"consumers": {
+					"b02baf16ded04d25": {
+						"type": "spell",
+						"mode": "pointsOnly",
+						"points": 3,
+						"spellLevel": 3,
+						"default": true,
+						"label": "",
+						"charges": 0
+					}
+				},
+				"area": {
+					"shape": "cone",
+					"length": 60,
+					"quantity": 1,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"id": "",
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"spellBook": "",
+		"slug": "",
+		"tags": []
+	},
+	"effects": [
+		{
+			"name": "Slowed",
+			"img": "icons/magic/water/barrier-ice-crystal-wall-faceted-blue.webp",
+			"origin": "Item.rSDCj9yJ3sHFSKIP",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"slowed"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "62WTglcLs7ZRJtXJ",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<ul><li><p>A slowed creature's Speed is halved.</p></li><li><p>A slowed creature takes a −2 penalty to AC and Dexterity saving throws.</p></li><li><p>A slowed creature cannot take reactions.</p></li><li><p>On its turn, a slowed creature can take either an action or a bonus action, not both. In addition, it can't make more than one melee or ranged attack during its turn.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.370",
+				"systemId": "a5e",
+				"systemVersion": "1.5.0",
+				"createdTime": 1795705634161,
+				"modifiedTime": 1795705885462,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
+			}
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.370",
+		"systemId": "a5e",
+		"systemVersion": "1.5.0",
+		"createdTime": 1794877493544,
+		"modifiedTime": 1795707766705,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "EjF7Bgxpmlrk5Q0n"
+}

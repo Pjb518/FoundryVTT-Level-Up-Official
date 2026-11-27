@@ -1,0 +1,910 @@
+{
+	"name": "Horrifying Hallucination",
+	"type": "spell",
+	"img": "icons/magic/control/fear-fright-monster-purple-blue.webp",
+	"folder": null,
+	"system": {
+		"description": "<p>You tap into the mind of the target to create a fearsome illusion so complete it can cause psychic harm. Only the target can see this illusion. When you manifest this power and at the end of each of its turns, the target makes a Wisdom saving throw. On a failed save the target takes 2d10 psychic damage as you manifest one of the following (the effect persists for the duration unless you use a reaction to choose another):</p><ul><li><p><strong>Asphyxiating Agony:</strong> The creature is slowed, behaving as if it is suffocating (falling unconscious when it would die).</p></li><li><p><strong>Big Bad Boogieman:</strong> The creature is frightened by you and your allies as it is hunted by a beast of legend and nightmare.</p></li><li><p><strong>Creepy Crawlies:</strong> The creature is confused, covered in and surrounded by bugs, rodents, or reptiles.</p></li><li><p><strong>Exploited Weakness:</strong> The creature takes the psychic damage as if vulnerable, falling unconscious when bloodied.</p></li><li><p><strong>Immobilizing Phobia:</strong> The creature is paralyzed with fear (such as a fear of extreme heights, being buried alive, and so on).</p></li></ul><p>The power’s effect ends when the target succeeds on its saving throw. A target that succeeds on its initial saving throw takes half damage and is rattled until the end of its next turn. The damage increases by 1d10 for each time your power rating increases above IV.</p><p><strong>Surge.</strong> You can spend +1 psionic point to target one additional creature for up to a total of 4 creatures (each sees its own hallucination); +2 psionic points to cause a single target to suffer a level of strife each time it fails its saving throw against this power, up to a number of rounds equal to your psionic ability modifier.</p>",
+		"source": "voidrunnersCodex",
+		"level": 3,
+		"classes": [],
+		"components": {
+			"vocalized": false,
+			"seen": false,
+			"material": false
+		},
+		"schools": {
+			"primary": "",
+			"secondary": []
+		},
+		"disciplines": [
+			"telepathic"
+		],
+		"concentration": true,
+		"ritual": false,
+		"actions": {
+			"cxIhTP2sKbJDJn4m": {
+				"name": "Horrifying Hallucination",
+				"consumers": {
+					"xzfoTktgaLkj0Ej3": {
+						"type": "spell",
+						"default": true,
+						"mode": "pointsOnly",
+						"charges": 3,
+						"spellLevel": 3,
+						"points": 3,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1",
+					"concentration": true
+				},
+				"effects": [
+					"M2icRNoyOl6ae9ig",
+					"LQX81VROlWTZ8fp1",
+					"qaQI608nRywiQSp2",
+					"2EJNZdenyVh6J188",
+					"isOOIlqpMT9EFOw0",
+					"GcaNeMtMpsZJ1xhY"
+				],
+				"macro": "",
+				"prompts": {
+					"hDDbPSekzVjxV8ai": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "Half damage, rattled",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"TNb1lzTJIKr03yp6": {
+						"range": "long",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"rolls": {
+					"LaFw57OwJRzW77C1": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "psychic",
+						"die": {
+							"modifiers": [],
+							"number": 2,
+							"denom": 0
+						},
+						"formula": "(max(2, @resources.power-level - 2))d10",
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							},
+							"mode": ""
+						},
+						"label": ""
+					}
+				},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": "creature"
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			},
+			"ASVxU5PuKXwtdqEN": {
+				"name": "Ongoing Damage",
+				"consumers": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"5bYzozvlOxA8Oih9": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "psychic",
+						"die": {
+							"modifiers": []
+						},
+						"formula": "(max(2, @resources.power-level - 2))d10",
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							},
+							"mode": ""
+						},
+						"label": ""
+					}
+				},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			},
+			"dZzz8d6G7B8fNhy4": {
+				"name": "Change Effect",
+				"consumers": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"duration": {
+					"unit": "",
+					"value": "1",
+					"concentration": false
+				},
+				"effects": [
+					"ncoZikQupXRGspl7",
+					"YAonX7Y0skJ4M9bp",
+					"L6clTnShSDKzYgbA",
+					"VtNYvtJO5ApY5PuB",
+					"JPSZUbC8lsawsvXv"
+				],
+				"macro": "",
+				"prompts": {},
+				"ranges": {
+					"TNb1lzTJIKr03yp6": {
+						"range": "long",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": "creature"
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"spellBook": "",
+		"slug": "",
+		"tags": []
+	},
+	"effects": [
+		{
+			"name": "Asphyxiating Agony",
+			"img": "icons/magic/control/fear-fright-monster-purple-blue.webp",
+			"origin": "Item.UIpmVxFc4O1AKn32",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"slowed"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "M2icRNoyOl6ae9ig",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "minutes",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Slowed, behaving as if it is suffocating (falling unconscious when it would die).</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.370",
+				"systemId": "a5e",
+				"systemVersion": "1.5.0",
+				"createdTime": 1795707282026,
+				"modifiedTime": 1795707319300,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
+			}
+		},
+		{
+			"name": "Big Bad Boogieman",
+			"img": "icons/magic/control/fear-fright-monster-purple-blue.webp",
+			"origin": "Item.UIpmVxFc4O1AKn32",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"frightened"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "LQX81VROlWTZ8fp1",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "minutes",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Frightened by you and your allies as it is hunted by a beast of legend and nightmare.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.370",
+				"systemId": "a5e",
+				"systemVersion": "1.5.0",
+				"createdTime": 1795707359607,
+				"modifiedTime": 1795707407221,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
+			}
+		},
+		{
+			"name": "Creepy Crawlies",
+			"img": "icons/magic/control/fear-fright-monster-purple-blue.webp",
+			"origin": "Item.UIpmVxFc4O1AKn32",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"confused"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "qaQI608nRywiQSp2",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "minutes",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Confused, covered in and surrounded by bugs, rodents, or reptiles.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.370",
+				"systemId": "a5e",
+				"systemVersion": "1.5.0",
+				"createdTime": 1795707414124,
+				"modifiedTime": 1795707432548,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
+			}
+		},
+		{
+			"name": "Exploited Weakness",
+			"img": "icons/magic/control/fear-fright-monster-purple-blue.webp",
+			"origin": "Item.UIpmVxFc4O1AKn32",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [],
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "2EJNZdenyVh6J188",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "minutes",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Takes the psychic damage as if vulnerable, falling unconscious when bloodied.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.370",
+				"systemId": "a5e",
+				"systemVersion": "1.5.0",
+				"createdTime": 1795707449109,
+				"modifiedTime": 1795707474310,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
+			}
+		},
+		{
+			"name": "Immobilizing Phobia",
+			"img": "icons/magic/control/fear-fright-monster-purple-blue.webp",
+			"origin": "Item.UIpmVxFc4O1AKn32",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"frightened"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "isOOIlqpMT9EFOw0",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "minutes",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Paralyzed with fear (such as a fear of extreme heights, being buried alive, and so on).</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.370",
+				"systemId": "a5e",
+				"systemVersion": "1.5.0",
+				"createdTime": 1795707484202,
+				"modifiedTime": 1795707524439,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
+			}
+		},
+		{
+			"name": "Rattled",
+			"img": "icons/magic/control/fear-fright-monster-purple-blue.webp",
+			"origin": "Item.UIpmVxFc4O1AKn32",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"rattled"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "GcaNeMtMpsZJ1xhY",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "rounds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<ul><li><p>A rattled creature cannot benefit from expertise dice.</p></li><li><p>A creature that is immune to being stunned is immune to being rattled.</p></li><li><p>A rattled creature cannot take reactions.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.370",
+				"systemId": "a5e",
+				"systemVersion": "1.5.0",
+				"createdTime": 1795707629967,
+				"modifiedTime": 1795707662624,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
+			}
+		},
+		{
+			"name": "Asphyxiating Agony",
+			"img": "icons/magic/control/fear-fright-monster-purple-blue.webp",
+			"origin": "Item.UIpmVxFc4O1AKn32",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"slowed"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "ncoZikQupXRGspl7",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "minutes",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Slowed, behaving as if it is suffocating (falling unconscious when it would die).</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.370",
+				"systemId": "a5e",
+				"systemVersion": "1.5.0",
+				"createdTime": 1795707938921,
+				"modifiedTime": 1795707938921,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
+			}
+		},
+		{
+			"name": "Big Bad Boogieman",
+			"img": "icons/magic/control/fear-fright-monster-purple-blue.webp",
+			"origin": "Item.UIpmVxFc4O1AKn32",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"frightened"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "YAonX7Y0skJ4M9bp",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "minutes",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Frightened by you and your allies as it is hunted by a beast of legend and nightmare.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.370",
+				"systemId": "a5e",
+				"systemVersion": "1.5.0",
+				"createdTime": 1795707938922,
+				"modifiedTime": 1795707938922,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
+			}
+		},
+		{
+			"name": "Creepy Crawlies",
+			"img": "icons/magic/control/fear-fright-monster-purple-blue.webp",
+			"origin": "Item.UIpmVxFc4O1AKn32",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"confused"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "L6clTnShSDKzYgbA",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "minutes",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Confused, covered in and surrounded by bugs, rodents, or reptiles.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.370",
+				"systemId": "a5e",
+				"systemVersion": "1.5.0",
+				"createdTime": 1795707938923,
+				"modifiedTime": 1795707938923,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
+			}
+		},
+		{
+			"name": "Exploited Weakness",
+			"img": "icons/magic/control/fear-fright-monster-purple-blue.webp",
+			"origin": "Item.UIpmVxFc4O1AKn32",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [],
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "VtNYvtJO5ApY5PuB",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "minutes",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Takes the psychic damage as if vulnerable, falling unconscious when bloodied.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.370",
+				"systemId": "a5e",
+				"systemVersion": "1.5.0",
+				"createdTime": 1795707938923,
+				"modifiedTime": 1795707938923,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
+			}
+		},
+		{
+			"name": "Immobilizing Phobia",
+			"img": "icons/magic/control/fear-fright-monster-purple-blue.webp",
+			"origin": "Item.UIpmVxFc4O1AKn32",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"frightened"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "JPSZUbC8lsawsvXv",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "minutes",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Paralyzed with fear (such as a fear of extreme heights, being buried alive, and so on).</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.370",
+				"systemId": "a5e",
+				"systemVersion": "1.5.0",
+				"createdTime": 1795707938924,
+				"modifiedTime": 1795707938924,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
+			}
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.370",
+		"systemId": "a5e",
+		"systemVersion": "1.5.0",
+		"createdTime": 1794877493586,
+		"modifiedTime": 1795707981155,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "kzuSJQl1qezYNisH"
+}
